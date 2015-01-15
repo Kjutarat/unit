@@ -6,14 +6,21 @@
 
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap-theme.min.css">
-	<link rel="stylesheet" type="text/css" href="./css/blog.css">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10">
-				ทดสอบ
+			    <div class="jumbotron text-center">
+        			<h1>ใบงานการทดลองที่ 1</h1>
+        			<p class="lead">เรื่อง คำสั่งพื้นฐานการใช้งาน MySQL.</p>
+        			<div class="progress">
+  						<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+    						100%
+  						</div>
+					</div>
+    			</div>
 			</div>
 			<div class="col-md-2">
 				<nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
@@ -98,10 +105,49 @@
              		 Back to top
             		</a>    
           		</nav>				
-			</div>
-		</div>
+			</div>		<!-- end col -->
+		</div>		<!--end row head-->
 
-	</div>
+		<div class="row">	<!-- content -->
+			<div class="bs-callout bs-callout-danger col-md-10">
+				<h4>วัตถุประสงค์ในการทดลอง</h3>
+				<p>sdfasdasdas</p>
+			</div>
+			<div class="bs-callout bs-callout-danger col-md-10">
+				<h4>วัตถุประสงค์ในการทดลอง</h3>
+				<p>sdfasdasdas</p>
+			</div>
+			<div class="bs-callout bs-callout-danger col-md-10">
+				<h4>วัตถุประสงค์ในการทดลอง</h3>
+				<p>sdfasdasdas</p>
+			</div>
+			<div class="bs-callout bs-callout-danger col-md-10">
+				<h4>วัตถุประสงค์ในการทดลอง</h3>
+				<p>sdfasdasdas</p>
+			</div>
+			<div class="bs-callout bs-callout-danger col-md-10">
+				<h4>วัตถุประสงค์ในการทดลอง</h3>
+				<p>sdfasdasdas</p>
+			</div>
+			<div class="bs-callout bs-callout-danger col-md-10">
+				<h4>วัตถุประสงค์ในการทดลอง</h3>
+				<p>sdfasdasdas</p>
+			</div>
+			<div class="bs-callout bs-callout-danger col-md-10">
+				<h4>วัตถุประสงค์ในการทดลอง</h3>
+				<p>sdfasdasdas</p>
+			</div>
+
+			<div class="bs-callout bs-callout-danger col-md-10">
+				<h4>วัตถุประสงค์ในการทดลอง</h3>
+				<p>sdfasdasdas</p>
+			</div>
+			<div class="bs-callout bs-callout-danger col-md-10">
+				<h4>วัตถุประสงค์ในการทดลอง</h3>
+				<p>sdfasdasdas</p>
+			</div>
+		</div>		<!--end content-->
+	</div>		<!-- end container -->
 </body>
 <footer>
 	<script type="text/javascript" src="./js/jquery.min.js"></script>
