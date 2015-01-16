@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TEMPLATE</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <!--start content-->
+            <div class="col-md-10">
+                <!--start head-->
+                <div class="jumbotron text-center">
+                    <h1>ใบงานการทดลองที่ 1</h1>
+                    <p class="lead">เรื่อง คำสั่งพื้นฐานการใช้งาน MySQL.</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                            100%
+                        </div>
+                    </div>
+                </div>
+                <!--end head-->
+
+                <!--start information-->
+                <div id="information">
+                    <h1 class="page-header">ข้อมูลเบื้องต้น</h1>
+                    <div class="bs-callout bs-callout-danger">
+                        <h4>วัตถุประสงค์ในการทดลอง</h4>
+                        <ol>
+                            <li>เพื่อให้ผู้เรียนสามารถเรียกดูฐานข้อมูลทั้งหมดได้</li>
+                            <li>เพื่อให้ผู้เรียนสามารถเลือกใช้ฐานข้อมูลได้</li>
+                            <li>เพื่อให้ผู้เรียนสามารถเรียกดูตารางทั้งหมดในฐานข้อมูลได้</li>
+                            <li>พื่อให้ผู้เรียนสามารถเรียกดูโครงสร้างของตารางได้</li>
+                        </ol>
+                    </div>
+                    <!--end objective-->
+
+                    <div class="bs-callout bs-callout-success">
+                        <h4>ความรู้เบื้องต้น</h4>
+                        <p>ภาษา SQL เป็นภาษาที่ใช้จัดการเกี่ยวกับฐานข้อมูล การเขียนคำสั่ง SQL หลังจากเขียนคำสั่งนั้นจบแล้วต้องตามด้วยเครื่องหมาย <code>;</code>(เซมิโคลอน) เพื่อเป็นการจบประโยคคำสั่งนั้นๆ ภาษา SQL เป็นภาษาที่ไม่จัดอยู่ในกรณี case sensitive หมายถึง คำสั่ง SQL สามารถใช้ตัวอักษรพิมพ์ใหญ่หรือพิมพ์เล็กก็ได้ เช่น <code>Select</code> มีความหมายเดียวกับ <code>select</code> หรือ <code>SeLeCT</code> หรือ <code>SELECT</code> เป็นต้น</p>
+                    </div>
+                    <!--end Introduction-->
+                </div>
+                <!--end information-->
+
+                <!--start experiment-->
+                <div id="experiment">
+                    <h1 class="page-header">เริ่มการทดลอง</h1>
+                    <div class="panel panel-info" id="showdb">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><b>คำสั่งเรียกดูฐานข้อมูล</b> ใช้เพื่อเรียกดูฐานข้อมูลทั้งหมดใน MySQL</h3>
+                        </div>
+                        <div class="panel-body">
+                        	<div class="bs-docs-example"  data-content="Example">
+								<h4><kbd>SHOW DATABASES;</kbd></h4>
+							</div>
+							<button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=1&article=1&type=1')">
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								Trial
+							</button>
+                        </div>
+                    </div>
+                </div>
+                <!--end experiment-->
+            </div>
+            <!--end content-->
+
+            <!--start index-->
+            <div class="col-md-2">
+                <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+                    <ul class="nav bs-docs-sidenav">
+                        <li class="active">
+                            <a href="#information">ข้อมูลเบื้องต้น</a>
+                        </li>
+
+                        <li>
+                            <a href="#experiment">เริ่มการทดลอง</a>
+                            <ul class="nav">
+                            	<li>
+                            		<a href="#showdb">คำสั่งเรียกดูฐานข้อมูล</a>
+                        		</li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <a class="back-to-top" href="#top">
+             		 Back to top
+            		</a>
+                </nav>
+            </div>
+            <!-- end index-->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</body>
+<footer>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+</footer>
+
+</html>
