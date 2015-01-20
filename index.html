@@ -30,7 +30,7 @@
 
                 <!--start information-->
                 <div id="information">
-                    <h1 class="page-header">ข้อมูลเบื้องต้น</h1>
+                    <h1 class="page-header">ความรู้เบื้องต้น</h1>
                     <div class="bs-callout bs-callout-danger">
                         <h4>วัตถุประสงค์ในการทดลอง</h4>
                         <ol>
@@ -43,8 +43,10 @@
                     <!--end objective-->
 
                     <div class="bs-callout bs-callout-primary">
-                        <h4>ความรู้เบื้องต้น</h4>
-                        <p>ภาษา SQL เป็นภาษาที่ใช้จัดการเกี่ยวกับฐานข้อมูล การเขียนคำสั่ง SQL หลังจากเขียนคำสั่งนั้นจบแล้วต้องตามด้วยเครื่องหมาย <code>;</code>(เซมิโคลอน) เพื่อเป็นการจบประโยคคำสั่งนั้นๆ ภาษา SQL เป็นภาษาที่ไม่จัดอยู่ในกรณี case sensitive หมายถึง คำสั่ง SQL สามารถใช้ตัวอักษรพิมพ์ใหญ่หรือพิมพ์เล็กก็ได้ เช่น <code>Select</code> มีความหมายเดียวกับ <code>select</code> หรือ <code>SeLeCT</code> หรือ <code>SELECT</code> เป็นต้น</p>
+                        <h4>ทฤษฎีก่อนการทดลอง</h4>
+                        <p><br><strong>ระบบฐานข้อมูลเชิงสัมพันธ์ (Relational Database)</strong>เป็นฐานข้อมูลที่ใช้โมเดลเชิงสัมพันธ์ (Relational Database Model) ซึ่งผู้คิดค้นโมเดลเชิงสัมพันธ์นี้คือ Dr. E.F. Codd โดยใช้หลักพื้นฐานทางคณิตศาสตร์ เนื่องด้วยแนวคิดของแบบจำลองแบบนี้มีลักษณะที่คนใช้กันทั่วกล่าวคือมีการเก็บเป็นตาราง ทำให้ง่ายต่อการเข้าใจและการประยุกต์ใช้งาน ด้วยเหตุนี้ ระบบฐานข้อมูลแบบนี้จึงที่ได้รับความนิยมมากที่สุด ในแง่ของ entity แบบจำลองแบบนี้คือ แฟ้มข้อมูลในรูปตาราง และ attribute ก็เปรียบเหมือนเขตข้อมูล ส่วนความสัมพันธ์คือความสัมพันธ์ระหว่าง entity
+                        <br><br><strong>ฐานข้อมูลเชิงสัมพันธ์</strong> คือ การเก็บข้อมูลในรูปของตาราง (Table) หลายๆตารางที่มีความสัมพันธ์กัน ในแต่ละตารางแบ่งออกเป็นแถวๆ และในแต่ละแถวจะแบ่งเป็นคอลัมน์ (Column) ในทางทฤษฎีจะมีคำศัพท์เฉพาะแตกต่างออกไป เนื่องจากแบบจำลองแบบนี้เกิดจากทฤษฎีทางคณิตศาสตร์เรื่องเซ็ท (Set)</p>
+                        <p><strong>ภาษา SQL </strong>เป็นภาษาที่ใช้จัดการเกี่ยวกับฐานข้อมูล การเขียนคำสั่ง SQL หลังจากเขียนคำสั่งนั้นจบแล้วต้องตามด้วยเครื่องหมาย <code>;</code>(เซมิโคลอน) เพื่อเป็นการจบประโยคคำสั่งนั้นๆ ภาษา SQL เป็นภาษาที่ไม่จัดอยู่ในกรณี case sensitive หมายถึง คำสั่ง SQL สามารถใช้ตัวอักษรพิมพ์ใหญ่หรือพิมพ์เล็กก็ได้ เช่น <code>Select</code> มีความหมายเดียวกับ <code>select</code> หรือ <code>SeLeCT</code> หรือ <code>SELECT</code> เป็นต้น</p>
                     </div>
                     <!--end Introduction-->
                 </div>
@@ -52,15 +54,30 @@
 
                 <!--start experiment-->
                 <div id="experiment">
-                    <h1 class="page-header">เริ่มการทดลอง</h1>
-                    
+                    <h1 class="page-header">ขั้นตอนการทดลอง</h1>
                     <div id="showdb">
-                        <h3>SHOW DATABASES</h3>
+                        <h2>คำสั่งเรียกดูฐานข้อมูล </h2>
                         <p>คำสั่งที่ใช้สำหรับเรียกดูฐานข้อมูลทั้หมดที่มีอยู่ โดยรูปแบบคำสั่งจะใช้คำสั่ง <code>SHOW</code> แล้วตามด้วยสิ่งที่เราต้องการจะแสดงเช่นฐานข้อมูล <code>DATABASES</code></p>
+                        <div class="bs-docs-example"  data-content="Example">  
+                             <div class="highlight">
+                                <p>SHOW DATABASES;</p>
+                                </div>
+                            
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=1&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Trial
+                            </button>
+                        </div>
+                    </div>      <!--end showdb-->   
+
+                    <div id="usedb">
+                        <h2>คำสั่งเลือกใช้งานฐานข้อมูล</h2>
+                        <p>คำสั่งสำหรับเลือกใช้ฐานข้อมูลที่มีอยู่ โดยพิมพ์คำสั่ง
+                        <code>Use ตามด้วยชื่อฐานข้อมูล</code></p>
                         <div class="bs-docs-example"  data-content="Example">  
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <h4><kbd>SHOW DATABASES;</kbd></h4>
+                                    <kbd>USE ชื่อฐานข้อมูล;</kbd>
                                 </div>
                             </div>  
                             <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=1&article=1&type=1')">
@@ -68,7 +85,41 @@
                                 Trial
                             </button>
                         </div>
-                    </div>      <!--end showdb-->    
+                    </div>      <!--end usedb--> 
+
+                    <div id="showtb">
+                        <h2>คำสั่งเรียกดูตารางในฐานข้อมูล</h2>
+                        <p>คำสั่งสำหรับเลือกใช้ฐานข้อมูลที่มีอยู่ โดยพิมพ์คำสั่ง
+                        <code>Use ตามด้วยชื่อฐานข้อมูล</code></p>
+                        <div class="bs-docs-example"  data-content="Example">  
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <kbd>USE ชื่อฐานข้อมูล;</kbd>
+                                </div>
+                            </div>  
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=1&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Trial
+                            </button>
+                        </div>
+                    </div>  <!--end showtb--> 
+
+                    <div id="showstb">
+                        <h3>คำสั่งเรียกดูโครงสร้างของตาราง</h3>
+                        <p>คำสั่งสำหรับเลือกใช้ฐานข้อมูลที่มีอยู่ โดยพิมพ์คำสั่ง
+                        <code>Use ตามด้วยชื่อฐานข้อมูล</code></p>
+                        <div class="bs-docs-example"  data-content="Example">  
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <kbd>USE ชื่อฐานข้อมูล;</kbd>
+                                </div>
+                            </div>  
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=1&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                Trial
+                            </button>
+                        </div>
+                    </div>     <!--end showstb--> 
                 </div>
                 <!--end experiment-->
             </div>
@@ -79,23 +130,23 @@
                 <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" >
                     <ul class="nav bs-docs-sidenav">
                         <li class="active">
-                            <a href="#information">ข้อมูลเบื้องต้น</a>
+                            <a href="#information">ความรู้เบื้องต้น</a>
                         </li>
 
                         <li>
-                            <a href="#experiment">เริ่มการทดลอง</a>
+                            <a href="#experiment">ขั้นตอนการทดลอง</a>
                             <ul class="nav">
                             	<li>
-                            		<a href="#showdb">SHOW DATABASES</a>
+                            		<a href="#showdb">คำสั่งเรียกดูฐานข้อมูล</a>
                         		</li>
                                 <li>
-                                    <a href="#showdb1">คำสั่งเรียกดูฐานข้อมูล1</a>
+                                    <a href="#usedb">คำสั่งเลือกใช้งานฐานข้อมูล </a>
                                 </li>
                                 <li>
-                                    <a href="#showdb2">คำสั่งเรียกดูฐานข้อมูล2</a>
+                                    <a href="#showtb">คำสั่งเรียกดูตารางในฐานข้อมูล</a>
                                 </li>
                                 <li>
-                                    <a href="#showdb3">คำสั่งเรียกดูฐานข้อมูล3</a>
+                                    <a href="#showstb">คำสั่งเรียกดูโครงสร้างของตาราง</a>
                                 </li>
                             </ul>
                         </li>
