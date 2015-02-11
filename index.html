@@ -30,7 +30,7 @@
 
                 <!--start information-->
                 <div id="information">
-                    <h1 class="page-header">ความรู้เบื้องต้น</h1>
+                    <h1 class="page-header"> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> ความรู้เบื้องต้น</h1>
                     <div class="bs-callout bs-callout-danger">
                         <h4>วัตถุประสงค์ในการทดลอง</h4>
                         <ol>
@@ -44,11 +44,13 @@
 
                     <div class="bs-callout bs-callout-primary">
                         <h4>ทฤษฎีก่อนการทดลอง</h4>
-                        <p><br><strong>ระบบฐานข้อมูลเชิงสัมพันธ์ (Relational Database)</strong>เป็นฐานข้อมูลที่ใช้โมเดลเชิงสัมพันธ์ (Relational Database Model) ซึ่งผู้คิดค้นโมเดลเชิงสัมพันธ์นี้คือ Dr. E.F. Codd โดยใช้หลักพื้นฐานทางคณิตศาสตร์ เนื่องด้วยแนวคิดของแบบจำลองแบบนี้มีลักษณะที่คนใช้กันทั่วกล่าวคือมีการเก็บเป็นตาราง ทำให้ง่ายต่อการเข้าใจและการประยุกต์ใช้งาน ด้วยเหตุนี้ ระบบฐานข้อมูลแบบนี้จึงที่ได้รับความนิยมมากที่สุด ในแง่ของ entity แบบจำลองแบบนี้คือ แฟ้มข้อมูลในรูปตาราง และ attribute ก็เปรียบเหมือนเขตข้อมูล ส่วนความสัมพันธ์คือความสัมพันธ์ระหว่าง entity
-                        <br><br><strong>ฐานข้อมูลเชิงสัมพันธ์</strong> คือ การเก็บข้อมูลในรูปของตาราง (Table) หลายๆตารางที่มีความสัมพันธ์กัน ในแต่ละตารางแบ่งออกเป็นแถวๆ และในแต่ละแถวจะแบ่งเป็นคอลัมน์ (Column) ในทางทฤษฎีจะมีคำศัพท์เฉพาะแตกต่างออกไป เนื่องจากแบบจำลองแบบนี้เกิดจากทฤษฎีทางคณิตศาสตร์เรื่องเซ็ท (Set)</p>
+                        <p>
+                            <br><strong>ระบบฐานข้อมูลเชิงสัมพันธ์ (Relational Database)</strong>เป็นฐานข้อมูลที่ใช้โมเดลเชิงสัมพันธ์ (Relational Database Model) ซึ่งผู้คิดค้นโมเดลเชิงสัมพันธ์นี้คือ Dr. E.F. Codd โดยใช้หลักพื้นฐานทางคณิตศาสตร์ เนื่องด้วยแนวคิดของแบบจำลองแบบนี้มีลักษณะที่คนใช้กันทั่วกล่าวคือมีการเก็บเป็นตาราง ทำให้ง่ายต่อการเข้าใจและการประยุกต์ใช้งาน ด้วยเหตุนี้ ระบบฐานข้อมูลแบบนี้จึงที่ได้รับความนิยมมากที่สุด ในแง่ของ entity แบบจำลองแบบนี้คือ แฟ้มข้อมูลในรูปตาราง และ attribute ก็เปรียบเหมือนเขตข้อมูล ส่วนความสัมพันธ์คือความสัมพันธ์ระหว่าง entity
+                            <br>
+                            <br><strong>ฐานข้อมูลเชิงสัมพันธ์</strong> คือ การเก็บข้อมูลในรูปของตาราง (Table) หลายๆตารางที่มีความสัมพันธ์กัน ในแต่ละตารางแบ่งออกเป็นแถวๆ และในแต่ละแถวจะแบ่งเป็นคอลัมน์ (Column) ในทางทฤษฎีจะมีคำศัพท์เฉพาะแตกต่างออกไป เนื่องจากแบบจำลองแบบนี้เกิดจากทฤษฎีทางคณิตศาสตร์เรื่องเซ็ท (Set)</p>
                         <p><strong>ภาษา SQL </strong>เป็นภาษาที่ใช้จัดการเกี่ยวกับฐานข้อมูล การเขียนคำสั่ง SQL หลังจากเขียนคำสั่งนั้นจบแล้วต้องตามด้วยเครื่องหมาย <code>;</code>(เซมิโคลอน) เพื่อเป็นการจบประโยคคำสั่งนั้นๆ ภาษา SQL เป็นภาษาที่ไม่จัดอยู่ในกรณี case sensitive หมายถึง คำสั่ง SQL สามารถใช้ตัวอักษรพิมพ์ใหญ่หรือพิมพ์เล็กก็ได้ เช่น <code>Select</code> มีความหมายเดียวกับ <code>select</code> หรือ <code>SeLeCT</code> หรือ <code>SELECT</code> เป็นต้น
-                        <br><br><strong>สรุปแล้ว</strong>คำสั่ง SQL สามารถเขียนแบบบรรทัดเดียวหรือหลายบรรทัดก็ได้ ซึ่งผลลัพธ์ที่ได้จะเหมือนกัน แต่เพื่อให้อ่านง่ายจึงนิยมเขียนแยกคำสั่งออกเป็นคำสั่งละ 1 บรรทัด
-                        เครื่องหมาย " ; " หลังประโยคคำสั่ง SQL ใช้เพื่อสิ้นสุดประโยคคำสั่งและเพื่อแยกแต่ละคำสั่งออกจากกัน </p>
+                            <br>
+                            <br><strong>สรุปแล้ว</strong>คำสั่ง SQL สามารถเขียนแบบบรรทัดเดียวหรือหลายบรรทัดก็ได้ ซึ่งผลลัพธ์ที่ได้จะเหมือนกัน แต่เพื่อให้อ่านง่ายจึงนิยมเขียนแยกคำสั่งออกเป็นคำสั่งละ 1 บรรทัด เครื่องหมาย " ; " หลังประโยคคำสั่ง SQL ใช้เพื่อสิ้นสุดประโยคคำสั่งและเพื่อแยกแต่ละคำสั่งออกจากกัน </p>
                     </div>
                     <!--end Introduction-->
                 </div>
@@ -56,100 +58,164 @@
 
                 <!--start experiment-->
                 <div id="experiment">
-                    <h1 class="page-header">ขั้นตอนการทดลอง</h1>
+                    <h1 class="page-header"><h1 class="page-header"> <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> ขั้นตอนการทดลอง</h1>
                     <div id="showdb">
                         <h2>คำสั่งเรียกดูฐานข้อมูล </h2>
-                        <p>คำสั่งที่ใช้สำหรับเรียกดูฐานข้อมูลทั้งหมดที่มีอยู่ โดยรูปแบบคำสั่งจะใช้คำสั่ง <code>SHOW</code> แล้วตามด้วยสิ่งที่เราต้องการจะแสดงเช่นฐานข้อมูล <code>DATABASES</code></p>
-                        <div class="bs-docs-example"  data-content="Example">  
-                             <div class="highlight">
+                        <p>คำสั่งที่ใช้สำหรับเรียกดูฐานข้อมูลทั้งหมดที่มีอยู่ โดยรูปแบบคำสั่งจะใช้คำสั่ง <code>SHOW</code> แล้วตามด้วยสิ่งที่เราต้องการจะแสดงเช่นฐานข้อมูล <code>DATABASES</code>
+                        </p>
+                        <div class="bs-docs-example" data-content="Example">
+                            <div class="highlight">
                                 <p>SHOW DATABASES;</p>
-                                </div>
+                            </div>
                             <div class="bs-callout bs-callout-warning">
-                                <p>ให้นักเรียนทดลองใช้คำสั่งเรียกดูฐานข้อมูลว่ามีฐานข้อมูลชื่ออะไรบ้าง</p>
+                                <p id="q1">ให้นักเรียนทดลองใช้คำสั่งเรียกดูฐานข้อมูลว่ามีฐานข้อมูลชื่ออะไรบ้าง</p>
                             </div>
                             <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=1&article=1&type=1')">
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                Trial
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
-                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=1&article=1&type=1')">
-                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
-                                Send answer
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#q1').text()+'&unit=1&article=2&type=2')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                             </button>
                         </div>
-                    <!--end Introduction-->
-                    </div>      <!--end showdb-->   
+                        <!--end Introduction-->
+                    </div>
+                    <!--end showdb-->
 
                     <div id="usedb">
                         <h2>คำสั่งเลือกใช้งานฐานข้อมูล</h2>
                         <p>คำสั่งสำหรับเลือกใช้ฐานข้อมูลที่มีอยู่ โดยพิมพ์คำสั่ง
-                        <code>Use ตามด้วยชื่อฐานข้อมูล</code></p>
-                        <div class="bs-docs-example"  data-content="Example">  
-                             <div class="bs-callout bs-callout-warning">
-                               <p>USE DatabasesName;</p>
+                            <code>Use ตามด้วยชื่อฐานข้อมูล</code>
+                        </p>
+                        <div class="bs-docs-example" data-content="Example">
+                            <div class="bs-callout bs-callout-warning">
+                                <p>USE DatabasesName;</p>
                             </div>
                             <!--<div class="panel panel-default">-->
-                                <div class="highlight">
-                                    <p>ให้นักเรียนทดลองใช้คำสั่งเรียกดูฐานข้อมูลว่ามีฐานข้อมูลชื่ออะไร</p>
-                                </div>
-                            <!-- </div> --> 
+                            <div class="highlight">
+                                <p>ให้นักเรียนทดลองใช้คำสั่งเรียกดูฐานข้อมูลว่ามีฐานข้อมูลชื่ออะไร</p>
+                            </div>
+                            <!-- </div> -->
                             <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=1&article=1&type=1')">
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                Trial
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
                             <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=1&article=1&type=1')">
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                Trial
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                             </button>
                         </div>
-                    </div>      <!--end usedb--> 
+                    </div>
+                    <!--end usedb-->
 
                     <div id="showtb">
                         <h2>คำสั่งเรียกดูตารางในฐานข้อมูล</h2>
                         <p>คำสั่งสำหรับเลือกใช้ฐานข้อมูลที่มีอยู่ โดยพิมพ์คำสั่ง
-                        <code>Use ตามด้วยชื่อฐานข้อมูล</code></p>
-                        <div class="bs-docs-example"  data-content="Example">  
+                            <code>Use ตามด้วยชื่อฐานข้อมูล</code>
+                        </p>
+                        <div class="bs-docs-example" data-content="Example">
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <kbd>USE ชื่อฐานข้อมูล;</kbd>
                                 </div>
-                            </div>  
+                            </div>
                             <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=1&article=1&type=1')">
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                Trial
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
                         </div>
-                    </div>  <!--end showtb--> 
+                    </div>
+                    <!--end showtb-->
 
                     <div id="showstb">
                         <h3>คำสั่งเรียกดูโครงสร้างของตาราง</h3>
                         <p>คำสั่งสำหรับเลือกใช้ฐานข้อมูลที่มีอยู่ โดยพิมพ์คำสั่ง
-                        <code>Use ตามด้วยชื่อฐานข้อมูล</code></p>
-                        <div class="bs-docs-example"  data-content="Example">  
+                            <code>Use ตามด้วยชื่อฐานข้อมูล</code>
+                        </p>
+                        <div class="bs-docs-example" data-content="Example">
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <kbd>USE ชื่อฐานข้อมูล;</kbd>
                                 </div>
-                            </div>  
+                            </div>
                             <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=1&article=1&type=1')">
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                Trial
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
                         </div>
-                    </div>     <!--end showstb--> 
+                    </div>
+                    <!--end showstb-->
                 </div>
                 <!--end experiment-->
 
-                <div>
-                <h1 class="page-header">คำถามท้ายการทดลอง</h1>
-                    
+                <div id="Practice">
+                    <h1 class="page-header"> <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> คำถามท้ายการทดลอง</h1>
+                    <p>ให้นักเรียนตอบคำถามท้ายการทดลอง โดยนักเรียนสามารถทดลองคำสั่งได้จากการกดปุ่ม
+                        <kbd>Try it Yourself </kbd>&nbsp;จากนั้นนำคำตอบ ที่นักเรียนมั่นใจที่สุดส่งคำตอบที่ปุ่ม
+                        <kbd>Send Answer</kbd> ได้เพียงครั้งเดียว</p>
+                    <div class="bs-callout bs-callout-danger">
+                        <div id="1p">
+                            <!-- start first pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p>1. จงใช้คำสั่งแสดงฐานข้อมูลทั้งหมดเพื่อตรวจสอบว่า MySQL มีฐานข้อมูลทั้งหมดกี่ฐานข้อมูล</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=1&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 1TB-->
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=1&article=1&type=1')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 1pb-->
+                        </div>
+                        <!--end Practice-->
+                        <br>
+                        <br>
+                        <div id="2p">
+                            <!-- start 2 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p>2. จงใช้คำสั่งเรียกดูตารางทั้งหมดในฐานข้อมูล “student” เพื่อตรวจว่าในฐานข้อมูลมีทั้งหมดกี่ตาราง</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=1&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=1&article=1&type=1')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <!--end Practice-->
+                        <br>
+                        <br>
+                        <div id="3p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p>3. จงใช้คำสั่งแสดงโครงสร้างของตาราง “std_id” ที่อยู่ในฐานข้อมูล “student” เพื่อตรวจสอบว่าคอลัมน์ “id” มีชนิดข้อมูล (type) แบบใด</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=1&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=1&article=1&type=1')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <!--end Practice-->
 
-                </div> <!--end Answer-->
+
+
+                    </div>
+                </div>
+                <!--end Answer-->
             </div>
             <!--end content-->
 
             <!--start index-->
             <div class="col-md-2">
-                <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" >
+                <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
                     <ul class="nav bs-docs-sidenav">
                         <li class="active">
                             <a href="#information">ความรู้เบื้องต้น</a>
@@ -158,9 +224,9 @@
                         <li>
                             <a href="#experiment">ขั้นตอนการทดลอง</a>
                             <ul class="nav">
-                            	<li>
-                            		<a href="#showdb">คำสั่งเรียกดูฐานข้อมูล</a>
-                        		</li>
+                                <li>
+                                    <a href="#showdb">คำสั่งเรียกดูฐานข้อมูล</a>
+                                </li>
                                 <li>
                                     <a href="#usedb">คำสั่งเลือกใช้งานฐานข้อมูล </a>
                                 </li>
@@ -171,6 +237,10 @@
                                     <a href="#showstb">คำสั่งเรียกดูโครงสร้างของตาราง</a>
                                 </li>
                             </ul>
+                        </li>
+
+                        <li>
+                            <a href="#Practice">คำถามท้ายการทดลอง</a>
                         </li>
                     </ul>
                     <a class="back-to-top" href="#top">Back to top</a>
