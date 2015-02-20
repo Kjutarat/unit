@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TEMPLATE</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/docs.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <!--start content-->
+            <div class="col-md-10">
+                <!--start head-->
+                <div class="jumbotron text-center">
+                    <h1>ใบงานการทดลองที่ 2</h1>
+                    <p class="lead">เรื่อง DDL (Data Definition Language).</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                            100%
+                        </div>
+                    </div>
+                </div>
+                <!--end head-->
+
+                <!--start information-->
+                <div id="information">
+                    <h1 class="page-header"> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> ความรู้เบื้องต้น</h1>
+                    <div class="bs-callout bs-callout-danger">
+                        <h4>วัตถุประสงค์ในการทดลอง</h4>
+                        <ol>
+                            <li>เพื่อให้ผู้เรียนสามารถ สร้างฐานข้อมูลและตารางได้</li>
+                            <li>เพื่อให้ผู้เรียนสามารถ ลบฐานข้อมูลและตารางได้</li>
+                            <li>เพื่อให้ผู้เรียนสามารถ แก้ไขโครงสร้างตารางได้</li>
+                            <li>เพื่อให้ผู้เรียนสามารถ แก้ไขชื่อตารางได้</li>
+                            <li>เพื่อให้ผู้เรียนสามารถ สร้างและลบ indexได้</li>
+                        </ol>
+                    </div>
+                    <!--end objective-->
+
+                    <div class="bs-callout bs-callout-primary">
+                        <h4>ทฤษฎีก่อนการทดลอง</h4>
+                        <p>
+                            <br><strong>DDL (Data Definition Language)</strong>เป็นภาษาสำหรับนิยามโครงสร้างฐานข้อมูลเพื่อสร้าง เปลี่ยนแปลง หรือลบโครงสร้างฐานข้อมูลเรียกได้ว่าเป็น “Schema” ใช้บอกว่าในฐานข้อมูลประกอบ ด้วยตารางใด แต่ละตารางมีความสัมพันธ์กันอย่างไร และในตารางมี Primary Key อะไร โดยมีฟังก์ชั่น การสร้าง แก้ไข ลบตาราง การวิวข้อมูล การสร้างระบควบคุมความปลอดภัยของฐานข้อมูล การสร้างดัชนีเพื่อการเข้าถึงตารางอย่างรวดเร็ว และควบคุมการจัดเก็บข้อมูลด้วย DBMS เช่น คำสั่ง Create Alter Drop จะใช้สำหรับการ สร้างปรับเปลี่ยนและลบโครงสร้างฐานข้อมูลหรือโครงสร้าง ของตาราง โดยคำสั่งประเภทนี้จะทำกับโครงสร้างของฐานข้อมูลเท่านั้น ไม่มีผลกับข้อมูลใน Field ใดๆ ซึ่งคำสั่งในการแก้ไขข้อมูลจะอยู่ในประเภทของ DML(Data Manipulation Language)
+                            <br>
+                            <br><strong>ประเภทของข้อมูลในฐานข้อมูล MySQL</strong> คือ ในการสร้างตารางภายในฐานข้อมูล เราจำเป็นจะต้องกำหนดประเภทฟิลด์ของฐานข้อมูล โดยสิ่งที่ควรทราบคือ ประเภทของข้อมูลต่างๆ ของ MySQL มีประเภทข้อมูลอะไรบ้าง เพื่อที่เราจะได้กำหนดประเภทข้อมูล ได้สอดคล้องกับข้อมูลที่เราจะจัดเก็บ </p>
+
+                        <strong><center><p id="detailMysql"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> ตารางรายละเอียดประเภทข้อมูลของ MySQL</p></center></strong>
+                        <br>
+                        <!-- start type data table-->
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <tr class="info">
+                                    <center>
+                                        <th>
+                                            <center>ประเภท</center>
+                                        </th>
+                                        <th>
+                                            <center>ความหมาย</center>
+                                        </th>
+                                </tr>
+                                <tr class="active">
+                                    <th colspan="2">
+                                        <center>Integer (จำนวนเต็ม)</center>
+                                    </th>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        TINYINT
+                                    </td>
+                                    <td>
+                                        มีขนาด 1 BYTE เก็บค่าได้ 2^8จำนวน
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        SMALLINT
+                                    </td>
+                                    <td>
+                                        มีขนาด 2 BYTE เก็บค่าได้ 2^16จำนวน
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        MEDIUMINT
+                                    </td>
+                                    <td>
+                                        มีขนาด 3 BYTE เก็บค่าได้ 2^24จำนวน
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        INT
+                                    </td>
+                                    <td>
+                                        มีขนาด 4 BYTE เก็บค่าได้ 2^32จำนวน
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        BIGINT
+                                    </td>
+                                    <td>
+                                        มีขนาด 8 BYTE เก็บค่าได้ 2^64จำนวน
+                                    </td>
+
+                                </tr>
+
+                                <tr class="active">
+                                    <th colspan="2">
+                                        <center>Float & Double(จำนวนทศนิยม)</center>
+                                    </th>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        FLOAT
+                                    </td>
+                                    <td>
+                                        จำนวนทศนิยม ระหว่าง 〖1.18x10〗^(-38) ถึง 3.40x〖10〗^38
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        DOUBLE
+                                    </td>
+                                    <td>
+                                        จำนวนทศนิยม ระหว่าง 〖2.23x10〗^(-308) ถึง 2.23x〖10〗^308
+                                    </td>
+
+                                </tr>
+
+                                <tr class="active">
+                                    <th colspan="2">
+                                        <center>String and Text Types (สตริงและตัวอักษร)</center>
+                                    </th>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        CHAR
+                                    </td>
+                                    <td>
+                                        เก็บสตริงแบบกำหนดขนาดคงที่ (fix-length strings) ขนาดสูงสุด 255 ตัวอักษร
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        VARCHAR
+                                    </td>
+                                    <td>
+                                        เก็บสตริงแบบกำหนดขนาดแปรผัน (variable-length strings) ขนาดสูงสุด 255 ตัวอักษร
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        TINYTEXT
+                                    </td>
+                                    <td>
+                                        เก็บตัวอักษรได้ 255 ตัวอักษร
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        TEXT
+                                    </td>
+                                    <td>
+                                        เก็บตัวอักษรได้มากถึง 65,535ตัวอักษร
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        MIDIUMTEXT
+                                    </td>
+                                    <td>
+                                        เก็บตัวอักษรได้มากถึง 16,777,215ตัวอักษร
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        LONGTEXT
+                                    </td>
+                                    <td>
+                                        เก็บตัวอักษรได้มากถึง 4,294,967,296ตัวอักษร
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        BLOB
+                                    </td>
+                                    <td>
+                                        Binary Large Object เก็บข้อมูลที่มีลักษณะเป็น Object file เช่น ไฟล์รูปภาพ ไฟล์เสียงขนาด 64 K
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        TINYBLOB
+                                    </td>
+                                    <td>
+                                        Binary Large Object ขนาด 1byte
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        MEDIUMBLOB
+                                    </td>
+                                    <td>
+                                        Binary Large Object ขนาด 16MB
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        LONGBLOB
+                                    </td>
+                                    <td>
+                                        Binary Large Object ขนาด 4GB
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        ENUM
+                                    </td>
+                                    <td>
+                                        กลุ่มของข้อมูลที่กำหนดเป็นรายการตัวเลือก เช่น
+                                        <br>กำหนดประเภทของข้อมูลเพศ ชายแทนด้วย ‘M’หญิงแทนด้วย ‘F’ Gender enum(‘M’, ‘F’)
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        SET
+                                    </td>
+                                    <td>
+                                        คล้ายกับ ENUM แต่ประเภทข้อมูล SET หรือสมาชิกของ SETสามารถเก็บข้อมูลประเภท ENUM อีกก็ได้
+                                    </td>
+
+                                </tr>
+
+                                <tr class="active">
+                                    <th colspan="2">
+                                        <center>Data and Time Types(วันที่ และ เวลา)</center>
+                                    </th>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        DATE
+                                    </td>
+                                    <td>
+                                        เก็บวันที่ในรูปแบบ YYYY-MM-DD
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        TIME
+                                    </td>
+                                    <td>
+                                        เก็บเวลาในรูปแบบ HH:MM:SS
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        DATETIME
+                                    </td>
+                                    <td>
+                                        เก็บวันและเวลาในรูปแบบ YYYY-MM-DD HH:MM:SS
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        TIMESTAMP[(M)]
+                                    </td>
+                                    <td>
+                                        เก็บเวลาโดยมีลักษณะพิเศษคือ ถ้าไม่ได้เพิ่มข้อมูลในคอลัมน์นี้ เช่น SET เป็นค่าว่าง(NULL) มันจะเก็บเวลาที่ทำการเพิ่มล่าสุดโดยอัตโนมัติ นอกจากนั้นจะแสดงวันเวลา
+                                        <kbd>ตามรูปแบบ M*</kbd>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        YEAR
+                                    </td>
+                                    <td>
+                                        เก็บปี 4 หลักโดยอยู่ในช่วงปี ค.ศ.1970 – 2069 หรือ 2 หลัก ในช่วง 0 – 69
+                                    </td>
+
+                                </tr>
+
+                            </table>
+                            <code>หมายเหตุ ค่า M* ของประเภทข้อมูล TIMESTAMP</code>
+                            <br>
+                            <strong><center><p id="detailTime"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> ประเภทข้อมูล TIMESTAMP</p></center></strong>
+                            <br>
+
+                            <table class="table table-hover">
+                                <tr class="info">
+                                    <center>
+                                        <th>
+                                            ชนิด
+                                        </th>
+                                        <th>
+                                            รูปแบบ
+                                        </th>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        TIMESTAMP
+                                    </td>
+                                    <td>
+                                        YYYYMMDDHHMMSS
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        TIMESTAMP(14)
+                                    </td>
+                                    <td>
+                                        YYYYMMDDHHMMSS
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        TIMESTAMP(12)
+                                    </td>
+                                    <td>
+                                        YYMMDDHHMMSS
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        TIMESTAMP(10)
+                                    </td>
+                                    <td>
+                                        YYMMDDHHMM
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        TIMESTAMP(8)
+                                    </td>
+                                    <td>
+                                        YYYYMMDD
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        TIMESTAMP(6)
+                                    </td>
+                                    <td>
+                                        YYMMDD
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        TIMESTAMP(4)
+                                    </td>
+                                    <td>
+                                        YYMM
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        TIMESTAMP(2)
+                                    </td>
+                                    <td>
+                                        YY
+                                    </td>
+
+                                </tr>
+                            </table>
+
+                            <kbd>*หมายเหตุ
+                            </kbd>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Y หมายถึง ปี
+                                <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;M หมายถึง เดือน
+                                <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D หมายถึง วัน
+                                <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;H หมายถึง ชั่วโมง
+                                <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;M หมายถึง นาที
+                                <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S หมายถึง วินาที
+                            </p>
+                            <br>
+                            <strong><center><p id="detailCheck"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> คำสั่งตรวจสอบปัญหาของตาราง</p></center></strong>
+                            <br>
+
+                            <table class="table table-striped table-bordered table-hover">
+                                <tr class="info">
+                                    <center>
+                                        <th>
+                                            ประเภท
+                                        </th>
+                                        <th>
+                                            ความหมาย
+                                        </th>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        QUICK
+                                    </td>
+                                    <td>
+                                        ตรวจสอบความถูกต้องของแถวในตาราง
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        FAST
+                                    </td>
+                                    <td>
+                                        ตรวจสอบความถูกต้องของตารางเพียงอย่างเดียว
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        CHANGED
+                                    </td>
+                                    <td>
+                                        ตรวจสอบตารางที่ได้รับการเปลี่ยนแปลงล่าสุด
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        MEDIUM
+                                    </td>
+                                    <td>
+                                        ตรวจสอบแถวและลบลิงค์หรือค่าที่แปลกปลอมออกไป
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        EXTENDED
+                                    </td>
+                                    <td>
+                                        ตรวจสอบเต็มรูปแบบสำหรับคีย์ที่มีทั้งหมดในแต่ละแถว เพื่อให้แน่ใจว่าข้อมูลในตารางถูกต้อง 100%
+                                    </td>
+                            </table>
+
+                        </div>
+                    </div>
+                    <!--end Introduction-->
+                </div>
+                <!--end information-->
+
+                <!--start experiment-->
+                <div id="experiment">
+                    <h1 class="page-header"><h1 class="page-header"> <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> ขั้นตอนการทดลอง</h1>
+                    <div id="Cdb">
+                        <h2>การสร้างฐานข้อมูล  </h2>
+                        <p>ใช้สร้างฐานข้อมูลที่ต้องการ โดยใส่ชื่อฐานข้อมูลหลัง Syntax
+                        </p>
+                        <div class="bs-example" data-content="Example">
+
+                            <div class="highlight">
+                                <strong>CREATE DATABASE DATABASE-NAME ; </strong>
+                            </div>
+                            <code>DATABASE-NAME คือ ชื่อของฐานข้อมูล</code>
+                            <br>
+
+                            <div class="bs-docs-example" data-content="Example">
+                                <p>ทดลองการสร้างฐานข้อมูลชื่อ ex_540303xx_test</p>
+                                <code>Create Database ex_540303xx_test;</code>
+                            </div>
+
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q1">1.จงสร้างฐานข้อมูลชื่อ
+                                    <kbd>ex_รหัสนักศึกษา_test</kbd>
+                                </p>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#q1').text()+'&unit=2&article=1&type=1')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                        </div>
+                        <!--end Introduction-->
+                    </div>
+                    <!--end showdb-->
+
+                    <div id="Ddb">
+
+                        <h2>การลบฐานข้อมูล </h2>
+                        <p>ใช้ลบฐานข้อมูล โดยการใส่ชื่อฐานข้อมูลที่ต้องการลบ โดยพิมพ์คำสั่ง
+                            <code>DROP DATABASE ชื่อของฐานข้อมูล;</code>
+                        </p>
+                        <div class="bs-example" data-content="Example">
+                            <div class="highlight">
+                                <strong>DROP DATABASE DATABASE-NAME ; </strong>
+                            </div>
+                            <code>DATABASE-NAME คือ ชื่อของฐานข้อมูล</code>
+                            <br>
+
+                            <div class="bs-docs-example" data-content="Example">
+                                <p>Drop Database ex_540303xx_test;</p>
+
+                            </div>
+
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q2">2.ทดลองลบฐานข้อมูล ชื่อ "ex_รหัสนักศึกษาของตนเอง_test;"
+                            </div>
+                            <p>ใช้คำสั่ง Show Database ex_รหัสนักศึกษาของตนเอง; เพื่อตรวจสอบ พร้อมบันทึกผลการทดลอง </p>
+                            <!--<div class="panel panel-default">-->
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=2&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#q2').text()+'&unit=2&article=2&type=1')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+
+                        </div>
+                    </div>
+                    <!--end usedb-->
+
+                    <div id="Ctb">
+                        <h2>การสร้างตาราง (Table) </h2>
+                        <p>ใช้สร้างตารางลงในฐานข้อมูล พร้อมกำหนดคอลัมน์ และชนิดของข้อมูล ในแต่ละฟิลด์นั้น </p>
+                        <div class="bs-example" data-content="Example">
+                            <div class="highlight">
+                                <strong>CREATE TABLE table_name <br>
+                                        ( column_name_1  column_type,<br>
+                                          column_name_2  column_type,<br>
+                                            .....,<br>
+                                          column_name_n column_type ,<br>
+                                        [PRIMARY  KEY < column_name >],<br>
+                                        [FOREIGN  KEY < column_name > REFERENCES <link_table(column_name)> ]);
+                                </strong>
+                            </div>
+                            <code>หมายเหตุ</code>
+                            <br>
+                            <br>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="active">
+                                        <td> table_name </td>
+                                        <td> คือ ชื่อของตารางที่ต้องการสร้าง</td>
+                                    </tr>
+                                    <tr>
+                                        <td>column name </td>
+                                        <td>คือชื่อของคอลัมน์ </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> column type </td>
+                                        <td> คือชนิดของข้อมูล</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Link_table </td>
+                                        <td> คือตารางปลายทางที่ต้องการเชื่อมโยง Foreign key ไป</td>
+                                    </tr>
+
+                                </table>
+                            </div>
+
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>CREATE TABLE person  <br>
+                                        (studentId int(8) not null,<br>
+                                          first_name varchar(50),<br>
+                                          last_name varchar(50),<br>
+                                          TelNo int(20));
+                                        
+                                </strong>
+
+                            </div>
+
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q3">3.ทดลองคำสั่งสร้างตาราง ใช้คำสั่ง Show tables; บันทึกผลการทดลอง</code>
+                                </p>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=3&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#q3').text()+'&unit=2&article=3&type=1')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                        </div>
+                    </div>
+                    <!--end showtb-->
+
+                    <div id="Spk">
+                        <h2>การกำหนด Primary Key</h3>
+                        <p>การกำหนด primary key สามารถกำหนดได้สองรูปแบบ
+                        </p>
+                        <div class="bs-example" data-content="Example">
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;กำหนด Primary Key ไว้หลังคอลัมน์ที่ต้องการกำหนดให้เป็น Primary key </p>
+                                <p>สร้าง ตาราง Address มีข้อมูลดังนี้</p>
+                                <div class="highlight">
+                                      <strong>CREATE TABLE Address <br>
+                                        (studentId int(8) <code>primary key</code>,<br>
+                                          Address varchar(200),<br>
+                                          TelNos int(20));
+                                </strong>
+                                </div>
+                                <p>ใช้คำสั่ง describe Address;</p>
+
+                                <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=4.1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;กรณีที่ตารางใช้คอลัมน์ หลายตัวร่วมกันเพื่อทำหน้าที่ Primary Key ต้องเขียนในรูปแบบกำหนด Primary key ไว้หลังจากกำหนดคอลัมน์อื่นแล้ว ตัวอย่าง</p>
+                                <div class="highlight">
+                                      <strong>CREATE TABLE Address <br>
+                                        (studentId int(8),<br>
+                                          Address varchar(200),<br>
+                                          TelNo int(20),<br>
+                                          <p>primary key (studentId));</p>
+                                     </strong>
+                                </div>
+
+                                 <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=4.2&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <p> ทดลองใช้คำสั่ง Drop table  สร้าง ตาราง Address อีกครั้ง</p>
+
+                                <div class="bs-callout bs-callout-warning"> <!--Q4-->
+                                <p id="q4">4.บันทึกผลการทดลอง  <code>
+                                </code></p>
+                            </div>
+
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#q4').text()+'&unit=2&article=4&type=1')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="Sfk">
+
+                        <h2>การกำหนด Foreign Key</h3>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;คือ คอลัมน์ที่กำหนดเพื่อใช้อ้างอิงไปยัง Primary Key ในตารางอื่น โดยทำให้ตารางสองตารางที่ ต่างกัน มีความสัมพันธ์กัน
+                         </p>
+                         <div class="bs-example" data-content="Example">
+                         <div class="highlight">
+                                <strong>Foreign Key คอมลัมน์ที่ต้องการลิ้งค์ Refernces ตารางที่ต้องการเชื่อม(คอมลัมน์ที่ต้องการลิ้งค์);</p>
+                                </strong>
+                         </div>
+                         <code> หมายเหตุ</code> <p>ต้องสร้างตารางที่ต้องการเชื่อมโยงก่อนจึงจะสร้าง Foreign Key ได้</p>
+
+                         <p>&nbsp;&nbsp;&nbsp;&nbsp;ใช้คำสั่ง Drop table person;</p>
+                         <kbd>การกำหนด Foreign Key แบบท้ายคอลัมน์ที่ต้องการกำหนด</kbd>
+                         <div class="bs-docs-example" data-content="Example">
+                               <strong> CREATE TABLE person<br>
+                                    ( studentId int(8) primary key,<br>
+                                      first_name varchar(50), <br>
+                                      last_name varchar(50) ,<br>
+                                      TelNo int (20)References Address(TelNo));
+                               </strong>
+                            </div>
+                            
+                            <div class="bs-callout bs-callout-warning"> <!--Q4-->
+                                <p id="q5">5.&nbsp;&nbsp;&nbsp;&nbsp;ใช้คำสั่ง Describe person; บันทึกผลการทดลอง  <code>
+                                </code></p>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=5&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#q5').text()+'&unit=2&article=5&type=1')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            </div>
+                    </div>
+
+                    <div id="Dtb">
+
+                        <h2>การลบตาราง (Table)</h2>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;ใช้ลบตารางลงในฐานข้อมูลออก ข้อมูลที่อยู่ในตารางนั้นๆจะถูกลบไปด้วย
+                        </p>
+                        <div class="bs-example" data-content="Example">
+                            <div class="highlight">
+                                <strong>DROP TABLE table_name;</p>
+                                </strong>
+                            </div>
+                            <code> หมายเหตุ</code>
+                            <p>table_name &nbsp;คือ ชื่อตาราง</p>
+
+                            <p>ใช้คำำสั่ง Show tables;</p>
+
+                            <div class="bs-callout bs-callout-warning">
+                                <!--Q4-->
+                                <p id="q6">6.&nbsp;&nbsp;&nbsp;&nbsp;ลบตารางทั้งหมด ที่อยู่ในฐานข้อมูล ex_รหัสนักศึกษาของตนเอง บันทึกผลการทดลอง <code>
+                                </code>
+                                </p>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=6&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#q6').text()+'&unit=2&article=6&type=1')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+                        </div>
+
+                    </div>
+                    <!--end showstb-->
+
+                    <div id="CHtbN">
+
+                        <h2>การเปลี่ยนชื่อตาราง (Table) </h2>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;ใช้เปลี่ยนชื่อตารางมีsyntax ดังนี้
+                        </p>
+                        <div class="highlight">
+                            <strong>RENAME TABLE table_old_name
+                                            TO table_new_name;
+                                </strong>
+                        </div>
+                        <code> หมายเหตุ</code>
+                        <p>table_old_name&nbsp;คือ ชื่อตารางเดิม</p>
+                        <p>table_new_name&nbsp;คือ ชื่อตารางใหม่ที่ต้องการแก้ไข</p>
+                        <div class="bs-example" data-content="Example">
+                            <kbd>กดปุ่ม RESET</kbd>
+                            <p>จากการทดลองข้างต้นทดลองคำสั่งลบตาราง person ไปแล้ว จึงใช้คำสั่ง Create table อีกครั้ง แล้วจึงทดลองคำสั่งการเปลี่ยนชื่อตารางได้</p>
+                            <div class="bs-docs-example" data-content="Example">
+
+                                <strong>
+                                    CREATE TABLE person<br>
+                                    ( studentId int(8) primary key,<br>
+                                      first_name varchar(50), <br>
+                                      last_name varchar(50) ,<br>
+                                      TelNo int (20)References Address(TelNo));
+
+                                </strong>
+                                <br>
+                                <br>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=7.1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <p>ใช้คำสั่ง Show tables;</p>
+                            <p>เปลี่ยนชื่อตาราง "Person" เป็น "PersonRename"</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>
+                                RENAME TABLE person TO PersonRename;
+                            </strong>
+                            </div>
+                            <p id="72">ใช้คำสั่ง Show tables; บันทึกผลการทดลอง</p>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=7.2&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#72').text()+'&unit=2&article=7.2&type=1')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+                            <div class="bs-callout bs-callout-warning">
+                                <!--Q4-->
+                                <p id="q7">7.&nbsp;&nbsp;&nbsp;&nbsp;เปลี่ยนชื่อตาราง "PersonRename" เป็น "Persontest" <code>
+                                </code>
+                                </p>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=7&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#q7').text()+'&unit=2&article=7&type=1')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div id="Acl">
+                        <h2>การเพิ่มคอลัมน์ ในตาราง (Table)</h2>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;การเพิ่มคอลัมน์ในตารางเราจะใช้คำสั่ง alter ตามดัง syntax ข้างล่างระบุชื่อคอลัมน์ และจำเป็นต้องระบุชนิดของข้อมูล
+                        </p>
+                        <div class="highlight">
+                            <strong>ALTER TABLE table_name ADD column_name column_type;
+                                </strong>
+                        </div>
+                        <code>หมายเหตุ</code>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;ดูประเภทชนิดของข้อมูลที่ต้องการกำหนดได้จากตารางรายละเอียดประเภทข้อมูลของ MySQL
+                            <br> &nbsp;&nbsp;&nbsp;&nbsp;- table_name คือ ชื่อตาราง
+                            <br> &nbsp;&nbsp;&nbsp;&nbsp;- Column name คือ ชื่อคอลัมน์
+                            <br> &nbsp;&nbsp;&nbsp;&nbsp;- column type คือ ชนิดของข้อมูล
+                        </p>
+                        <div class="bs-example" data-content="Example">
+                            <p>ใช้คำสั่ง Describe person;</p>
+
+                            <p id="q81">ทดลองคำสั่งเพิ่มตาราง person และ เพิ่มคอลัมน์ชื่อ sex ชนิดข้อมูลคือ smallint(1)</p>
+
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>
+                                ALTER TABLE person ADD sex smallint(1);   
+                            </strong>
+                            </div>
+
+                            <p>ใช้คำสั่ง Describe person สังเกตุความเปลี่ยนแปลง;</p>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=81&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#q81').text()+'&unit=2&article=81&type=1')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q8">8. เพิ่มคอลัมน์ลงในตาราง Person ดังนี้
+                                    <br>
+                                    <strong>ชื่อคอลัมน์ Nickname กำหนดชนิดคอลัมน์แบบอักษร(char)จำกัด 20 ตัวอักษร<br>
+                                    ชื่อคอลัมน์ MajorNo จำกัดรหัสวิชา 10 ตัวอักษร(int)</strong> </p>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=8&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#q8').text()+'&unit=2&article=8&type=1')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div id="Dcl">
+                        <h2>การลบคอลัมน์ ในตาราง (Table) </h2>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;การลบคอลัมน์ในตารางเป็นการลบข้อมูลใน field ทั้งหมด ที่ระบุชื่อคอมลัมน์ที่ต้องการลบและลบคอลัมน์นั้นออกไปอย่างสิ้นเชิง วิธีการลบคอมลัมน์ โดยใช้ ทำสั่ง alter นั้น จะต้องระบุชื่อฐานข้อมูลของคอลัมน์ที่ต้องการลบออก และระบุชื่อคอลัมน์ ที่ต้อง การลบตาม syntax ด้านล่าง
+                        </p>
+                        <div class="highlight">
+                            <strong>ALTER TABLE table_name DROP column_name;
+                                </strong>
+
+
+                        </div>
+                        <code> หมายเหตุ </code>
+                        <p>table_name&nbsp;คือ ชื่อตาราง</p>
+                        <p>column_name&nbsp;คือ ชื่อคอลัมน์ที่ต้องการลบ</p>
+                        <div class="bs-example" data-content="Example">
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>ALTER TABLE Person DROP MajorNo;</strong>
+                            </div>
+                            <p>ใช้คำสั่ง Describe Person; ดูการเปลี่ยนแปลง</p>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=91&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q9">9. ลบคอลัมน์ sex ในตาราง Person</p>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=9&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#q9').text()+'&unit=2&article=9&type=1')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
+                    <div id="CHclN">
+                        <h2>การเปลี่ยนชื่อคอมลัมน์และชนิดข้อมูลในตาราง</h2>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;คำสั่งนี้จะคล้ายๆกับคำสั่งที่ 5 การเปลี่ยนชื่อ ตาราง (Table) แต่มีการระบุเฉพาะเจาะจงว่าต้องการลบคอลัมน์ไหน ในตารางไหนเพิ่มเข้าไป
+                        </p>
+                        <div class="highlight">
+                            <strong>ALTER TABLE table_name RENAME column_old_name TO column_new_name;
+                                </strong>
+
+
+                        </div>
+                        <code> หมายเหตุ </code>
+                        <p>table_name&nbsp;คือ ชื่อตาราง</p>
+                        <p>column_old_name&nbsp;คือ ชื่อคอลัมน์เดิม</p>
+                        <p>column_new_name&nbsp;คือ ชื่อคอลัมน์ใหม่ที่ต้องการแก้ไข</p>
+                        <p>data-type&nbsp;คือ ชนิดของข้อมูล</p>
+                        <div class="bs-example" data-content="Example">
+                            <p>&nbsp;&nbsp;&nbsp;ทดลองคำสั่งเปลี่ยนชื่อคอลัมน์ "last_name" ในตารางperson ให้เป็น "last_names"
+                            </p>
+                            <kbd>MySQL version 5.1 Down!!</kbd>
+
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>ALTER TABLE person RENAME last_name TO last_names;</strong>
+                            </div>
+                            <kbd>MySQL version 5.1 up!! In this Case</kbd>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>ALTER TABLE person CHANGE last_name last_names data-type(length);</strong>
+                            </div>
+
+                            <p>ใช้คำสั่ง Describe Person; ดูการเปลี่ยนแปลง</p>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=101&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q10">10.ให้นักเรียนเปลี่ยนชื่อคอลัมน์ "first_name" ในตาราง person เป็น "First_names" </p>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=9&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#q10').text()+'&unit=2&article=10&type=1')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
+                    <div id="CDindex">
+                        <h2>การสร้างและลบดัชนี (index)</h2>
+                        <h4>&nbsp;&nbsp;&nbsp;การสร้างดัชนี (index)</h4>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;การสร้าง index จะช่วยให้การค้นหาและการเข้าถึงข้อมูลได้รวดเร็วขึ้น โดยมีการจัดการเกี่ยวกับ การจัดเก็บข้อมูลลงฐานข้อมูล เช่นเดียวกับหนังสือที่มีหลายหน้าจึงต้องมีดัชนีในการค้นหาคำสำคัญ
+
+                        </p>
+                        <div class="highlight">
+                            <strong>CREATE INDEX index name 
+                                    ON table name <br> 
+                                    ( column name1,column name2,...,column name n);
+                                </strong>
+                        </div>
+                        <code> หมายเหตุ </code>
+                        <p>index name&nbsp;คือ ชื่อ index</p>
+                        <p>table name&nbsp;คือ ชื่อตาราง</p>
+                        <p>column name&nbsp;คือ ชื่อคอลัมน์ที่ต้องการทำ index</p>
+                        <div class="bs-example" data-content="Example">
+                            <p>&nbsp;&nbsp;&nbsp;สร้างดัชนี “customers_name_index” ของตาราง Customers โดยให้คอลัมน์ “CFirstName” และ “CLastName” เป็นดัชนี
+                            </p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>CREATE INDEX customers_name_index ON
+                                        Customers(CFirstName, CLastName);
+                                </strong>
+                            </div>
+                            <p>ใช้คำสั่ง Show index FROM Customers; เพื่อตรวจสอบผลลัพท์</p>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=111&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+
+                            <p>&nbsp;&nbsp;&nbsp;สร้างดัชนี “customers_name_index” ของตาราง Customers โดยให้คอลัมน์ “CFirstName” และ “CLastName” เป็นดัชนี โดยเรียงลำดับชื่อลูกค้าจากมากไปน้อย (DESC) และมีค่าไม่ซ้ำกัน (UNIQUE)</p>
+
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>CREATE UNIQUE INDEX customers_name_index ON
+                                Customers(CFirstName DESC, CLastName);
+                                </strong>
+                            </div>
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q10">
+                                    <p id="q11">11.ใช้คำสั่ง Show index FROM Customers; เพื่อตรวจสอบผลลัพท์ พร้อมบันทึกผลการทดลอง</p>
+                                </p>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=112&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#q11').text()+'&unit=2&article=11&type=1')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                        </div>
+                        <br>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                        <h4>&nbsp;&nbsp;&nbsp;การลบดัชนี (index)</h4>
+
+                        <div class="bs-example" data-content="Example">
+                            <div class="highlight">
+                                <strong>ALTER TABLE table name  
+                                    DROP INDEX index name;
+                                </strong>
+                            </div>
+                            <p>&nbsp;&nbsp;&nbsp;ลบดัชนี “customers_name_index” ของตาราง Customers </p>
+                            <div class="bs-docs-example" data-content="Example">
+                                ALTER TABLE Customers DROP INDEX customers_name_index;
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=121&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <p>ใช้คำสั่ง Show index FROM Customers; เพื่อตรวจสอบผลลัพท์</p>
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q12">12.ให้นักเรียนลบดัชนี “customers_name_index2” ของตาราง Customers </p>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=12&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#q12').text()+'&unit=2&article=12&type=1')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <!--end experiment-->
+
+                <div id="Practice">
+                    <h1 class="page-header"> <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> คำถามท้ายการทดลอง</h1>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;ให้นักเรียนตอบคำถามท้ายการทดลอง โดยนักเรียนสามารถทดลองคำสั่งได้จากการกดปุ่ม
+                        <kbd>Try it Yourself </kbd>&nbsp;จากนั้นนำคำตอบ ที่นักเรียนมั่นใจที่สุดส่งคำตอบที่ปุ่ม
+                        <kbd>Send Answer</kbd> ได้เพียงครั้งเดียว</p>
+                    <div class="bs-callout bs-callout-danger">
+                        <div id="1p">
+                            <!-- start first pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p1">1.จงเขียนคำสั่งการสร้างฐานข้อมูลชื่อ " Ex_รหัสนักศึกษาของตนเอง_test "</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=1&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 1TB-->
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#p1').text()+'&unit=2&article=1&type=2')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 1pb-->
+                        </div>
+                        <!--end Practice-->
+                        <br>
+                        <br>
+                        <div id="2p">
+                            <!-- start 2 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p2">2. จงเขียนคำสั่งสร้างตาราง Student เพื่อเก็บข้อมูลนักศึกษา โดยมีรายละเอียดและคำสั่งดังนี้</p>
+
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover">
+                                            <tr class="danger">
+                                                <td>
+                                                    ชื่อคอลัมน์
+                                                </td>
+                                                <td>
+                                                    ประเภท(ความยาว)
+                                                </td>
+                                                <td>
+                                                    Constraint
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    SNO
+                                                </td>
+                                                <td>
+                                                    INT
+                                                </td>
+                                                <td>
+                                                    Primary Key, Not Null
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    SName
+                                                </td>
+                                                <td>
+                                                    int(40)
+                                                </td>
+                                                <td>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    SLastName
+                                                </td>
+                                                <td>
+                                                    Char(100)
+                                                </td>
+                                                <td>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Class
+                                                </td>
+                                                <td>
+                                                    Int
+                                                </td>
+                                                <td>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    GPX
+                                                </td>
+                                                <td>
+                                                    Float
+                                                </td>
+                                                <td>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    MajorNo
+                                                </td>
+                                                <td>
+                                                    Int
+                                                </td>
+                                                <td>
+
+                                                </td>
+                                            </tr>
+
+
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=2&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#p2').text()+'&unit=2&article=2&type=2')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <!--end Practice-->
+                        <br>
+                        <br>
+                        <div id="3p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p2">3. จากตารางข้อ 2 จงเขียนคำสั่งเปลี่ยนชนิดข้อมูลคอลัมน์ Sname เป็น Char(50)</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=3&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#p2').text()+'&unit=2&article=3&type=2')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <br>
+
+                        <div id="4p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p4">4. จากตารางข้อ 2 จงเขียนคำสั่งกำหนด Foreign Key ให้กับ คอลัมน์ MajorNo</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=4&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#p4').text()+'&unit=2&article=4&type=2')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <br>
+
+                        <div id="5p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p5">5.จงเขียนคำสั่งเปลี่ยนชื่อคอลัมน์ GPX เป็น GPA </p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=5&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#p5').text()+'&unit=2&article=5&type=2')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <br>
+
+                        <div id="6p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p6">6.จงเขียนคำสั่งสร้างดัชนี “student_name_index” ของตาราง Student โดยให้คอลัมน์ “SName” และ “SLastName” เป็นดัชนี</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=6&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#p6').text()+'&unit=2&article=6&type=2')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <br>
+
+                        <div id="7p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p7">7.จงเขียนคำสั่งสร้างฐานข้อมูล Major ดังภาพ</p>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover">
+                                            <tr class="danger">
+                                                <td>
+                                                    ชื่อคอลัมน์
+                                                </td>
+                                                <td>
+                                                    ประเภท(ความยาว)
+                                                </td>
+                                                <td>
+                                                    Constraint
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    MajorNO
+                                                </td>
+                                                <td>
+                                                    INT
+                                                </td>
+                                                <td>
+                                                    Primary Key, Not Null
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    MDetail
+                                                </td>
+                                                <td>
+                                                    char(40)
+                                                </td>
+                                                <td>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=7&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#p').text()+'&unit=2&article=7&type=2')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            </div>
+                            <!-- end 2pb-->
+                            <br>
+                            <br>
+                            <div id="8p">
+                                <!-- start 3 pratice question -->
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <p id="p8">8.จากตารางข้อ 2 ในตารางStudent จงเขียนคำสั่ง กำหนด Foreigh Key ให้กับคอลัมน์ “MajorNo” ไปยังตาราง “Major”</p>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=8&type=2')">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                </button>
+                                <!-- end 2TB-->
+                                <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#p8').text()+'&unit=2&article=8&type=2')">
+                                    <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                </button>
+                                <!-- end 2pb-->
+                            </div>
+                            <br>
+
+                            <div id="9p">
+                                <!-- start 3 pratice question -->
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <p id="p9">9.จงเขียนคำสั่ง ลบตาราง Major </p>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=9&type=2')">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                </button>
+                                <!-- end 2TB-->
+                                <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#p9').text()+'&unit=2&article=9&type=2')">
+                                    <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                </button>
+                                <!-- end 2pb-->
+                            </div>
+                            <br>
+
+                            <div id="10p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p10">10.จงเขียนคำสั่ง เปลี่ยนชื่อตาราง "Student" เป็น "Students"</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=10&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#p10').text()+'&unit=2&article=10&type=2')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <br>
+
+                        <div id="11p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p11">11.จงเขียนคำสั่ง ลบฐานข้อมูล ex_รหัสนักศึกษาของตนเอง_test"</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=11&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#p11').text()+'&unit=2&article=11&type=2')">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+
+
+
+                        <!--end Practice-->
+
+
+
+                    </div>
+                </div>
+                <!--end Answer-->
+            </div>
+            <!--end content-->
+
+            <!--start index-->
+            <div class="col-md-2">
+                <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+                    <ul class="nav bs-docs-sidenav">
+                        <li class="active">
+                            <a href="#information">ความรู้เบื้องต้น</a>
+                            <ul class="nav">
+                                <li>
+                                    <a href="#detailMysql">ประเภทข้อมูลของ MySQL</a>
+                                </li>
+                                <li>
+                                    <a href="#detailTime">ประเภทข้อมูล TIMESTAMP</a>
+                                </li>
+                                <li>
+                                    <a href="#detailCheck">คำสั่งตรวจสอบปัญหาของตาราง</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#experiment">ขั้นตอนการทดลอง</a>
+                            <ul class="nav">
+                                <li>
+                                    <a href="#Cdb">การสร้างฐานข้อมูล</a>
+                                </li>
+                                <li>
+                                    <a href="#Ddb">การลบฐานข้อมูล </a>
+                                </li>
+                                <li>
+                                    <a href="#Ctb">การสร้างตาราง(Table) </a>
+                                </li>
+                                <li>
+                                    <a href="#Spk">การกำหนด Primary Key</a>
+                                </li>
+                                <li>
+                                    <a href="#Sfk">การกำหนด Foreign Key</a>
+                                </li>
+                                <li>
+                                    <a href="#Dtb">การลบตาราง (Table) </a>
+                                </li>
+                                <li>
+                                    <a href="#CHtbN">การเปลี่ยนชื่อตาราง(Table) </a>
+                                </li>
+                                <li>
+                                    <a href="#Acl">การเพิ่มคอลัมน์ ในตาราง(Table) </a>
+                                </li>
+                                <li>
+                                    <a href="#Dcl">การลบคอลัมน์ ในตาราง(Table) </a>
+                                </li>
+                                <li>
+                                    <a href="#CHclN">การเปลี่ยนชื่อคอมลัมน์และชนิดข้อมูลในตาราง(Table)</a>
+                                </li>
+                                <li>
+                                    <a href="#CDindex">การสร้างและลบดัชนี (index)</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#Practice">คำถามท้ายการทดลอง</a>
+                        </li>
+                    </ul>
+                    <a class="back-to-top" href="#top">Back to top</a>
+                </nav>
+            </div>
+            <!-- end index-->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</body>
+<footer>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+</footer>
+
+</html>
