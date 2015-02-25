@@ -21,12 +21,12 @@ $(document).ready(function() {
             t = "ท้ายการทดลอง";
         }
 
-        question = $("#" + question).text();
+        question = $("#" + question).html();
         question = "ข้อที่ " + question;
         var header = "ส่งคำตอบ " + t + " บทที่ " + unit;
         var logo = "<span class='glyphicon glyphicon-cloud-upload' aria-hidden='true'></span>";
         $('#practiceHeader').html(logo + " " + header);
-        $('#practiceQuestion').text(question);
+        $('#practiceQuestion').html(question);
     })
 
     $("#sendAnswer").click(function() {
