@@ -7,29 +7,64 @@ $(document).ready(function() {
     /*end sidebar bootstrap*/
 
     //start event listener zone
-    $('#exampleModal').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget); // Button that triggered the modal
-            var question = button.data('question'); // Extract info from data-* attributes
-            var unit = button.data('unit');
-            var article = button.data('article');
-            var type = button.data('type');
+    var unit,article,type;
+    $('#practiceModal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var question = button.data('question'); // Extract info from data-* attributes
+        unit = button.data('unit');
+        article = button.data('article');
+        type = button.data('type');
 
-            question = $("#"+question).text();
-            alert(question+unit+article+type);
-            callPractice(question,unit,article,type)
-        })
-        //end event listener zone
+        if (type == 1) {
+            t = "ระหว่างการทดลอง";
+        } else if (type == 2) {
+            t = "ท้ายการทดลอง";
+        }
+
+        question = $("#" + question).text();
+        question = "ข้อที่ " + question;
+        var header = "ส่งคำตอบ " + t + " บทที่ " + unit;
+        var logo = "<span class='glyphicon glyphicon-cloud-upload' aria-hidden='true'></span>";
+        $('#practiceHeader').html(logo + " " + header);
+        $('#practiceQuestion').text(question);
+    })
+
+    $("#sendAnswer").click(function() {
+        var c = confirm("กรุณาตรวจสอบคำตอบให้เรียบร้อย คุณสามารถส่งคำตอบได้เพียงครั้งเดียวเท่านั้น");
+        if (c == true) {
+            var data = "mode=answer&unit="+unit+"&article="+article+"&type="+type+"&answer="+$("#practiceAnswer").val();
+            sendPractice(data);
+        }
+    });
+    //end event listener zone
 });
 
 //start function zone
-function callPractice(q,u,a,t) {
-        //alert("mode=log&code="+$('#textareaCode').val()+"&unit="+$('#unit').val()+"&article="+$('#article').val()+"&type="+$('#type').val());
+function sendPractice(d) {
+        //alert("mode=answer&unit="+$("#unit").val()+"&article="+$("#article").val()+"&type="+$("#type").val()+"&answer="+$("#answer").val());
         $.ajax({
-            url: "http://"+window.location.host+"/moodle/mod/mysqlexp/practice.php",
+            url: "http://"+window.location.host+"/moodle/mod/mysqlreport/service.php",
             type: "POST",
-            data: "question="+q+"&unit="+u+"&article="+a+"&type="+t,
+            data: d,
             success: function(result) {
-                alert(result);
+                var split;
+                split  = result.split(":");
+                if(split[0] == "Success")
+                {
+                    var data;
+                    data = "<div class='alert alert-success alert-dismissible'>";
+                    data += "<button type='button' class='close' data-dismiss='alert'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>";
+                    data += "<strong>"+split[0]+":</strong>"+split[1]+"</div>";
+                    $("#status").html(data);
+                }
+                else if(split[0] == "Error")
+                {
+                    var data;
+                    data = "<div class='alert alert-danger alert-dismissible'>";
+                    data += "<button type='button' class='close' data-dismiss='alert'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>";
+                    data += "<strong>"+split[0]+":</strong>"+split[1]+"</div>";
+                    $("#status").html(data);
+                }
             }
         });
     }
