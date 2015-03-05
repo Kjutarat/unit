@@ -20,11 +20,6 @@
                 <div class="jumbotron text-center">
                     <h1>ใบงานการทดลองที่ 1</h1>
                     <p class="lead">เรื่อง คำสั่งพื้นฐานการใช้งาน MySQL.</p>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                            100%
-                        </div>
-                    </div>
                 </div>
                 <!--end head-->
 
@@ -123,7 +118,7 @@
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
 
-                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#q3').text()+'&unit=1&article=3&type=1')">
+                           <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q3" data-unit="1" data-article="3" data-type="1">
                                 <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                             </button>
                         </div>
@@ -132,9 +127,7 @@
 
                     <div id="showstb">
                         <h2>คำสั่งเรียกดูโครงสร้างของตาราง</h3>
-                        <p>คำสั่งสำหรับเลือกใช้ฐานข้อมูลที่มีอยู่ โดยพิมพ์คำสั่ง
-                            <code>Use ตามด้วยชื่อฐานข้อมูล</code>
-                        </p>
+                        <p>ใช้แสดงรายละเอียดของคอลัมน์ทั้งหมดในตาราง                    </p>
                         <div class="bs-docs-example" data-content="Example">
                                 <div class="highlight">
                                     <strong>SHOW COLUMN FROM table-name;</strong>
@@ -150,7 +143,7 @@
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
 
-                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#q4').text()+'&unit=1&article=4&type=1')">
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q4" data-unit="1" data-article="4" data-type="1">
                                 <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                             </button>
                         </div>
@@ -176,7 +169,7 @@
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
                             <!-- end 1TB-->
-                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#p1').text()+'&unit=1&article=1&type=2')">
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p1" data-unit="1" data-article="1" data-type="2">
                                 <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                             </button>
                             <!-- end 1pb-->
@@ -195,7 +188,7 @@
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
                             <!-- end 2TB-->
-                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?question='+$('#p2').text()+'&unit=1&article=2&type=2')">
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p2" data-unit="1" data-article="2" data-type="2">
                                 <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                             </button>
                             <!-- end 2pb-->
@@ -207,14 +200,14 @@
                             <!-- start 3 pratice question -->
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <p>3. จงใช้คำสั่งแสดงโครงสร้างของตาราง “std_id” ที่อยู่ในฐานข้อมูล “student” เพื่อตรวจสอบว่าคอลัมน์ “id” มีชนิดข้อมูล (type) แบบใด</p>
+                                    <p id="p3">3. จงใช้คำสั่งแสดงโครงสร้างของตาราง “std_id” ที่อยู่ในฐานข้อมูล “student” เพื่อตรวจสอบว่าคอลัมน์ “id” มีชนิดข้อมูล (type) แบบใด</p>
                                 </div>
                             </div>
                             <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=1&article=3&type=2')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
                             <!-- end 2TB-->
-                            <button type="button" class="btn btn-warning" onclick="window.open('http://localhost/moodle/mod/mysqlexp/practice.php?unit=1&article=3&type=2')">
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p3" data-unit="1" data-article="3" data-type="2">
                                 <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                             </button>
                             <!-- end 2pb-->
