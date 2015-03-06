@@ -56,6 +56,10 @@ function sendPractice(d) {
                     data += "<button type='button' class='close' data-dismiss='alert'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>";
                     data += "<strong>"+split[0]+":</strong>"+split[1]+"</div>";
                     $("#status").html(data);
+                    var myTimer = setInterval(function(){ 
+                        $("#status").html(null);
+                        clearInterval(myTimer); 
+                    }, 5000);
                 }
                 else if(split[0] == "Error")
                 {
@@ -64,6 +68,10 @@ function sendPractice(d) {
                     data += "<button type='button' class='close' data-dismiss='alert'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>";
                     data += "<strong>"+split[0]+":</strong>"+split[1]+"</div>";
                     $("#status").html(data);
+                    var myTimer = setInterval(function(){ 
+                        $("#status").html(null);
+                        clearInterval(myTimer); 
+                    }, 5000);
                 }
             }
         });
