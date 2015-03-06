@@ -528,7 +528,7 @@
                             <br>
 
                             <div class="bs-docs-example" data-content="Example">
-                                <p>ทดลองการสร้างฐานข้อมูลชื่อ ex_540303xx_test</p>
+                                <p>Step 1.ทดลองการสร้างฐานข้อมูลชื่อ ex_540303xx_test</p>
                                 <code>Create Database ex_540303xx_test;</code>
                             </div>
 
@@ -565,11 +565,13 @@
                                 <p>Drop Database ex_540303xx_test;</p>
 
                             </div>
-
+                            
                             <div class="bs-callout bs-callout-warning">
-                                <p id="q2">2.ทดลองลบฐานข้อมูล ชื่อ "ex_รหัสนักศึกษาของตนเอง_test;"
+                                <p id="q2">2.ทดลองลบฐานข้อมูล ชื่อ "ex_รหัสนักศึกษาของตนเอง_test;"</p>
+
+                                <p>ใช้คำสั่ง Show Database ex_รหัสนักศึกษาของตนเอง; เพื่อตรวจสอบ พร้อมบันทึกผลการทดลอง </p>
                             </div>
-                            <p>ใช้คำสั่ง Show Database ex_รหัสนักศึกษาของตนเอง; เพื่อตรวจสอบ พร้อมบันทึกผลการทดลอง </p>
+
                             <!--<div class="panel panel-default">-->
 
                             <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=2&type=1')">
@@ -637,6 +639,10 @@
 
                             </div>
 
+                             <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=3&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
                             <div class="bs-callout bs-callout-warning">
                                 <p id="q3">3.ทดลองคำสั่งสร้างตาราง ใช้คำสั่ง Show tables; บันทึกผลการทดลอง</code>
                                 </p>
@@ -659,7 +665,7 @@
                         </p>
                         <div class="bs-example" data-content="Example">
                                 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;กำหนด Primary Key ไว้หลังคอลัมน์ที่ต้องการกำหนดให้เป็น Primary key </p>
-                                <p>สร้าง ตาราง Address มีข้อมูลดังนี้</p>
+                                <p>Step 1.สร้าง ตาราง Address มีข้อมูลดังนี้</p>
                                 <div class="highlight">
                                       <strong>CREATE TABLE Address <br>
                                         (studentId int(8) <code>primary key</code>,<br>
@@ -667,7 +673,7 @@
                                           TelNos int(20));
                                 </strong>
                                 </div>
-                                <p>ใช้คำสั่ง describe Address;</p>
+                                <p>Step 2.ใช้คำสั่ง describe Address;</p>
 
                                 <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=4&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
@@ -686,7 +692,7 @@
                                  <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=4&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
-                            <p> ทดลองใช้คำสั่ง Drop table  สร้าง ตาราง Address อีกครั้ง</p>
+                            <p> Step 3.ทดลองใช้คำสั่ง Drop table  สร้าง ตาราง Address อีกครั้ง</p>
 
                                 <div class="bs-callout bs-callout-warning"> <!--Q4-->
                                 <p id="q4">4.บันทึกผลการทดลอง  <code>
@@ -711,7 +717,7 @@
                          </div>
                          <code> หมายเหตุ</code> <p>ต้องสร้างตารางที่ต้องการเชื่อมโยงก่อนจึงจะสร้าง Foreign Key ได้</p>
 
-                         <p>&nbsp;&nbsp;&nbsp;&nbsp;ใช้คำสั่ง Drop table person;</p>
+                         <p>&nbsp;&nbsp;&nbsp;&nbsp;Step 1.ใช้คำสั่ง Drop table person;</p>
                          <kbd>การกำหนด Foreign Key แบบท้ายคอลัมน์ที่ต้องการกำหนด</kbd>
                          <div class="bs-docs-example" data-content="Example">
                                <strong> CREATE TABLE person<br>
@@ -1248,7 +1254,7 @@
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
                             <!-- end 2TB-->
-                           <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p5" data-unit="2" data-article="5" data-type="2">
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p5" data-unit="2" data-article="5" data-type="2">
                                 <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                             </button>
                             <!-- end 2pb-->

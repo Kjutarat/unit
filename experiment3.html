@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TEMPLATE</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/docs.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <!--start content-->
+            <div class="col-md-10">
+                <!--start head-->
+                <div class="jumbotron text-center">
+                    <h1>ใบงานการทดลองที่ 3</h1>
+                    <p class="lead">เรื่อง DML (Data Manipulation Language)</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                            100%
+                        </div>
+                    </div>
+                </div>
+                <!--end head-->
+
+                <!--start information-->
+                <div id="information">
+                    <h1 class="page-header"> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> ความรู้เบื้องต้น</h1>
+                    <div class="bs-callout bs-callout-danger">
+                        <h4>วัตถุประสงค์ในการทดลอง</h4>
+                        <ol>
+                            <li>เพื่อให้ผู้เรียนสามารถเพิ่มข้อมูลลงไปในตารางได้</li>
+                            <li>เพื่อให้ผู้เรียนสามารถแก้ไขข้อมูลภายในตารางได้</li>
+                            <li>เพื่อให้ผู้เรียนสามารถลบข้อมูลภายในตารางได้</li>
+                        </ol>
+                    </div>
+                    <!--end objective-->
+
+                    <div class="bs-callout bs-callout-primary">
+                        <h4>ทฤษฎีก่อนการทดลอง</h4>
+                        <p>
+                            <br><strong>DML (Data Manipulation Language)</strong>&nbsp;เป็นรูปแบบคำสั่งของภาษา SQL ที่เอาไว้จัดการเกี่ยวกับข้อมูลที่อยู่ในตาราง ซึ่งจะใช้คำสั่ง insert update และ delete หมายถึง เพิ่มข้อมูลลงในตาราง, แก้ไขข้อมูลในตาราง และ ลบข้อมูลในตาราง ตามลำดับ โดยข้อมูลที่จะเพิ่มลงในตารางจะเรียกว่า value การเพิ่ม value ลงใน column นั้น จะต้องดูด้วยว่าคอลัมน์นั้นเก็บข้อมูลประเภทใด ถ้าเป็นประเภทข้อความ value ที่จะเพิ่มลงไปนั้น จะต้องใส่เครื่องหมายฟันหนู(“”) ครอบ value ด้วย แต่ถ้าเป็นประเภทตัวเลข value ที่จะเพิ่มลงไปนั้นไม่จำเป็นต้องใส่เครื่องหมายใดๆครอบ value
+                            <br>
+                            <br>
+                            <H4>INSERT</H4> คือ การเพิ่มข้อมูลลงในตารางที่เราต้องการ โดยจะมีวิธีการ INSERT ข้อมูลอยู่ 2 แบบดังนี้
+                            <p id="insert1"><strong>
+                             1. การเพิ่มข้อมูลลงในตารางแบบเรียงลำดับ </strong>หมายถึง การเพิ่ม value ลงในตาราง ผู้ใช้ ต้องรู้ลำดับของคอลัมน์ในตาราง เพราะตอน INSERT ลำดับของ value จะตรงกับลำดับขอคอลัมน์ที่เราจะเพิ่มข้อมูลลงไป</p>
+                            <div class="highlight">
+                                <strong>
+                                 INSERT INTO table-name VALUES (value1, value2, value3, …) ;
+                             </strong>
+
+                            </div>
+                            <code>หมายเหตุ</code>
+                            <p> table-name หมายถึง ชื่อตาราง</p>
+                            <p> value หมายถึง ข้อมูล</p>
+
+                            <strong>ตัวอย่าง ตาราง Employee</strong>
+                            <br>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="info">
+                                        <center>
+                                            <th>
+                                                <center>Emp_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Fname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Lname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Pnumber</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>David</center>
+                                        </td>
+                                        <td>
+                                            <center>Beckham</center>
+                                        </td>
+                                        <td>
+                                            <center>0800000001</center>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <p>เพิ่มข้อมูลลงในตารางแบบเรียงลำดับ คำสั่งดังนี้</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>INSERT INTO Employee VALUES (“0002”, “Michael”, “Scofield”, “0837778888”);</strong>
+
+                            </div>
+                            <p>ผลลัพธ์</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="danger">
+                                        <center>
+                                            <th>
+                                                <center>Emp_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Fname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Lname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Pnumber</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>David</center>
+                                        </td>
+                                        <td>
+                                            <center>Beckham</center>
+                                        </td>
+                                        <td>
+                                            <center>0800000001</center>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>0837778888</center>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+
+
+                            <p id="insert2"><strong>
+                             2. การเพิ่มข้อมูลลงในตารางแบบระบุคอลัมน์</strong> หมายถึง value จะถูกเพิ่มลงใน column ที่อยู่ในตำแหน่งเดียวกัน โดยคอลัมน์นั้นจะระบุอยู่ในชุดคำสั่งด้วย
+                            </p>
+                            <div class="highlight">
+                                <strong>
+                                 INSERT INTO table-name (column1, column2, column3, …)
+                                    VALUES (value1, value2, value3, …) ;
+                             </strong>
+                            </div>
+                            <code>หมายเหตุ</code>
+                            <p> table-name หมายถึง ชื่อตาราง</p>
+                            <p> column หมายถึง ชื่อคอลัมน์</p>
+                            <p> value หมายถึง ข้อมูล</p>
+
+                            <strong>ตัวอย่าง ตาราง Employee</strong>
+                            <br>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="info">
+                                        <center>
+                                            <th>
+                                                <center>Emp_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Fname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Lname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Pnumber</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>David</center>
+                                        </td>
+                                        <td>
+                                            <center>Beckham</center>
+                                        </td>
+                                        <td>
+                                            <center>0800000001</center>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>0837778888</center>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <p>เพิ่มข้อมูลลงในตารางแบบระบุคอลัมน์ คำสั่งดังนี้</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>INSERT INTO Employee (emp_id, emp_fname, emp_lname, emp_pnumber)
+                                VALUES (“0003”, “Mega”, “Clever”, “0900000009”);
+                                    </strong>
+                                <center><code>หรือ</code>
+                                </center>
+                                <strong>
+                                        INSERT INTO Employee (emp_fname, emp_id, emp_pnumber, emp_lname)
+                                VALUES (“Mega”, “0003”, “0900000009”,“Clever” );
+                                    </strong>
+                            </div>
+                            <kbd>เมื่อใช้วิธีการระบุคอลัมน์แล้วการInsert ไม่จำเป็นต้องเรียงคอลัมน์เหมือนในฐานข้อมูล</kbd>
+                            <br>
+                            <br>
+                            <p>ผลลัพธ์</p>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="danger">
+                                        <center>
+                                            <th>
+                                                <center>Emp_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Fname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Lname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Pnumber</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>David</center>
+                                        </td>
+                                        <td>
+                                            <center>Beckham</center>
+                                        </td>
+                                        <td>
+                                            <center>0800000001</center>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>0837778888</center>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <center>0003</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>Clever</center>
+                                        </td>
+                                        <td>
+                                            <center>0900000009</center>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+
+                            <H4 id="infoupdate">UPDATE</H4> คือ การอ้างอิงข้อมูลเดิมในตารางเพื่อแก้ไขข้อมูลที่อยู่ในแถวเดียวกันกับข้อมูลที่ถูกอ้างอิง เช่น “แก้ไขชื่อและนามสกุลของ พนักงานรหัส 0001” จากประโยคดังกล่าว 0001 คือข้อมูลเดิมในตารางที่ใช้อ้างอิงในการแก้ไขข้อมูลในแถวเดียวกัน(ชื่อและนามสกุล) มี syntax ดังนี้
+                            <br>
+                            <br>
+                            <div class="highlight">
+                                <strong>
+                                 UPDATE table-name
+                                SET column1=value1, column2=value2, ... 
+                                 WHERE some_column=some_value;
+                             </strong>
+                            </div>
+                            <strong>ตัวอย่าง ตาราง Employee</strong>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="info">
+                                        <center>
+                                            <th>
+                                                <center>Emp_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Fname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Lname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Pnumber</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>David</center>
+                                        </td>
+                                        <td>
+                                            <center>Beckham</center>
+                                        </td>
+                                        <td>
+                                            <center>0800000001</center>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>0837778888</center>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <center>0003</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>Clever</center>
+                                        </td>
+                                        <td>
+                                            <center>0900000009</center>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <p>แก้ไขข้อมูลในตาราง Employee ดังนี้</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>UPDATE Employee
+                                SET emp_fname = “King”, emp_lname = “SQL”  
+                                WHERE emp_id = “0001”;
+                                  </strong>
+                            </div>
+                            <p>ผลลัพธ์</p>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="danger">
+                                        <center>
+                                            <th>
+                                                <center>Emp_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Fname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Lname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Pnumber</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>King</center>
+                                        </td>
+                                        <td>
+                                            <center>SQL</center>
+                                        </td>
+                                        <td>
+                                            <center>0800000001</center>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>0837778888</center>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <center>0003</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>Clever</center>
+                                        </td>
+                                        <td>
+                                            <center>0900000009</center>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+
+                            <H4 id="infodelete">DELETE</H4> คือ การลบแถวในตารางที่มีข้อมูลในคอลัมน์ตรงตามเงื่อนไขในการลบข้อมูล ยกตัวอย่างเช่น ลบแถวที่มี emp_id = 0001 แถวที่มี emp_id = 0001 ก็จะถูกลบไปทั้งแถวมี syntax ดังนี้
+                            <br>
+                            <br>
+                            <div class="highlight">
+                                <strong>
+                                 DELETE FROM table-name
+                                WHERE some_column=some_value;
+
+                             </strong>
+                            </div>
+                            <strong>ตัวอย่าง ตาราง Employee</strong>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="info">
+                                        <center>
+                                            <th>
+                                                <center>Emp_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Fname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Lname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Pnumber</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>King</center>
+                                        </td>
+                                        <td>
+                                            <center>SQL</center>
+                                        </td>
+                                        <td>
+                                            <center>0800000001</center>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>0837778888</center>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <center>0003</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>Clever</center>
+                                        </td>
+                                        <td>
+                                            <center>0900000009</center>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <p>ลบข้อมูลในตาราง Employee ดังนี้</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>DELETE FROM Employee
+                                WHERE emp_fname = “King” AND emp_lname = “SQL”;
+                                 </strong>
+                            </div>
+                            <p>ผลลัพธ์</p>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="danger">
+                                        <center>
+                                            <th>
+                                                <center>Emp_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Fname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Lname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Pnumber</center>
+                                            </th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>0837778888</center>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <center>0003</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>Clever</center>
+                                        </td>
+                                        <td>
+                                            <center>0900000009</center>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </p>
+
+
+                    </div>
+                    <!--end Introduction-->
+                </div>
+                <!--end information-->
+
+                <!--start experiment-->
+                <div id="experiment">
+                    <h1 class="page-header"><h1 class="page-header"> <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> ขั้นตอนการทดลอง</h1>
+                    <div id="insert">
+                        <h2>INSERT การเพิ่มข้อมูลลงในตาราง  </h2>
+                        
+                        </p>
+                        <div class="bs-example" data-content="Example">
+                            <p>Step 1.ใช้คำสั่งเพื่เรียกดูข้อมูลทั้งหมดภายในตาราง categories
+                            <div class="highlight">
+                                <strong>select * from categories;</strong>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=3&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <p>Step 2.เพิ่มข้อมูลลงในตาราง categories โดยการเพิ่มข้อมูล
+                            CategoryID ="16" และ CategoryName ="เฟอร์นิเจอร์ห้องน้ำ"</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                
+                                <strong>INSERT INTO categories VALUES("16","เฟอร์นิเจอร์ห้องน้ำ");</strong>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=3&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <p>Step 3.เรียกดูตาราง categories อีกครั้ง เพื่อตรวจสอบการเปลี่ยนแปลง</p>
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q1">1.จงเพิ่มข้อมูลลงในตาราง products โดยมีข้อมูลดังนี้
+                                </p>
+                                <p>- รหัสสินค้า(PID) คือ P09</p>
+                                <p>- ชื่อสินค้า(ProductName) คือ เคาน์เตอร์</p>
+                                <p>- รหัสสินค้า(CategoryID) คือ 16</p>
+                                <p>- ราคา(Price) คือ 200</p>
+                                <p>- จำนวน(InStock) คือ 10</p>
+                                <p>- จำนวนการสั่ง(ReOrderPoint) คือ 3</p>
+                                <p>- ลดราคา(DiscountLimit) คือ 0.1</p>
+                                <p>- บริษัท(SupID) คือ 14</p>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=3&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q1" data-unit="3" data-article="1" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                        </div>
+                        <!--end Introduction-->
+                    </div>
+                    <!--end first -->
+
+                    <div id="update">
+                        <h2>UPDATE การแก้ไขข้อมูลในตาราง  </h2>
+                        <p>เป็นคำสั่งที่เอาไว้ใช้สำหรับการแก้ไขข้อมูลในฐานข้อมูล</p>
+                        โดยใส่คำว่า Update เข้าไปแล้วตามด้วยชื่อตารางที่ต้องการ update ข้อมูล จากนั้นใส่คำว่า set เพื่อเลือกคอลัมน์ที่ต้องการแก้ไขข้อมูลและใส่ค่าข้อมูลใหม่ลงไป เราสามารถใส่หรือแก้ไขได้หลายคอลัมน์ในคำสั่งเดียว จากนั้นใส่ where เพื่อระบุว่าให้เซตที่กรณีไหน
+
+                        
+                        <div class="bs-example" data-content="Example">
+                            <p>ต้องการแก้ไขข้อมูลในตาราง catagories โดยเปลี่ยน ชื่อ categories เฟอร์นิเจอร์ห้องน้ำ เป็น เฟอร์นิเจอร์ทั่วไป</p>
+                            <p>Step 1.ใช้คำสั่งเพื่เรียกดูข้อมูลทั้งหมดภายในตาราง categories</p>
+                            <div class="highlight">
+                                <strong>select * from categories;</strong>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=3&article=2&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <p>Step 2.แก้ไขข้อมูลลงในตาราง categories โดยการแก้ไขข้อมูล
+                            CategoryName ="เฟอร์นิเจอร์ทั่วไป" โดยมี CategoryID="16"</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                
+                                <strong>UPDATE categories SET CategoryName ="เฟอร์นิเจอร์ทั่วไป" WHERE CategoryID="16";</strong>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=3&article=2&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <p>Step 3.เรียกดูตาราง categories อีกครั้ง เพื่อตรวจสอบการเปลี่ยนแปลง</p>
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q2">2.จงแก้ไขข้อมูลลงในตาราง products โดยเปลี่ยนแปลงข้อมูล รหัสสินค้า(PID) คือ P09 ดังนี้
+                                </p>
+                                <p>- ชื่อสินค้า(ProductName) คือ แจกันดอกไม้สไตล์ยุโรป</p>
+                                <p>- ราคา(Price) คือ 150</p>
+                                <p>- บริษัท(SupID) คือ 12</p>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=3&article=2&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q2" data-unit="3" data-article="1" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                        </div>
+                        <!--end Introduction-->
+                    </div>
+                    
+                    <div id="delete">
+                        <h2>DELETE การลบข้อมูลทั้งหมดในตาราง  </h2>
+                        <p>คำสั่งในการลบข้อมูลในตารางข้อมูล โดยสามารถใช้งานรวมกับคำสั่ง WHERE เพื่อสร้างเงื่อนไขสำหรับการลบข้อมูล</p>
+
+                        
+                        <div class="bs-example" data-content="Example">
+                            <p>ต้องการลบข้อมูลในตาราง catagories โดยลบข้อมูลที่มี CategoryID="16"</p>
+                            <p>Step 1.ใช้คำสั่งเพื่เรียกดูข้อมูลทั้งหมดภายในตาราง categories</p>
+                            <div class="highlight">
+                                <strong>select * from categories;</strong>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=3&article=3&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <p>Step 2.ลบข้อมูลลงในตาราง categories โดยการลบข้อมูล
+                            CategoryID="16" ดังนี้</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                
+                                <strong>DELETE FROM categories WHERE CategoryID="16";</strong>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=3&article=3&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <p>Step 3.เรียกดูตาราง categories อีกครั้ง เพื่อตรวจสอบการเปลี่ยนแปลง</p>
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q3">3.จงลบข้อมูลลงในตาราง products ที่มี รหัสสินค้า(PID) คือ P09
+                                </p>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=3&article=3&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q3" data-unit="3" data-article="1" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                        </div>
+                        <!--end Introduction-->
+                    </div>
+
+                </div>
+                <!--end experiment-->
+
+                <div id="Practice">
+                    <h1 class="page-header"> <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> คำถามท้ายการทดลอง</h1>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;ให้นักเรียนตอบคำถามท้ายการทดลอง โดยนักเรียนสามารถทดลองคำสั่งได้จากการกดปุ่ม
+                        <kbd>Try it Yourself </kbd>&nbsp;จากนั้นนำคำตอบ ที่นักเรียนมั่นใจที่สุดส่งคำตอบที่ปุ่ม
+                        <kbd>Send Answer</kbd> ได้เพียงครั้งเดียว</p>
+                    <div class="bs-callout bs-callout-danger">
+                        <div id="1p">
+                            <!-- start first pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p1">1.จงเขียนคำสั่งเพิ่มข้อมูลลูกค้าลงในตาราง customers
+                                    โดย มีข้อมูลดังนี้
+                                    นาย ไกรลาศ แสงสุข ที่อยู่ 28 ถ.เลียบคลองแม่ริม อ.แม่ริม อยู่จังหวัดเชียงใหม่ ภาคเหนือ รหัสไปรษณีย์ 53010 เบอร์โทรติดต่อ 0890070030 PaymentPeriod="0" รหัสลูกค้า C0011
+                                    </p>
+                                    
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=3&article=1&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 1TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p1" data-unit="3" data-article="1" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 1pb-->
+                        </div>
+                        <!--end Practice-->
+                        <br>
+                        <br>
+                        <div id="2p">
+                            <!-- start 2 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p2">2. จากข้อที่ 1 จงแก้ไขข้อมูล เป็น
+                                    นาย เศรษฐี ตลอดไป ที่อยู่ 28 ถ.เลียบคลองแม่ริม อ.แม่ริม อยู่จังหวัดเชียงใหม่ ภาคเหนือ รหัสไปรษณีย์ 53010 เบอร์โทรติดต่อ 0898889999 PaymentPeriod="15" 
+                                    </p>
+                             </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=2&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p2" data-unit="2" data-article="2" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <!--end Practice-->
+                        <br>
+                        <br>
+                        <div id="3p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p3">3. จากข้อ 2 จงลบข้อมูลของ นาย เศรษฐี ตลอดไป</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=3&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p3" data-unit="2" data-article="3" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <br>
+
+          
+                        <!--end Practice-->
+                    </div>
+                </div>
+                <!--end Answer-->
+            </div>
+            <!--end content-->
+
+            <!--start Model-->
+            <div class="modal fade" id="practiceModal" tabindex="-1" role="dialog" aria-labelledby="practiceModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                            </button>
+                            <div>
+                                <h4 class="modal-title" id="practiceHeader"></h4>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div id="status"></div>
+                            <form>
+                                <div class="form-group">
+                                    <label for="message-text" class="control-label" id="practiceQuestion"></label>
+                                    <textarea class="form-control" id="practiceAnswer" rows="10"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-warning" id="sendAnswer">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end model-->
+
+            <!--start index-->
+            <div class="col-md-2">
+                <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+                    <ul class="nav bs-docs-sidenav">
+                        <li class="active">
+                            <a href="#information">ความรู้เบื้องต้น</a>
+                            <ul class="nav">
+                                <li>
+                                    <a href="#insert1">การเพิ่มข้อมูลลงในตารางแบบเรียงลำดับ </a>
+                                </li>
+                                <li>
+                                    <a href="#insert2">การเพิ่มข้อมูลลงในตารางแบบระบุคอลัมน์</a>
+                                </li>
+                                <li>
+                                    <a href="#infoupdate">การแก้ไขข้อมูล(UPDATE)</a>
+                                </li>
+                                <li>
+                                    <a href="#infodelete">การลบข้อมูล(DELETE)</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#experiment">ขั้นตอนการทดลอง</a>
+                            <ul class="nav">
+                                <li>
+                                    <a href="#insert">INSERT การเพิ่มข้อมูลลงในตาราง</a>
+                                </li>
+                                <li>
+                                    <a href="#update">UPDATE การแก้ไขข้อมูล </a>
+                                </li>
+                                <li>
+                                    <a href="#delete">DELETE การลบข้อมูล </a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#Practice">คำถามท้ายการทดลอง</a>
+                        </li>
+                    </ul>
+                    <a class="back-to-top" href="#top">Back to top</a>
+                </nav>
+            </div>
+            <!-- end index-->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</body>
+<footer>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+</footer>
+
+</html>
