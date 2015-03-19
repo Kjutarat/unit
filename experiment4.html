@@ -553,7 +553,7 @@
                     <div id="whereoperater">
                         <h2>การระบุเงื่อนไขในการแสดงข้อมูล(WHERE) โดยใช้ตัวดำเนินการ</h2>
                         <div class="bs-example" data-content="Example">
-                            <h5><strong>Syntax:ตัวดำเนินการวงเล็บ ( )</strong></h5>
+                            <h4>Syntax:ตัวดำเนินการวงเล็บ ( )</h4>
                             <p>&nbsp;&nbsp;&nbsp;&nbsp;เป็นการจัดลำดับความสำคัญโดยการใช้วงเล็บเมื่อมีการใช้ตัวดำเนินการมากกว่าหนึ่งตัวเพื่อให้คำสั่งดำเนินการตามลำดับ ถ้าไม่มีการใส่วงเล็บ
                                 <br>ผลลัพท์ที่ได้ก็อาจจะมีการผิดเพี้ยนไป </p>
                             <div class="highlight">
@@ -634,8 +634,8 @@
                                 <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                             </button>
 
-                            <h5><strong>Syntax:ตัวดำเนินการ NOT</strong></h5>
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;เป็นตัวดำเนินการที่ให้ผลลัพท์ตรงกันข้ามกับคิวรี่โดยสิ้นเชิง โดยใช้สัญลักษณ์
+                            <h4>Syntax:ตัวดำเนินการ NOT</h4>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Step 4. </strong>เป็นตัวดำเนินการที่ให้ผลลัพท์ตรงกันข้ามกับคิวรี่โดยสิ้นเชิง โดยใช้สัญลักษณ์
                                 <> หรือ NOT ได้เลย</p>
 
                             <div class="bs-docs-example" data-content="Example">
@@ -643,13 +643,359 @@
                                 <strong>SELECT  SFirst,city FROM Sales WHERE <code>NOT</code> city =’กรุงเทพ’;</strong>
                             </div>
 
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=8&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+
+
+                            <h4>Syntax:ตัวดำเนินการ AND </h4>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Step 5.</strong> แสดงผลข้อมูลของเซลล์ที่อยู่จังหวัดสมุทรปราการ และมียอดเป้าหมายการขายเท่ากับ 50,000 บาท</p>
+
+                            <div class="bs-docs-example" data-content="Example">
+
+                                <strong>SELECT * FROM Sales WHERE city=’สมุทรปราการ<code>AND</code>  Target sales=’50,000’;</strong>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=8&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <h4>Syntax:ตัวดำเนินการ OR </h4>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Step 6.</strong> แสดงผลข้อมูลของเซลล์ที่อยู่จังหวัดสมุทรปราการ หรือมียอดเป้าหมายการขายเท่ากับ 50,000 บาท</p>
+
+                            <div class="bs-docs-example" data-content="Example">
+
+                                <strong>SELECT * FROM Sales WHERE city=’สมุทรปราการ <code>OR</code> Target sales=’50,000’;</strong>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=8&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q8">8.สังเกตุผลการทดลอง NOT AND และ OR บันทึกผลการทดลอง
+                                </p>
+                            </div>
+
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q8" data-unit="4" data-article="8" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+                            <h4>Syntax:ตัวดำเนินการ BETWEEN</h4>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;ใช้สำหรับระบุช่วงของข้อมูลที่ต้องการ </p>
+                            <div class="highlight">
+                                <strong>
+									WHERE column-name BETWEEN  condition AND condition;
+								</strong>
+                            </div>
+                            <strong>
+								Step 7.</strong> แสดงผลชื่อและนามสกุลของเซลล์ที่มีเป้าหมายการขายระหว่าง 20,000 – 200,000 บาท</p>
+
+                            <div class="bs-docs-example" data-content="Example">
+
+                                <strong>SELECT SFirstName,SLastName FROM Sales WHERE Target sales 
+								BETWEEN ’20,000’ AND ‘2000,000’; 
+								</strong>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=8&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <strong>
+								Step 8.</strong> แสดงผลข้อมูลทั้งหมดของเซลล์ที่มีเป้าหมายการขายระหว่าง 30,000 – 50,000 บาท</p>
+
+                            <div class="bs-docs-example" data-content="Example">
+
+                                <strong>SELECT * FROM Sales WHERE Target sales BETWEEN '30,00'’ AND '50,000';</strong>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=8&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q9">9.สังเกตุผลการทดลอง BETWEEN บันทึกผลการทดลอง
+                                </p>
+                            </div>
+
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q9" data-unit="4" data-article="9" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+
+                            <h4>Syntax:ตัวดำเนินการ LIKE</h4>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;ใช้สำหรับค้นหาตัวอักษรในคอลัมน์ </p>
+                            <div class="highlight">
+                                <strong>
+									WHERE column-name IN  (value1 ,value2,…,value n);
+								</strong>
+                            </div>
+
+                            <strong>
+								Step 9.</strong> แสดงผลชื่อและนามสกุลของเซลล์ที่มี เบอร์โทรศัพท์นำหน้าด้วย 01 /p>
+
+                            <div class="bs-docs-example" data-content="Example">
+
+                                <strong>SELECT SFirstName,SLastName,Phone FROM Sales WHERE Phone like ’01%’; 
+								SHOW DATABASES;
+								</strong>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=10&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <br>
+                            <strong>
+								Step 10.</strong>แสดงผลชื่อและนามสกุลของเซลล์ที่มี เบอร์โทรศัพท์ตำแหน่งที่ 3 คือเลข 8/p>
+
+                            <div class="bs-docs-example" data-content="Example">
+
+                                <strong>SELECT SFirstName,SLastName,Phone FROM Sales WHERE Phone like ’_ _ 8%’; 
+								SHOW DATABASES;
+
+								</strong>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=10&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q10">10.บันทึกผลการทดลอง ตัวดำเนินการ LIKE
+                                </p>
+                            </div>
+
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q10" data-unit="4" data-article="10" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+                            <h4>Syntax:ตัวดำเนินการ IN</h4>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;ตัวดำเนินการนี้มีลักษณะการใช้งานแบบเดียวกับ OR คือค้นหาข้อมูลในคอลัมน์แบบหลายๆค่า เพื่อลดการเขียนคิวรี่แบบ OR ซึ่งต้องเขียนคำสั่งที่ยาวกว่า </p>
+                            <div class="highlight">
+                                <strong>
+									WHERE column-name IN  (value1 ,value2,…,value n);
+								</strong>
+                            </div>
+
+                            <strong>
+								Step 11.</strong> แสดงผลชื่อและนามสกุลของเซลล์ที่มีเป้าหมายการขาย 20,000 และ 200,000 บาท
+
+                            <div class="bs-docs-example" data-content="Example">
+
+                                <strong>SELECT SFirstName,SLastName,Phone FROM Sales WHERE Phone like ’01%’; 
+								</strong>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=11&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q11">11.บันทึกผลการทดลอง ตัวดำเนินการ IN
+                                </p>
+                            </div>
+
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q10" data-unit="4" data-article="11" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+                            <br>
+                        </div>
+
+                        <div id="groupby">
+                            <h2>การจัดกลุ่มของข้อมูล (GROUP BY)</h2>
+                            <div class="bs-example" data-content="Example">
+                                <h4>Syntax:GROUP BY</h4>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;คือการรวมกลุ่มของข้อมูลที่เหมือนกันไว้ให้จัดอยุ่ในกลุ่มเดียวกัน เช่นการรวมกลุ่มของพนักงานที่ทำงานใน ตำแหน่งต่างๆและ นับจำนวนของแต่ละตำแหน่งงานว่ามีจำนวนกี่คน คำสั่งที่ใช้ในการจัดกลุ่มคือ GROUP BY
+                                    <div class="highlight">
+                                        <strong>GROUP BY column-name ;</strong>
+                                    </div>
+                                    <p><strong>Step 1.</strong> ต้องการนับจำนวนพนักงานในแต่ละตำแหน่งว่ามีจำนวนพนักงานเท่าไหร่</p>
+                                    <div class="bs-docs-example" data-content="Example">
+
+                                        <strong>SELECT Position,COUNT (Position) FROM Sales GROUP BY Position;
+								</strong>
+                                    </div>
+
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=12&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+
+                                    <div class="bs-callout bs-callout-warning">
+                                        <p id="q12">12.จงเขียนคำสั่งนับจำนวนพนักงานในแต่ละจังหวัดว่ามีจำนวนพนักงานเท่าไหร่
+                                        </p>
+                                    </div>
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=12&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+
+                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q10" data-unit="4" data-article="12" data-type="1">
+                                        <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                    </button>
+
+
+                            </div>
 
                         </div>
+
+                        <div id="having">
+                            <h2>การจัดกลุ่มข้อมูลแบบกำหนดเงื่อนไข (HAVING)</h2>
+                            <div class="bs-example" data-content="Example">
+                                <h4>Syntax:HAVING</h4>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;จากการทดลองที่ผ่านมาได้ทำการทดลองจัดกลุ่มข้อมูลแล้ว ยังสามารถกำหนดเงื่อนไขได้อีกด้วย โดยใช้ คำสั่ง HAVING จะใช้กับข้อมูลที่ถูกจัดกลุ่มแล้วเท่านั้น ใช้คู่กับคำสั่ง GROUP BY ใช้ WHERE ไม่ได้
+
+                                    <div class="highlight">
+                                        <strong>GROUP BY column-name HAVING (condition) ;</strong>
+                                    </div>
+                                    <p><strong>Step 1.</strong> ต้องการข้อมูลตำแหน่งและนับตำแหน่งจากตาราง Sales โดยจัดเรียงโดยตำแหน่ง ที่มีตำแหน่ง = 4</p>
+                                    <div class="bs-docs-example" data-content="Example">
+
+                                        <strong>SELECT Position,COUNT (Position) FROM Sales GROUP BY Position 
+										HAVING COUNT (Position) =’4’;
+
+								</strong>
+                                    </div>
+
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=13&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+
+                                    <div class="bs-callout bs-callout-warning">
+                                        <p id="q13">13.บันทึกผลการทดลอง
+                                        </p>
+                                    </div>
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=13&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+
+                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q13" data-unit="4" data-article="13" data-type="1">
+                                        <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                    </button>
+
+
+                            </div>
+
+                        </div>
+
+                        <div id="orderby">
+                            <h2>การเรียงลำดับข้อมูล(ORDER BY)</h2>
+                            <div class="bs-example" data-content="Example">
+                                <h4>Syntax:ORDER BY</h4>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;ตามปกติถ้าเราไม่ใช้คำสั่ง ORDER BY ข้อมูลที่แสดงผลออกมาจะจัดเรียงตามในฐานข้อมูลโดยอัตโนมัติ แต่ถ้า ใช้คำสั่ง ORDER BY เราสามารถกำหนดให้ข้อมูลเรียงลำดับจากค่าน้อไปมากย (ASC) หรือ มากไปน้อย(DESC) โดยกำหนดต่อจากหลังชื่อคอลัมน์ได้เลย
+
+
+                                    <div class="highlight">
+                                        <strong>ORDER BY column-name <code>ASC or DESC;</code></strong>
+                                    </div>
+                                    <code>หมายเหตุ</code>
+                                    <p>ASC หมายถึง เรียงข้อมูลจากน้อยไปมาก</p>
+                                    <p>DESC หมายถึง เรียงข้อมูลจากมากไปน้อย</p>
+                                    <p><strong>Step 1.</strong> เรีกดูข้อมูลทั้งหมดจากตาราง Sales โดยจัดเรียงข้อูลจากคอลัมน์ชื่อจริง มากไปน้อย</p>
+                                    <div class="bs-docs-example" data-content="Example">
+
+                                        <strong>SELECT * FROM Sales ORDER BY SFristName DESC;
+
+								</strong>
+                                    </div>
+
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=14&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+
+                                    <p><strong>Step 2.</strong> เรีกดูข้อมูลทั้งหมดจากตาราง Sales โดยจัดเรียงข้อูลจากรหัสพพนักงาน น้อยไปมาก</p>
+                                    <div class="bs-docs-example" data-content="Example">
+
+                                        <strong>SELECT * FROM Sales ORDER BY SID ASC;
+
+								</strong>
+                                    </div>
+
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=14&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+
+                                    <p><strong>Step 3.</strong> เรีกดูข้อมูลเฉพาะคอลัมน์ ชื่อและนามสกุล จากตาราง Sales โดยจัดเรียงข้อูลจากคอลัมน์วันที่จ้างงานจาก น้อยไปมาก</p>
+                                    <div class="bs-docs-example" data-content="Example">
+
+                                        <strong>SELECT SFirstName,SLastName FROM Sales ORDER BY HireDate ASC;
+
+								</strong>
+                                    </div>
+
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=14&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+
+
+                                    <div class="bs-callout bs-callout-warning">
+                                        <p id="q14">14.เขียนคำสั่งเพื่อเรียกดูข้อมูลทั้งหมดจากตาราง Sales โดย เรียงตามจำนวนของพนักงานในแต่ละจังหวัดจาก น้อยไปมาก
+                                        </p>
+                                    </div>
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=14&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+
+                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q14" data-unit="4" data-article="14" data-type="1">
+                                        <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                    </button>
+
+
+                            </div>
+
+                        </div>
+
+                          <div id="limit">
+                            <h2>การจำกัดจำนวนแถว(LIMIT)</h2>
+                            <div class="bs-example" data-content="Example">
+                                <h4>Syntax:LIMIT</h4>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;จำกัดจำนวนเรคคอร์ดที่ต้องการให้แสดงข้อมูล
+
+                                    <div class="highlight">
+                                        <strong>SELECT  *  FROM table-name  LIMIT value;</strong>
+                                    </div>
+                                    <p><strong>Step 1.</strong> จำกัดจำนวนแถวในการแสดงข้อมูลแรก 2 แถว ในตาราง Sales</p>
+                                    <div class="bs-docs-example" data-content="Example">
+
+                                        <strong>SELECT * FROM Sales LIMIT 2;
+
+								</strong>
+                                    </div>
+
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=15&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+
+                                    <div class="bs-callout bs-callout-warning">
+                                        <p id="q13">15.บันทึกผลการทดลอง
+                                        </p>
+                                    </div>
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=15&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+
+                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q13" data-unit="4" data-article="15" data-type="1">
+                                        <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                    </button>
+
+
+                            </div>
+
+                        </div>
+
+
                         <!--end Introduction-->
                     </div>
 
                 </div>
                 <!--end experiment-->
+
+
+
+
+
 
                 <div id="Practice">
                     <h1 class="page-header"> <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> คำถามท้ายการทดลอง</h1>
@@ -872,7 +1218,7 @@
                             <!-- start 3 pratice question -->
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <p id="p12">12.13. จงใช้คำสั่งแสดง รหัสบริษัท ชื่อบริษัท จังหวัด ที่อยู่ในจังหวัด กรุงเทพ หรือ โคราช หรือ มีรหัสไปรษณีย์คือ 53000 โดยเรียงลำดับจากน้อยไปมาก <strong>(กำหนดให้ใช้คำสั่ง OR)</strong>
+                                    <p id="p12">12. จงใช้คำสั่งแสดง รหัสบริษัท ชื่อบริษัท จังหวัด ที่อยู่ในจังหวัด กรุงเทพ หรือ โคราช หรือ มีรหัสไปรษณีย์คือ 53000 โดยเรียงลำดับจากน้อยไปมาก <strong>(กำหนดให้ใช้คำสั่ง OR)</strong>
                                     </p>
                                 </div>
                             </div>
@@ -982,6 +1328,22 @@
                                 </li>
                                 <li>
                                     <a href="#where">การระบุเงื่อนไขในการแสดงข้อมูล(WHERE)</a>
+                                </li>
+
+                                <li>
+                                    <a href="#whereoperater">การระบุเงื่อนไขในการแสดงข้อมูล(WHERE) โดยใช้ตัวดำเนินการ</a>
+                                </li>
+                                <li>
+                                    <a href="#groupby">การจัดกลุ่มของข้อมูล (GROUP BY)</a>
+                                </li>
+                                <li>
+                                    <a href="#having">การจัดกลุ่มข้อมูลแบบกำหนดเงื่อนไข (HAVING)</a>
+                                </li>
+                                <li>
+                                    <a href="#orderby">การเรียงลำดับข้อมูล(ORDER BY)</a>
+                                </li>
+                                <li>
+                                    <a href="#limit">การจำกัดจำนวนแถว(LIMIT)</a>
                                 </li>
 
                             </ul>
