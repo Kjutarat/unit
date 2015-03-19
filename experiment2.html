@@ -560,7 +560,7 @@
                                 <p>Drop Database ex_540303xx_test;</p>
 
                             </div>
-                            
+
                             <div class="bs-callout bs-callout-warning">
                                 <p id="q2">2.ทดลองลบฐานข้อมูล ชื่อ "ex_รหัสนักศึกษาของตนเอง_test;"</p>
 
@@ -634,7 +634,7 @@
 
                             </div>
 
-                             <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=3&type=1')">
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=3&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
 
@@ -935,6 +935,49 @@
 
                     </div>
 
+                    <div id="addanddropcl">
+                        <h2>การเพิ่มและลบคอลัมน์ ในตาราง (Table) </h2>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp; ในการใช้คำสั่งเพิ่มและลบคอลัมน์ สามารถใช้ได้ในอีกรูปแบบหนึ่งคือการเพิ่มและลบคอลัมน์ ภายในคำสั่งเดียวกัน โดยมี syntax ดังต่อไปนี้
+
+                        </p>
+                        <div class="highlight">
+                            <strong>ALTER TABLE table_name <code>ADD</code> column_name1 column_type1,...column_name n column_type n <code>, DROP</code> column_name1,..column_name n;
+                                </strong>
+                        </div>
+                        <code> หมายเหตุ </code>
+                        <br>
+                        <code>คำสั่ง ADD หรือ DROP ขึ้นต้นก่อนก็ได้</code>
+                        <p>table_name&nbsp;คือ ชื่อตาราง</p>
+                        <p>column_name&nbsp;คือ ชื่อคอลัมน์ที่ต้องการลบ</p>
+                        <div class="bs-example" data-content="Example">
+                            <p>Step 1. ทดลองลบคอลัมน์ Telno ในตาราง person และเพิ่มคอลัมน์ Address ชนิดข้อมูล char(100)</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>ALTER TABLE Person ADD Address char(100),DROP Telno;</strong>
+                            </div>
+                            <p>Step 2. ใช้คำสั่ง Describe Person; ดูการเปลี่ยนแปลง</p>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=11&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q12">12. จงเพิ่มคอลัมน์ sex และ ageในตาราง Person พร้อมกับลบคอลัมน์ Nickname โดยใช้คำสั่งเพียงคำสั่งเดียว</p>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=12&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q12" data-unit="2" data-article="12" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
                     <div id="CHclN">
                         <h2>การเปลี่ยนชื่อคอมลัมน์และชนิดข้อมูลในตาราง</h2>
                         <p>&nbsp;&nbsp;&nbsp;&nbsp;คำสั่งนี้จะคล้ายๆกับคำสั่งที่ 5 การเปลี่ยนชื่อ ตาราง (Table) แต่มีการระบุเฉพาะเจาะจงว่าต้องการลบคอลัมน์ไหน ในตารางไหนเพิ่มเข้าไป
@@ -965,20 +1008,20 @@
 
                             <p>ใช้คำสั่ง Describe Person; ดูการเปลี่ยนแปลง</p>
 
-                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=12&type=1')">
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=13&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
 
 
                             <div class="bs-callout bs-callout-warning">
-                                <p id="q12">12.ให้นักเรียนเปลี่ยนชื่อคอลัมน์ "first_name" ในตาราง person เป็น "First_names" </p>
+                                <p id="q13">13.ให้นักเรียนเปลี่ยนชื่อคอลัมน์ "first_name" ในตาราง person เป็น "First_names" </p>
                             </div>
 
-                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=12&type=1')">
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=13&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
 
-                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q12" data-unit="2" data-article="12" data-type="1">
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q13" data-unit="2" data-article="13" data-type="1">
                                 <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                             </button>
 
@@ -1012,7 +1055,7 @@
                             </div>
                             <p>ใช้คำสั่ง Show index FROM Customers; เพื่อตรวจสอบผลลัพท์</p>
 
-                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=13&type=1')">
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=14&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
                             <br>
@@ -1026,15 +1069,15 @@
                             </div>
                             <div class="bs-callout bs-callout-warning">
 
-                                <p id="q13">13.ใช้คำสั่ง Show index FROM Customers; เพื่อตรวจสอบผลลัพท์ พร้อมบันทึกผลการทดลอง</p>
+                                <p id="q14">14.ใช้คำสั่ง Show index FROM Customers; เพื่อตรวจสอบผลลัพท์ พร้อมบันทึกผลการทดลอง</p>
 
                             </div>
 
-                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=13&type=1')">
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=14&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
 
-                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q13" data-unit="2" data-article="13" data-type="1">
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q14" data-unit="2" data-article="14" data-type="1">
                                 <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                             </button>
                         </div>
@@ -1051,22 +1094,163 @@
                             <div class="bs-docs-example" data-content="Example">
                                 ALTER TABLE Customers DROP INDEX customers_name_index;
                             </div>
-                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=121&type=1')">
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=15&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
                             <p>ใช้คำสั่ง Show index FROM Customers; เพื่อตรวจสอบผลลัพท์</p>
                             <div class="bs-callout bs-callout-warning">
-                                <p id="q14">14.ให้นักเรียนลบดัชนี “customers_name_index2” ของตาราง Customers </p>
+                                <p id="q15">15.ให้นักเรียนลบดัชนี “customers_name_index2” ของตาราง Customers </p>
                             </div>
-                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=14&type=1')">
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=15&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
-                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q14" data-unit="2" data-article="14" data-type="1">
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q14" data-unit="2" data-article="15" data-type="1">
                                 <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                             </button>
 
                         </div>
                     </div>
+
+                    <div id="setrelation">
+                        <h2>การสร้างความสัมพันธ์ระหว่างตาราง</h2>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp; ความหมายของ CASCADE นั้นคือ เป็นกฎของ Constraints ในการทำตอน DELETE หรือ UPDATE คือเมื่อมีการ Modify ใด ๆ ในตาราง หลัก ตารางอ้างอิงจะเปลี่ยนตาม FK ที่อ้างอิงกับตารางหลักอยู่ คือเปลี่ยนค่า PK ของตารางหลัก ฟิวส์ที่เป็น FK กับตารางหลักอยู่ จะเปลี่ยนไปตามที่ตารางหลักเปลี่ยนไปคือ</p>
+
+                        <p>- แก้ไขที่ตารางหลักตารางอ้างอิงจะเปลี่ยนไปตามที่ตารางหลักเปลี่ยนแปลงไป</p>
+                        <p>- ลบที่ตารางหลัก ตารางอ้างอิงจะถูกลบไปด้วย ตามรหัสที่อ้างอิงอยู่ โดยมี syntax ดังต่อไปนี้
+                        </p>
+                        <h4>1. CONSTRAINT FOREIGN KEY กำหนดตอนสร้างตาราง</h4>
+                        <p>จะใช้งานร่วมกับ PRIMARY KEY เพื่อสร้างความสัมพันธ์ระหว่าง table</p>
+                        <div class="highlight">
+                            <strong>CREATE TABLE table_name <br>
+                            (<br>
+                                column_name column_type,<br>
+
+                                CONSTRAINT constraint_name FOREIGN KEY ( column_name ) <br>
+                                 REFERENCES table_pk_name ( column_pk_name )<br>
+                                 [ ON UPDATE RESTRICT | CASCADE | SET NULL ]<br>
+                                 [ ON DELETE RESTRICT | CASCADE | SET NULL ]<br>
+                            );<br>
+                                </strong>
+                        </div>
+                        <code>หมายเหตุ</code>
+                        <p>- RESTRICT เป็นค่า default คือ ไม่อนุญาติให้ ลบ หรือ แก้ไข ค่าข้อมูล ใน PRIMARY KEY ได้ ถ้ายังมีค่าข้อมูลใน FOREIGN KEY อยู่
+                            <br>- CASCADE คือ ถ้ามีการลบหรือแก้ไขค่าข้อมูลใน PRIMARY KEY แล้วค่าข้อมูลใน FOREIGN KEY จะเปลี่ยนแปลงตาม
+                            <br> - SET NULL คือ ถ้ามีการลบหรือแก้ไขค่าข้อมูลใน PRIMARY KEY แล้วค่าข้อมูลใน FOREIGN KEY จะเป็นค่า NULL</p>
+
+                        <div class="bs-example" data-content="Example">
+                            <p>Step 1. สร้างตาราง person2</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>CREATE TABLE person2<br>
+                                    (<br>
+                                    id int(11) PRIMARY KEY<br>
+                                    );<br></strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=16&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <p>Step 2. สร้างตาราง member_type</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>CREATE TABLE member_type<br>
+                                        (<br>
+                                         id int(11) PRIMARY KEY,<br>
+                                            name varchar(30)<br>
+                                        );<br></strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=16&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <p>Step 3. สร้างตาราง member และกำหนดความสัมพันธ์ระหว่างตาราง</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>CREATE TABLE member <br>
+                                (<br>
+                                     id int(11) PRIMARY KEY,<br>
+                                     user varchar(15),<br>
+                                     pass varchar(50),<br>
+                                     person_id int(11),<br>
+                                     member_type_id int(11),<br>
+
+                                    <code>CONSTRAINT member_fk_person FOREIGN KEY ( person_id ) <br>REFERENCES person2 ( id ) ON UPDATE CASCADE ON DELETE SET NULL;</code><br>
+                                    );<br></strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=16&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q16">16.ทดลองเพิ่มข้อมูลในตาราง person2 แล้วบันทึกผลการทดลอง </p>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=16&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q16" data-unit="2" data-article="16" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+                        </div>
+
+                        <center>
+                            <h3>หรือ</h3>
+                        </center>
+                        <strong><h4>2. CONSTRAINT FOREIGN KEY กำหนดหลังสร้างตาราง</h4></strong>
+                        <p>จะใช้งานร่วมกับ PRIMARY KEY เพื่อสร้างความสัมพันธ์ระหว่าง table</p>
+                        <div class="highlight">
+                            <strong>
+                               CREATE TABLE table_name<br>
+                            (<br>
+                                column_name column_type<br>
+                            );<br>
+                                ALTER TABLE table_name<br>
+                                ADD CONSTRAINT constraint_name FOREIGN KEY ( column_name )<br>
+                                REFERENCES table_pk_name ( column_pk_name )<br>
+                                [ ON UPDATE RESTRICT | CASCADE | SET NULL ]<br>
+                                [ ON DELETE RESTRICT | CASCADE | SET NULL ];<br>
+                            );<br>
+                                </strong>
+                        </div>
+                        <code>หมายเหตุ</code>
+                        <p>- RESTRICT เป็นค่า default คือ ไม่อนุญาติให้ ลบ หรือ แก้ไข ค่าข้อมูล ใน PRIMARY KEY ได้ ถ้ายังมีค่าข้อมูลใน FOREIGN KEY อยู่
+                            <br>- CASCADE คือ ถ้ามีการลบหรือแก้ไขค่าข้อมูลใน PRIMARY KEY แล้วค่าข้อมูลใน FOREIGN KEY จะเปลี่ยนแปลงตาม
+                            <br> - SET NULL คือ ถ้ามีการลบหรือแก้ไขค่าข้อมูลใน PRIMARY KEY แล้วค่าข้อมูลใน FOREIGN KEY จะเป็นค่า NULL</p>
+
+                        <div class="bs-example" data-content="Example">
+
+                            <p>Step 1.สร้างความสัมพันธ์ระหว่างตาราง memberและตาราง member_type</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>
+                                    ALTER TABLE member<br>
+                                    ADD CONSTRAINT member_fk_member_type FOREIGN KEY
+                                    ( member_type_id )<br>
+                                    REFERENCES member_type ( id )<br>
+                                    ON UPDATE CASCADE ON DELETE SET NULL;<br>
+                                </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=17&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q17">17.ทดลองเพิ่มข้อมูลในตาราง member_type แล้วบันทึกผลการทดลอง </p>
+                            </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=2&article=17&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q17" data-unit="2" data-article="17" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
 
 
 
@@ -1493,10 +1677,16 @@
                                     <a href="#Dcl">การลบคอลัมน์ ในตาราง(Table) </a>
                                 </li>
                                 <li>
+                                    <a href="#addanddropcl">การเพิ่มและลบคอลัมน์ ในตาราง(Table) </a>
+                                </li>
+                                <li>
                                     <a href="#CHclN">การเปลี่ยนชื่อคอมลัมน์และชนิดข้อมูลในตาราง(Table)</a>
                                 </li>
                                 <li>
                                     <a href="#CDindex">การสร้างและลบดัชนี (index)</a>
+                                </li>
+                                <li>
+                                    <a href="#setrelation">การสร้างความสัมพันธ์ระหว่างตาราง</a>
                                 </li>
                             </ul>
                         </li>
