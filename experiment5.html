@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TEMPLATE</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/docs.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <!--start content-->
+            <div class="col-md-10">
+                <!--start head-->
+                <div class="jumbotron text-center">
+                    <h1>ใบงานการทดลองที่ 5</h1>
+                    <p class="lead">การเรียกดูข้อมูลขั้นสูง เรียกดูข้อมูลจากหลายตาราง</p>
+                </div>
+                <!--end head-->
+
+                <!--start information-->
+                <div id="information">
+                    <h1 class="page-header"> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> ความรู้เบื้องต้น</h1>
+                    <div class="bs-callout bs-callout-danger">
+                        <h4>วัตถุประสงค์ในการทดลอง</h4>
+                        <ol>
+                            <li>ผู้เรียนสามารถใช้คำสั่ง INNER JOIN ในการเรียกดูข้อมูลจากหลายตารางได้</li>
+                            <li>ผู้เรียนสามารถใช้คำสั่ง LEFT JOIN ในการเรียกดูข้อมูลจากหลายตารางได้</li>
+                            <li>ผู้เรียนสามารถใช้คำสั่ง RIGHT JOIN ในการเรียกดูข้อมูลจากหลายตารางได้</li>
+                            <li>ผู้เรียนสามารถใช้คำสั่ง FULL JOIN ในการเรียกดูข้อมูลจากหลายตารางได้</li>
+                        </ol>
+                    </div>
+                    <!--end objective-->
+
+                    <div class="bs-callout bs-callout-primary">
+                        <h4>ทฤษฎีก่อนการทดลอง</h4>
+                        <p>
+                            <br><strong>&nbsp;&nbsp;&nbsp;&nbsp;การเรียกดูข้อมูลขั้นสูง เรียกดูข้อมูลจากหลายตาราง</strong>&nbsp;คือ การเรียกดูข้อมูลจากหลายตารางในครั้งเดียว เป็นส่วนหนึ่งในการเรียกดูข้อมูลขั้นสูง ในปัจจุบันฐานข้อมูลที่นิยมใช้มากที่สุดจะเป็นฐานข้อมูลแบบ Relational Database ซึ่งข้อมูลจะถูกเก็บอยู่ในตารางเป็นหมวดหมู่ และเชื่อมโยงความสัมพันธ์เข้าด้วยกัน ดังนั้นถ้าต้องการเรียกดูข้อมูลหลายๆอย่างในคราวเดียวกัน ข้อมูลต่างๆนั้นอาจกระจายอยู่ในหลายๆตาราง เราจึงต้องใช้คำสั่งเรียกดูข้อมูลจากหลายตารางเพื่อให้ได้ข้อมูลที่ต้องการออกมา ซึ่งในภาษา SQL จะมีคำสั่งรองรับการเรียกดูข้อมูลจากหลายตารางออกมาในครั้งเดียวอยู่ 4 คำสั่งได้แก่ INNER JOIN, LEFT JOIN, RIGHT JOIN และ OUTER JOIN ซึ่งแต่ละคำสั่งจะมีจุดเด่นและข้อดีในการเรียกดูฐานข้อมูลที่แตกต่างกันไป
+
+                            <br><strong>&nbsp;&nbsp;&nbsp;&nbsp;Primary Key</strong>&nbsp;คือ คอลัมน์ที่ไม่สามารถมีข้อมูลซ้ำกันได้ และถูกตั้งให้เป็นคอลัมน์หลักในการใช้อ้างอิงถึงข้อมูลในแถวนั้นๆ โดยทั่วไปมักจะเป็นคอลัมน์ id หรือ running number
+
+                            <br><strong>&nbsp;&nbsp;&nbsp;&nbsp;Foreign Key </strong>&nbsp;คือ คอลัมน์ที่เก็บข้อมูลของ Primary Key ของตารางอื่นไว้ แต่ข้อมูลที่เก็บไว้ในคอลัมน์นั้นสามารถซ้ำกันได้ ใช้เป็นตัวอ้างอิงถึง Primary Key ของตารางอื่นตอนทำการเรียกดูข้อมูลจากหลายตาราง
+
+                            <br><strong>&nbsp;&nbsp;&nbsp;&nbsp;การใช้จุด( . )</strong>&nbsp;คือ การอ้างถึงคอลัมน์ที่อยู่ในตารางนั้นๆ มักใช้ตอนชื่อคอลัมน์ของทั้งสองตารางซ้ำกัน จึงต้องระบุด้วยว่าคอลัมน์นั้นมาจากตารางใด เช่น ตาราง Employee มีคอลัมน์ Dep_id และตาราง Department ก็มีคอลัมน์ Dep_id เช่นเดียวกัน ถ้าต้องการอ้างถึงคอลัมน์ Dep_id ที่อยู่ในตาราง Employee จะเขียนได้ดังนี้ Employee.Dep_id แต่ถ้าต้องการอ้างถึงคอลัมน์ Dep_id ที่อยู่ในตาราง Department จะเขียนได้ดังนี้ Department.Dep_id
+                            <br>
+                            <br>
+                    </div>
+                    <!--end Introduction-->
+                </div>
+                <!--end information-->
+
+                <!--start experiment-->
+                <div id="experiment">
+                    <h1 class="page-header"><h1 class="page-header"> <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> ขั้นตอนการทดลอง</h1>
+
+                    <div id="innerjoin">
+                        <h2>INNER JOIN</h2>
+
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;เป็นการจับเอา 2 ตารางมารวมกัน โดยยึดหลักว่าข้อมูลใน Primary Key กับ Foreign Key จะต้องตรงกันทั้ง 2 ตารางถึงจะนำข้อมูลนั้นมาแสดง</p>
+
+                        <center><img src="pic_5/innerjoin.PNG">
+                        </center>
+                        <strong>Syntax:การเรียดูข้อมูลขั้นสูง โดยใช้ INNER JOIN</strong>
+                        <div class="highlight">
+                            <strong>SELECT * FROM table1 <code>INNER JOIN </code> table2 
+                           <code>ON</code>  table1.foreign_key = table2.primary_key;
+                            </strong>
+                        </div>
+                        <code>หมายเหตุ</code>
+                        <p>- table1 หมายถึง ชื่อตารางที่ 1</p>
+                        <p>- table2 หมายถึง ชื่อตารางที่ 2</p>
+
+                        <div class="bs-example" data-content="Example">
+                            <p><strong>Step 1.</strong>ใช้คำสั่งเพื่เรียกดูข้อมูลทั้งหมดภายในตาราง sales;
+                                <div class="highlight">
+                                    <strong>select * from sales;</strong>
+                                </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!--end experiment-->
+
+
+
+
+
+
+            <div id="Practice">
+                <h1 class="page-header"> <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> คำถามท้ายการทดลอง</h1>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;ให้นักเรียนตอบคำถามท้ายการทดลอง โดยนักเรียนสามารถทดลองคำสั่งได้จากการกดปุ่ม
+                    <kbd>Try it Yourself </kbd>&nbsp;จากนั้นนำคำตอบ ที่นักเรียนมั่นใจที่สุดส่งคำตอบที่ปุ่ม
+                    <kbd>Send Answer</kbd> ได้เพียงครั้งเดียว</p>
+
+
+                <div class="bs-callout bs-callout-success">
+                    <center><img src="pic_5/suptable.PNG">
+                    </center>
+                    <br>
+
+                    <div id="1p">
+                        <!-- start first pratice question -->
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p id="p1">1.จงใช้คำสั่งแสดงข้อมูลทั้งหมดของบริษัทที่อยู่ภาคเหนือ หรือ ภาคกลาง
+                                </p>
+
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=1&type=2')">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                        </button>
+                        <!-- end 1TB-->
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p1" data-unit="4" data-article="1" data-type="2">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                        </button>
+                        <!-- end 1pb-->
+                    </div>
+                    <!--end Practice-->
+                    <br>
+                    <br>
+                    <div id="2p">
+                        <!-- start 2 pratice question -->
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p id="p2">2. จงใช้คำสั่งแสดงข้อมูลทั้งหมดของบริษัทที่อยู่ภาคกลาง และ มีรหัสไปรษณีย์คือ 10110
+                                </p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=2&type=2')">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                        </button>
+                        <!-- end 2TB-->
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p2" data-unit="4" data-article="2" data-type="2">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                        </button>
+                        <!-- end 2pb-->
+                    </div>
+                    <!--end Practice-->
+                    <br>
+                    <br>
+                    <div id="3p">
+                        <!-- start 3 pratice question -->
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p id="p3">3.จงใช้คำสั่งแสดง ชื่อบริษัท และเบอร์โทรศัพท์ ที่ชื่อบริษัทนำหน้าด้วย A,C และ R</p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=3&type=2')">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                        </button>
+                        <!-- end 2TB-->
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p3" data-unit="4" data-article="3" data-type="2">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                        </button>
+                        <!-- end 2pb-->
+                    </div>
+                    <br>
+
+                    <div id="4p">
+                        <!-- start 3 pratice question -->
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p id="p4">4.จงใช้คำสั่งแสดง รหัสบริษัท ชื่อบริษัท จังหวัด ที่มีเบอร์โทรศัพท์มีเลข 8 อยู่ </p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=4&type=2')">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                        </button>
+                        <!-- end 2TB-->
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p4" data-unit="4" data-article="4" data-type="2">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                        </button>
+                        <!-- end 2pb-->
+                    </div>
+                    <br>
+
+
+                    <div id="5p">
+                        <!-- start 3 pratice question -->
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p id="p5">5.จงใช้คำสั่งแสดง รหัสบริษัท ชื่อบริษัท จังหวัด ที่มีเบอร์โทรศัพท์เริ่มต้นด้วย 02 </p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=5&type=2')">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                        </button>
+                        <!-- end 2TB-->
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p5" data-unit="4" data-article="5" data-type="2">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                        </button>
+                        <!-- end 2pb-->
+                    </div>
+                    <br>
+
+                    <div id="6p">
+                        <!-- start 3 pratice question -->
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p id="p6">6.จงใช้คำสั่งแสดง รหัสบริษัท ชื่อบริษัท จังหวัด ที่มีเบอร์โทรศัพท์ตำแหน่งที่สามคือเลข 3</p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=6&type=2')">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                        </button>
+                        <!-- end 2TB-->
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p6" data-unit="4" data-article="6" data-type="2">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                        </button>
+                        <!-- end 2pb-->
+                    </div>
+                    <br>
+
+                    <div id="7p">
+                        <!-- start 3 pratice question -->
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p id="p7">7.จงใช้คำสั่งแสดงข้อมูลทั้งหมดที่อยู่ในภาคกลางและมีกี่บริษัท โดยเรียงลำดับจากน้อยไปมากจากชื่อบริษัท</p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=7&type=2')">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                        </button>
+                        <!-- end 2TB-->
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p7" data-unit="4" data-article="7" data-type="2">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                        </button>
+                        <!-- end 2pb-->
+                    </div>
+                    <br>
+
+                    <div id="8p">
+                        <!-- start 3 pratice question -->
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p id="p8">8.จงใช้คำสั่งแสดงจำนวนบริษัทที่อยู่ในแต่ละภาค โดยเรียงจากมากไปน้อย</p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=8&type=2')">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                        </button>
+                        <!-- end 2TB-->
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p8" data-unit="4" data-article="8" data-type="2">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                        </button>
+                        <!-- end 2pb-->
+                    </div>
+                    <br>
+
+                    <div id="9p">
+                        <!-- start 3 pratice question -->
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p id="p9">9.จงใช้คำสั่งแสดงข้อมูลทั้งหมดที่ ไม่ได้อยู่ในภาคกลาง</p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=9&type=2')">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                        </button>
+                        <!-- end 2TB-->
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p9" data-unit="4" data-article="9" data-type="2">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                        </button>
+                        <!-- end 2pb-->
+                    </div>
+                    <br>
+
+                    <div id="10p">
+                        <!-- start 3 pratice question -->
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p id="p10">10.11. จงใช้คำสั่งแสดง รหัสบริษัท ชื่อบริษัท ที่รหัสบริษัทอยู่ในระหว่าง 02-04 โดยเรียงลำดับตามชื่อบริษัท จากมากไปน้อย
+                                </p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=10&type=2')">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                        </button>
+                        <!-- end 2TB-->
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p10" data-unit="4" data-article="10" data-type="2">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                        </button>
+                        <!-- end 2pb-->
+                    </div>
+                    <br>
+
+                    <div id="11p">
+                        <!-- start 3 pratice question -->
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p id="p11">11.จงใช้คำสั่งแสดงข้อมูลทั้งหมดที่ไม่ได้อยู่ในภาคกลาง และ มีเบอร์โทรศัพท์ลงท้ายด้วย 432</p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=11&type=2')">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                        </button>
+                        <!-- end 2TB-->
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p11" data-unit="4" data-article="11" data-type="2">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                        </button>
+                        <!-- end 2pb-->
+                    </div>
+                    <br>
+
+                    <div id="12p">
+                        <!-- start 3 pratice question -->
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p id="p12">12. จงใช้คำสั่งแสดง รหัสบริษัท ชื่อบริษัท จังหวัด ที่อยู่ในจังหวัด กรุงเทพ หรือ โคราช หรือ มีรหัสไปรษณีย์คือ 53000 โดยเรียงลำดับจากน้อยไปมาก <strong>(กำหนดให้ใช้คำสั่ง OR)</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=12&type=2')">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                        </button>
+                        <!-- end 2TB-->
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p12" data-unit="4" data-article="12" data-type="2">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                        </button>
+                        <!-- end 2pb-->
+                    </div>
+                    <br>
+
+                    <div id="13p">
+                        <!-- start 3 pratice question -->
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p id="p13">13.จงใช้คำสั่งแสดง รหัสบริษัท ชื่อบริษัท จังหวัด ที่อยู่ในจังหวัด กรุงเทพ หรือ โคราช หรือ มีรหัสไปรษณีย์คือ 53000 โดยเรียงลำดับจากน้อยไปมาก<strong> (กำหนดให้ใช้คำสั่ง IN)</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=13&type=2')">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                        </button>
+                        <!-- end 2TB-->
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p13" data-unit="4" data-article="13" data-type="2">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                        </button>
+                        <!-- end 2pb-->
+                    </div>
+                    <br>
+
+
+
+
+
+                    <!--end Practice-->
+                </div>
+            </div>
+            <!--end Answer-->
+        </div>
+        <!--end content-->
+
+        <!--start Model-->
+        <div class="modal fade" id="practiceModal" tabindex="-1" role="dialog" aria-labelledby="practiceModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button>
+                        <div>
+                            <h4 class="modal-title" id="practiceHeader"></h4>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div id="status"></div>
+                        <form>
+                            <div class="form-group">
+                                <label for="message-text" class="control-label" id="practiceQuestion"></label>
+                                <textarea class="form-control" id="practiceAnswer" rows="10"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-warning" id="sendAnswer">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end model-->
+
+        <!--start index-->
+        <div class="col-md-2">
+            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+                <ul class="nav bs-docs-sidenav">
+                    <li class="active">
+                        <a href="#information">ความรู้เบื้องต้น</a>
+                        <ul class="nav">
+                            <li>
+                                <a href="#selectsyntax">รูปแบบการใช้งานคำสั่ง SELECT</a>
+                            </li>
+                            <li>
+                                <a href="#selectdt">รายละเอียดการใช้รูปแบบคำสั่ง SELECT</a>
+                            </li>
+                            <li>
+                                <a href="#operater">รายละเอียดตัวดำเนินการ(Operater)</a>
+                            </li>
+                            <li>
+                                <a href="#like">ตัวดำเนินการ LIKE</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#experiment">ขั้นตอนการทดลอง</a>
+                        <ul class="nav">
+                            <li>
+                                <a href="#selectall">คำสั่งเรียกดูข้อมูลทุกคอลัมน์ในตาราง(SELECT)</a>
+                            </li>
+                            <li>
+                                <a href="#selectspecific">คำสั่งเรียกดูข้อมูลเฉพาะคอลัมน์ที่ต้องการ</a>
+                            </li>
+                            <li>
+                                <a href="#where">การระบุเงื่อนไขในการแสดงข้อมูล(WHERE)</a>
+                            </li>
+
+                            <li>
+                                <a href="#whereoperater">การระบุเงื่อนไขในการแสดงข้อมูล(WHERE) โดยใช้ตัวดำเนินการ</a>
+                            </li>
+                            <li>
+                                <a href="#groupby">การจัดกลุ่มของข้อมูล (GROUP BY)</a>
+                            </li>
+                            <li>
+                                <a href="#having">การจัดกลุ่มข้อมูลแบบกำหนดเงื่อนไข (HAVING)</a>
+                            </li>
+                            <li>
+                                <a href="#orderby">การเรียงลำดับข้อมูล(ORDER BY)</a>
+                            </li>
+                            <li>
+                                <a href="#limit">การจำกัดจำนวนแถว(LIMIT)</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#Practice">คำถามท้ายการทดลอง</a>
+                    </li>
+                </ul>
+                <a class="back-to-top" href="#top">Back to top</a>
+            </nav>
+        </div>
+        <!-- end index-->
+    </div>
+    <!-- end row -->
+    </div>
+    <!-- end container -->
+</body>
+
+<footer>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+</footer>
+
+</html>
