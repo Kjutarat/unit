@@ -4,7 +4,6 @@
 <head>
     <title>TEMPLATE</title>
     <meta charset="utf-8">
-
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="./css/docs.min.css">
@@ -22,7 +21,6 @@
                     <p class="lead">การเรียกดูข้อมูลขั้นสูง เรียกดูข้อมูลจากหลายตาราง</p>
                 </div>
                 <!--end head-->
-
                 <!--start information-->
                 <div id="information">
                     <h1 class="page-header"> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> ความรู้เบื้องต้น</h1>
@@ -36,16 +34,12 @@
                         </ol>
                     </div>
                     <!--end objective-->
-
                     <div class="bs-callout bs-callout-primary">
                         <h4>ทฤษฎีก่อนการทดลอง</h4>
                         <p>
                             <br><strong>&nbsp;&nbsp;&nbsp;&nbsp;การเรียกดูข้อมูลขั้นสูง เรียกดูข้อมูลจากหลายตาราง</strong>&nbsp;คือ การเรียกดูข้อมูลจากหลายตารางในครั้งเดียว เป็นส่วนหนึ่งในการเรียกดูข้อมูลขั้นสูง ในปัจจุบันฐานข้อมูลที่นิยมใช้มากที่สุดจะเป็นฐานข้อมูลแบบ Relational Database ซึ่งข้อมูลจะถูกเก็บอยู่ในตารางเป็นหมวดหมู่ และเชื่อมโยงความสัมพันธ์เข้าด้วยกัน ดังนั้นถ้าต้องการเรียกดูข้อมูลหลายๆอย่างในคราวเดียวกัน ข้อมูลต่างๆนั้นอาจกระจายอยู่ในหลายๆตาราง เราจึงต้องใช้คำสั่งเรียกดูข้อมูลจากหลายตารางเพื่อให้ได้ข้อมูลที่ต้องการออกมา ซึ่งในภาษา SQL จะมีคำสั่งรองรับการเรียกดูข้อมูลจากหลายตารางออกมาในครั้งเดียวอยู่ 4 คำสั่งได้แก่ INNER JOIN, LEFT JOIN, RIGHT JOIN และ OUTER JOIN ซึ่งแต่ละคำสั่งจะมีจุดเด่นและข้อดีในการเรียกดูฐานข้อมูลที่แตกต่างกันไป
-
                             <br><strong>&nbsp;&nbsp;&nbsp;&nbsp;Primary Key</strong>&nbsp;คือ คอลัมน์ที่ไม่สามารถมีข้อมูลซ้ำกันได้ และถูกตั้งให้เป็นคอลัมน์หลักในการใช้อ้างอิงถึงข้อมูลในแถวนั้นๆ โดยทั่วไปมักจะเป็นคอลัมน์ id หรือ running number
-
                             <br><strong>&nbsp;&nbsp;&nbsp;&nbsp;Foreign Key </strong>&nbsp;คือ คอลัมน์ที่เก็บข้อมูลของ Primary Key ของตารางอื่นไว้ แต่ข้อมูลที่เก็บไว้ในคอลัมน์นั้นสามารถซ้ำกันได้ ใช้เป็นตัวอ้างอิงถึง Primary Key ของตารางอื่นตอนทำการเรียกดูข้อมูลจากหลายตาราง
-
                             <br><strong>&nbsp;&nbsp;&nbsp;&nbsp;การใช้จุด( . )</strong>&nbsp;คือ การอ้างถึงคอลัมน์ที่อยู่ในตารางนั้นๆ มักใช้ตอนชื่อคอลัมน์ของทั้งสองตารางซ้ำกัน จึงต้องระบุด้วยว่าคอลัมน์นั้นมาจากตารางใด เช่น ตาราง Employee มีคอลัมน์ Dep_id และตาราง Department ก็มีคอลัมน์ Dep_id เช่นเดียวกัน ถ้าต้องการอ้างถึงคอลัมน์ Dep_id ที่อยู่ในตาราง Employee จะเขียนได้ดังนี้ Employee.Dep_id แต่ถ้าต้องการอ้างถึงคอลัมน์ Dep_id ที่อยู่ในตาราง Department จะเขียนได้ดังนี้ Department.Dep_id
                             <br>
                             <br>
@@ -53,16 +47,12 @@
                     <!--end Introduction-->
                 </div>
                 <!--end information-->
-
                 <!--start experiment-->
                 <div id="experiment">
                     <h1 class="page-header"><h1 class="page-header"> <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> ขั้นตอนการทดลอง</h1>
-
                     <div id="innerjoin">
                         <h2>INNER JOIN</h2>
-
                         <p>&nbsp;&nbsp;&nbsp;&nbsp;เป็นการจับเอา 2 ตารางมารวมกัน โดยยึดหลักว่าข้อมูลใน Primary Key กับ Foreign Key จะต้องตรงกันทั้ง 2 ตารางถึงจะนำข้อมูลนั้นมาแสดง</p>
-
                         <center><img src="pic_5/innerjoin.PNG">
                         </center>
                         <strong>Syntax:การเรียดูข้อมูลขั้นสูง โดยใช้ INNER JOIN</strong>
@@ -74,390 +64,2123 @@
                         <code>หมายเหตุ</code>
                         <p>- table1 หมายถึง ชื่อตารางที่ 1</p>
                         <p>- table2 หมายถึง ชื่อตารางที่ 2</p>
-
                         <div class="bs-example" data-content="Example">
-                            <p><strong>Step 1.</strong>ใช้คำสั่งเพื่เรียกดูข้อมูลทั้งหมดภายในตาราง sales;
+                            <strong>ตัวอย่าง ตาราง E5_Branch</strong>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="danger">
+                                        <center>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_name</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>Singapore</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>4</center>
+                                        </td>
+                                        <td>
+                                            <center>Italy</center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <strong>ตัวอย่าง ตาราง E5_Employee</strong>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="info">
+                                        <center>
+                                            <th>
+                                                <center>Emp_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Fname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Lname</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>Alan</center>
+                                        </td>
+                                        <td>
+                                            <center>Turing.</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0003</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>Clever</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0004</center>
+                                        </td>
+                                        <td>
+                                            <center>David</center>
+                                        </td>
+                                        <td>
+                                            <center>Beckham</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0005</center>
+                                        </td>
+                                        <td>
+                                            <center>Christopher</center>
+                                        </td>
+                                        <td>
+                                            <center>Columbus</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <strong>ตัวอย่างคำสั่ง ต้องการเรียกดูว่าพนักงานแต่ละคนอยู่สาขาใดบ้าง </strong>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> SELECT * FROM E5_Employee INNER JOIN E5_Branch 
+                                ON Employee.branch_id = Branch.branch_id;</strong>
+                            </div>
+                            <strong>ผลลัพธ์</strong>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="success">
+                                        <center>
+                                            <th>
+                                                <center>Emp_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Fname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Lname</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_name</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>Alan</center>
+                                        </td>
+                                        <td>
+                                            <center>Turing.</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0004</center>
+                                        </td>
+                                        <td>
+                                            <center>David</center>
+                                        </td>
+                                        <td>
+                                            <center>Beckham</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>Singapore</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0003</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>Clever</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0005</center>
+                                        </td>
+                                        <td>
+                                            <center>Christopher</center>
+                                        </td>
+                                        <td>
+                                            <center>Columbus</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <p><strong>Step 1.</strong>ใช้คำสั่งเพื่เรียกดูข้อมูลทั้งหมดภายในตาราง products;
                                 <div class="highlight">
-                                    <strong>select * from sales;</strong>
+                                    <strong>select * from products;</strong>
                                 </div>
+                                <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=1&type=1')">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                </button>
+                                <p><strong>Step 2.</strong>ใช้คำสั่งเพื่เรียกดูข้อมูลทั้งหมดภายในตาราง suppliers;
+                                    <div class="highlight">
+                                        <strong>select * from suppliers;</strong>
+                                    </div>
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=1&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+                                    <p><strong>Step 3.</strong>ใช้คำสั่งเพื่เรียกดูข้อมูล ทั้งหมดของสินค้าและผู้ผลิตสินค้า
+                                        <div class="highlight">
+                                            <strong>SELECT * FROM products LEFT JOIN suppliers
+                                        ON products.SupID = suppliers.SupID;
+                                    </strong>
+                                        </div>
+                                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=1&type=1')">
+                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                        </button>
+                                        <p><strong>Step 4.</strong>จาก Step 3 ทดลองเปลี่ยนคำสั่งเป็นดังนี้
+                                            <div class="highlight">
+                                                <strong>SELECT * FROM suppliers LEFT JOIN products
+                                    ON suppliers.SupID = products.SupID;</strong>
+                                            </div>
+                                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=1&type=1')">
+                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                            </button>
+                                            <div class="bs-callout bs-callout-warning">
+                                                <p id="q1">1.จงเขียนคำสั่งเพื่อเรียกดูข้อมูลในตาราง orders และตาราง orderdetails ภายใตคำสั่งเดียว
+                                                </p>
+                                            </div>
+                                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=1&type=1')">
+                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                            </button>
+                                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q1" data-unit="5" data-article="1" data-type="1">
+                                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                            </button>
+                        </div>
+                    </div>
+                    <div id="leftjoin">
+                        <h2>LEFT JOIN </h2>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;คือ การจับ 2 ตารางมารวมกัน โดยยึดหลักเอาฝั่งซ้ายมาทั้งหมด ส่วนฝั่งขวาเอามาเฉพาะแถวที่มี Primary Key ตรงกับ Foreign Key</p>
+                        <center><img src="pic_5/leftjoin.PNG">
+                        </center>
+                        <strong>Syntax:การเรียดูข้อมูลขั้นสูง โดยใช้ LEFT JOIN</strong>
+                        <div class="highlight">
+                            <strong>SELECT * FROM table1 <code>LEFT JOIN </code> table2 
+                            <code>ON</code> table1. foreign_key = table2.primary_key;
 
+                            </strong>
+                        </div>
+                        <code>หมายเหตุ</code>
+                        <p>- table1 หมายถึง ชื่อตารางที่ 1</p>
+                        <p>- table2 หมายถึง ชื่อตารางที่ 2</p>
+                        <div class="bs-example" data-content="Example">
+                            <strong>ตัวอย่าง ตาราง E5_Branch</strong>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="danger">
+                                        <center>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_name</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>Singapore</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>4</center>
+                                        </td>
+                                        <td>
+                                            <center>Italy</center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <strong>ตัวอย่าง ตาราง E5_Employee</strong>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="info">
+                                        <center>
+                                            <th>
+                                                <center>Emp_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Fname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Lname</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>Alan</center>
+                                        </td>
+                                        <td>
+                                            <center>Turing.</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0003</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>Clever</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0004</center>
+                                        </td>
+                                        <td>
+                                            <center>David</center>
+                                        </td>
+                                        <td>
+                                            <center>Beckham</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0005</center>
+                                        </td>
+                                        <td>
+                                            <center>Christopher</center>
+                                        </td>
+                                        <td>
+                                            <center>Columbus</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <strong>ตัวอย่างคำสั่ง LEFT JOIN</strong>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> SELECT * FROM E5_Branch LEFT JOIN E5_Employee 
+                                        ON Branch.branch_id = Employee.branch_id;
+                                </strong>
+                            </div>
+                            <strong>ผลลัพธ์</strong>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="success">
+                                        <center>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_name</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Fname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Lname</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>Alan</center>
+                                        </td>
+                                        <td>
+                                            <center>Turing</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>Singapore</center>
+                                        </td>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                        <td>
+                                            <center>0003</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>Clever</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                        <td>
+                                            <center>0004</center>
+                                        </td>
+                                        <td>
+                                            <center>David</center>
+                                        </td>
+                                        <td>
+                                            <center>Beckham</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                        <td>
+                                            <center>0005</center>
+                                        </td>
+                                        <td>
+                                            <center>Christopher</center>
+                                        </td>
+                                        <td>
+                                            <center>Columbus</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>4</center>
+                                        </td>
+                                        <td>
+                                            <center>Italy</center>
+                                        </td>
+                                        <td>
+                                            <center>NULL</center>
+                                        </td>
+                                        <td>
+                                            <center>NULL</center>
+                                        </td>
+                                        <td>
+                                            <center>NULL</center>
+                                        </td>
+                                        <td>
+                                            <center>NULL</center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <strong>ข้อสังเกต</strong>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;ตาราง Branch เป็นตารางที่อยู่ฝั่งซ้ายจึงถูกดึงออกมาทุก row ทั้งที่ Branch_id : 4 ไม่มีในตาราง Employee ดังนั้นในส่วนของตาราง Employee ในแถวของ Branch_id : 4 จึงมีค่าเป็น Null สามารถนำประโยชน์ไปใช้ได้เช่น ต้องการรู้ว่าแต่ละสาขามีพนักงานคนใดบ้างและสาขาไหนไม่มีพนักงาน
+                                <br> &nbsp;&nbsp;&nbsp;&nbsp;ถ้าเลือกเอาตารางซ้ายเป็น E5_Employee ก็จะได้ตารางรวมแบบเดียวกับ INNER JOIN เพราะตารางฝั่งซ้ายมี Branch_id : 1 ถึง 3 ดังนั้นก็จะเอาฝั่งซ้ายออกมาลงตารางทั้งหมด ส่วนฝั่งขวา(ตาราง E5_Branch) ก็จะเลือกเอาแค่ Branch_id : 1 ถึง 3 ออกมาแสดงส่วนแถวที่มี Branch_id : 4 จะไม่นำมาแสดง ทำให้ไม่เห็นค่า Null ดังตัวอย่างข้างล่าง</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>SELECT * FROM E5_Employee LEFT JOIN E5_Branch
+                                        ON Employee.branch_id = Branch.branch_id;
+                                 </strong>
+                            </div>
+                            <strong>ผลลัพธ์</strong>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="success">
+                                        <center>
+                                            <th>
+                                                <center>Emp_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Fname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Lname</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_name</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>Alan</center>
+                                        </td>
+                                        <td>
+                                            <center>Turing</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0004</center>
+                                        </td>
+                                        <td>
+                                            <center>David</center>
+                                        </td>
+                                        <td>
+                                            <center>Beckham</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>Singapore</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0003</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>Clever</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0005</center>
+                                        </td>
+                                        <td>
+                                            <center>Christopher</center>
+                                        </td>
+                                        <td>
+                                            <center>Columbus</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <p><strong>Step 1.</strong>ใช้คำสั่งเพื่เรียกดูข้อมูลทั้งหมดภายในตาราง products;
+                                <div class="highlight">
+                                    <strong>select * from products;</strong>
+                                </div>
+                                <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=2&type=1')">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                </button>
+                                <p><strong>Step 2.</strong>ใช้คำสั่งเพื่เรียกดูข้อมูลทั้งหมดภายในตาราง categories;
+                                    <div class="highlight">
+                                        <strong>select * from categories;</strong>
+                                    </div>
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=2&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+                                    <p><strong>Step 3.</strong>ใช้คำสั่งเพื่เรียกดูข้อมูล ทั้งหมดของตารา products และ categories โดยใช้คำสั่ง LEFT JOIN
+                                        <div class="highlight">
+                                            <strong>SELECT * FROM categories LEFT JOIN products
+                                            ON categories.CategoryID = products.CategoryID;
+                                    </strong>
+                                        </div>
+                                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=2&type=1')">
+                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                        </button>
+                                        <p><strong>Step 4.</strong>จาก Step 3 ทดลองเปลี่ยนคำสั่งเป็นดังนี้
+                                            <div class="highlight">
+                                                <strong>SELECT * FROM products LEFT JOIN categories
+                                    ON products.SupID = categories.SupID;</strong>
+                                            </div>
+                                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=2&type=1')">
+                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                            </button>
+                                            <div class="bs-callout bs-callout-warning">
+                                                <p id="q2">2.บันทึกผลการทดลอง
+                                                </p>
+                                            </div>
+                                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=2&type=1')">
+                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                            </button>
+                                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q2" data-unit="5" data-article="2" data-type="1">
+                                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                            </button>
+                        </div>
+                    </div>
+                    <div id="rightjoin">
+                        <h2>RIGHT JOIN </h2>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;คือ การจับ 2 ตารางมารวมกัน โดยยึดหลักเอาฝั่งขวามาทั้งหมด ส่วนฝั่งซ้ายเอามาเฉพาะแถวที่มี Primary Key ตรงกับ Foreign Key </p>
+                        <center><img src="pic_5/rightjoin.PNG">
+                        </center>
+                        <strong>Syntax:การเรียดูข้อมูลขั้นสูง โดยใช้ RIGHT JOIN </strong>
+                        <div class="highlight">
+                            <strong>SELECT * FROM table1 <code>RIGHT JOIN</code>table2 
+                                    <code>ON</code> table1. foreign_key = table2.primary_key;
+
+
+                            </strong>
+                        </div>
+                        <code>หมายเหตุ</code>
+                        <p>- table1 หมายถึง ชื่อตารางที่ 1</p>
+                        <p>- table2 หมายถึง ชื่อตารางที่ 2</p>
+                        <div class="bs-example" data-content="Example">
+                            <strong>ตัวอย่าง ตาราง E5_Branch</strong>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="danger">
+                                        <center>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_name</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>Singapore</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>4</center>
+                                        </td>
+                                        <td>
+                                            <center>Italy</center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <strong>ตัวอย่าง ตาราง E5_Employee</strong>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="info">
+                                        <center>
+                                            <th>
+                                                <center>Emp_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Fname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Lname</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>Alan</center>
+                                        </td>
+                                        <td>
+                                            <center>Turing.</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0003</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>Clever</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0004</center>
+                                        </td>
+                                        <td>
+                                            <center>David</center>
+                                        </td>
+                                        <td>
+                                            <center>Beckham</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0005</center>
+                                        </td>
+                                        <td>
+                                            <center>Christopher</center>
+                                        </td>
+                                        <td>
+                                            <center>Columbus</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <strong>ตัวอย่างคำสั่ง RIGHT JOIN</strong>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> SELECT * FROM E5_Employee RIGHT JOIN E5_Branch
+                                        ON Employee.branch_id = Branch.branch_id;
+
+                                </strong>
+                            </div>
+                            <strong>ผลลัพธ์</strong>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="success">
+                                        <center>
+                                            <th>
+                                                <center>Emp_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Fname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Lname</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_name</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>Alan</center>
+                                        </td>
+                                        <td>
+                                            <center>Turing</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>Singapore</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0003</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0004</center>
+                                        </td>
+                                        <td>
+                                            <center>David</center>
+                                        </td>
+                                        <td>
+                                            <center>Beckham</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>005</center>
+                                        </td>
+                                        <td>
+                                            <center>Christopher</center>
+                                        </td>
+                                        <td>
+                                            <center>Columbus</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0004</center>
+                                        </td>
+                                        <td>
+                                            <center>NULL</center>
+                                        </td>
+                                        <td>
+                                            <center>NULL</center>
+                                        </td>
+                                        <td>
+                                            <center>NULL</center>
+                                        </td>
+                                        <td>
+                                            <center>NULL</center>
+                                        </td>
+                                        <td>
+                                            <center>Italy</center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <strong>ข้อสังเกต</strong>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;ตารางซ้ายจะเป็น E5_Employee เพราะ ผู้เขียนต้องการให้เห็นภาพการ RIGHT JOIN คือ การรวมกันของตารางจะเอาข้อมูลทั้งหมดในฝั่งขวาออกมา ส่วนฝั่งซ้ายจะเอาแถวที่มี Primary Key ตรงกับ Foreign Key ออกมาเท่านั้น (Employee.branch_id = Branch.branch_id) จึงทำให้เกิด Null
+                                <br> &nbsp;&nbsp;&nbsp;&nbsp;ถ้าเลือกเอาตารางซ้ายเป็น E5_Branch ก็จะได้ตารางรวมแบบเดียวกับ INNER JOIN เพราะตารางฝั่งขวาคือ E5_Employee ซึ่งมี Branch_id : 1 ถึง 3 ดังนั้นก็จะเอาฝั่งขวาออกมาลงตารางทั้งหมด ส่วนฝั่งซ้ายก็จะเลือกเอาแค่ Branch_id : 1 ถึง 3 ออกมาแสดงส่วนแถวที่มี Branch_id : 4 จะไม่นำมาแสดง ทำให้ไม่เห็นค่า Null ดังตัวอย่างข้างล่าง</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>SELECT * FROM E5_Branch RIGHT JOIN E5_Employee
+                                        ON Branch.branch_id = Employee.branch_id;
+                                 </strong>
+                            </div>
+                            <strong>ผลลัพธ์</strong>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="success">
+                                        <center>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_name</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Fname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Lname</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                        <td>
+                                            <center>001</center>
+                                        </td>
+                                        <td>
+                                            <center>Alan</center>
+                                        </td>
+                                        <td>
+                                            <center>Turing</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                        <td>
+                                            <center>004</center>
+                                        </td>
+                                        <td>
+                                            <center>David</center>
+                                        </td>
+                                        <td>
+                                            <center>Beckham</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>Singapore</center>
+                                        </td>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                        <td>
+                                            <center>0003</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>Clever</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                        <td>
+                                            <center>0005</center>
+                                        </td>
+                                        <td>
+                                            <center>Christopher</center>
+                                        </td>
+                                        <td>
+                                            <center>Columbus</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <p><strong>Step 1.</strong>ใช้คำสั่งเพื่เรียกดูข้อมูลทั้งหมดภายในตาราง products;
+                                <div class="highlight">
+                                    <strong>select * from products;</strong>
+                                </div>
+                                <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=3&type=1')">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                </button>
+                                <p><strong>Step 2.</strong>ใช้คำสั่งเพื่เรียกดูข้อมูลทั้งหมดภายในตาราง categories;
+                                    <div class="highlight">
+                                        <strong>select * from categories;</strong>
+                                    </div>
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=3&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+                                    <p><strong>Step 3.</strong>ใช้คำสั่งเพื่เรียกดูข้อมูล ทั้งหมดของตารา products และ categories โดยใช้คำสั่ง RIGHT JOIN
+                                        <div class="highlight">
+                                            <strong>SELECT * FROM categories RIGHT JOIN products
+                                            ON categories.CategoryID = products.CategoryID;
+                                    </strong>
+                                        </div>
+                                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=3&type=1')">
+                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                        </button>
+                                        <p><strong>Step 4.</strong>จาก Step 3 ทดลองเปลี่ยนคำสั่งเป็นดังนี้
+                                            <div class="highlight">
+                                                <strong>SELECT * FROM products RIGHT JOIN categories
+                                    ON products.SupID = categories.SupID;</strong>
+                                            </div>
+                                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=3&type=1')">
+                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                            </button>
+                                            <div class="bs-callout bs-callout-warning">
+                                                <p id="q3">3.บันทึกผลการทดลอง
+                                                </p>
+                                            </div>
+                                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=3&type=1')">
+                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                            </button>
+                                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q3" data-unit="5" data-article="3" data-type="1">
+                                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                            </button>
+                        </div>
+                    </div>
+                    <div id="fulljoin">
+                        <h2>FULL JOIN </h2>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;การจับเอาตาราง 2 ตาราง มารวมกัน โดยเอาทั้งหมดของตารางฝั่งซ้ายและฝั่งขวาออกมาแสดง ซึ่งจำนวนแถวที่แสดงทั้งหมดจะสามารถคำนวณได้จาก จำนวนแถวของตารางที่1 คูณด้วย จำนวนแถวของตารางที่2 (ผลคูณคาร์ทีเซียน)</p>
+                        <center><img src="pic_5/fulljoin.PNG">
+                        </center>
+                        <strong>Syntax:การเรียดูข้อมูลขั้นสูง โดยใช้ FULL JOIN </strong>
+                        <div class="highlight">
+                            <strong>SELECT * FROM table1 FULL JOIN table2;
+                           </strong>
+                        </div>
+                        <code>หมายเหตุ</code>
+                        <p>- table1 หมายถึง ชื่อตารางที่ 1</p>
+                        <p>- table2 หมายถึง ชื่อตารางที่ 2</p>
+                        <div class="bs-example" data-content="Example">
+                            <strong>ตัวอย่าง ตาราง E5_Branch</strong>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="danger">
+                                        <center>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_name</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>Singapore</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>4</center>
+                                        </td>
+                                        <td>
+                                            <center>Italy</center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <strong>ตัวอย่าง ตาราง E5_Employee</strong>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="info">
+                                        <center>
+                                            <th>
+                                                <center>Emp_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Fname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Lname</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>Alan</center>
+                                        </td>
+                                        <td>
+                                            <center>Turing.</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0003</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>Clever</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0004</center>
+                                        </td>
+                                        <td>
+                                            <center>David</center>
+                                        </td>
+                                        <td>
+                                            <center>Beckham</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0005</center>
+                                        </td>
+                                        <td>
+                                            <center>Christopher</center>
+                                        </td>
+                                        <td>
+                                            <center>Columbus</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <strong>ตัวอย่างคำสั่ง FULL JOIN</strong>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> SELECT * FROM E5_Employee FULL JOIN E5_Branch;
+                                </strong>
+                            </div>
+                            <strong>ผลลัพธ์</strong>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="success">
+                                        <center>
+                                            <th>
+                                                <center>Emp_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Fname</center>
+                                            </th>
+                                            <th>
+                                                <center>Emp_Lname</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_id</center>
+                                            </th>
+                                            <th>
+                                                <center>Branch_name</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>Alan</center>
+                                        </td>
+                                        <td>
+                                            <center>Turing</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>Alan</center>
+                                        </td>
+                                        <td>
+                                            <center>Turing</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>Singapore</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>Alan</center>
+                                        </td>
+                                        <td>
+                                            <center>Turing</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0001</center>
+                                        </td>
+                                        <td>
+                                            <center>Alan</center>
+                                        </td>
+                                        <td>
+                                            <center>Turing</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>4</center>
+                                        </td>
+                                        <td>
+                                            <center>Italy</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>Singapore</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0002</center>
+                                        </td>
+                                        <td>
+                                            <center>Michael</center>
+                                        </td>
+                                        <td>
+                                            <center>Scofield</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>4</center>
+                                        </td>
+                                        <td>
+                                            <center>Italy</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0003</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>Clever</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0003</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>Clever</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>Singapore</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0003</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>Clever</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0003</center>
+                                        </td>
+                                        <td>
+                                            <center>Mega</center>
+                                        </td>
+                                        <td>
+                                            <center>Clever</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>4</center>
+                                        </td>
+                                        <td>
+                                            <center>Italy</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0004</center>
+                                        </td>
+                                        <td>
+                                            <center>David</center>
+                                        </td>
+                                        <td>
+                                            <center>Beckham</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0004</center>
+                                        </td>
+                                        <td>
+                                            <center>David</center>
+                                        </td>
+                                        <td>
+                                            <center>Beckham</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>Singapore</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0004</center>
+                                        </td>
+                                        <td>
+                                            <center>David</center>
+                                        </td>
+                                        <td>
+                                            <center>Beckham</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0004</center>
+                                        </td>
+                                        <td>
+                                            <center>David</center>
+                                        </td>
+                                        <td>
+                                            <center>Beckham</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>4</center>
+                                        </td>
+                                        <td>
+                                            <center>Italy</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0005</center>
+                                        </td>
+                                        <td>
+                                            <center>Christopher</center>
+                                        </td>
+                                        <td>
+                                            <center>Columbus</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>1</center>
+                                        </td>
+                                        <td>
+                                            <center>U.S.</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0005</center>
+                                        </td>
+                                        <td>
+                                            <center>Christopher</center>
+                                        </td>
+                                        <td>
+                                            <center>Columbus</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>2</center>
+                                        </td>
+                                        <td>
+                                            <center>Singapore</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0005</center>
+                                        </td>
+                                        <td>
+                                            <center>Christopher</center>
+                                        </td>
+                                        <td>
+                                            <center>Columbus</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>Thailand</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>0005</center>
+                                        </td>
+                                        <td>
+                                            <center>Christopher</center>
+                                        </td>
+                                        <td>
+                                            <center>Columbus</center>
+                                        </td>
+                                        <td>
+                                            <center>3</center>
+                                        </td>
+                                        <td>
+                                            <center>4</center>
+                                        </td>
+                                        <td>
+                                            <center>Italy</center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <strong>ข้อสังเกต</strong>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;ผลลัพธ์ที่ได้จากการ FULL JOIN คือจำนวน Primary Key ของทั้ง 2 ตารางคูณกัน
+                            </p>
+                            <img src="pic_5/fulljoin2.PNG">
+                            <p><strong>Step 1.</strong>ใช้คำสั่งเพื่เรียกดูข้อมูลทั้งหมดภายในตาราง orders;
+                                <div class="highlight">
+                                    <strong>select * from orders;</strong>
+                                </div>
+                                <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=4&type=1')">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                </button>
+                                <p><strong>Step 2.</strong>ใช้คำสั่งเพื่เรียกดูข้อมูลทั้งหมดภายในตาราง sales;
+                                    <div class="highlight">
+                                        <strong>select * from sales;</strong>
+                                    </div>
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=4&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+                                    <p><strong>Step 3.</strong>ใช้คำสั่งเพื่เรียกดูข้อมูล ทั้งหมดของตารา orders และ sales โดยใช้คำสั่ง FULL JOIN
+                                        <div class="highlight">
+                                            <strong>SELECT * FROM orders FULL JOIN sales;
+                                    </strong>
+                                        </div>
+                                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=4&type=1')">
+                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                        </button>
+                                        <p><strong>Step 4.</strong>จาก Step 3 ทดลองเปลี่ยนคำสั่งเป็นดังนี้
+                                            <div class="highlight">
+                                                <strong>SELECT * FROM sales FULL JOIN orders;</strong>
+                                            </div>
+                                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=4&type=1')">
+                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                            </button>
+                                            <div class="bs-callout bs-callout-warning">
+                                                <p id="q4">4. ใช้คำสั่ง FULL JOIN ระหว่างตาราง suppliers และ sales
+                                                </p>
+                                            </div>
+                                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=4&type=1')">
+                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                            </button>
+                                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q4" data-unit="5" data-article="4" data-type="1">
+                                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                            </button>
+                        </div>
                     </div>
                 </div>
-
-            </div>
-            <!--end experiment-->
-
-
-
-
-
-
-            <div id="Practice">
-                <h1 class="page-header"> <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> คำถามท้ายการทดลอง</h1>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;ให้นักเรียนตอบคำถามท้ายการทดลอง โดยนักเรียนสามารถทดลองคำสั่งได้จากการกดปุ่ม
-                    <kbd>Try it Yourself </kbd>&nbsp;จากนั้นนำคำตอบ ที่นักเรียนมั่นใจที่สุดส่งคำตอบที่ปุ่ม
-                    <kbd>Send Answer</kbd> ได้เพียงครั้งเดียว</p>
-
-
-                <div class="bs-callout bs-callout-success">
-                    <center><img src="pic_5/suptable.PNG">
-                    </center>
-                    <br>
-
-                    <div id="1p">
-                        <!-- start first pratice question -->
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p id="p1">1.จงใช้คำสั่งแสดงข้อมูลทั้งหมดของบริษัทที่อยู่ภาคเหนือ หรือ ภาคกลาง
-                                </p>
-
+                <!--end experiment-->
+                <div id="Practice">
+                    <h1 class="page-header"> <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> คำถามท้ายการทดลอง</h1>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;ให้นักเรียนตอบคำถามท้ายการทดลอง โดยนักเรียนสามารถทดลองคำสั่งได้จากการกดปุ่ม
+                        <kbd>Try it Yourself </kbd>&nbsp;จากนั้นนำคำตอบ ที่นักเรียนมั่นใจที่สุดส่งคำตอบที่ปุ่ม
+                        <kbd>Send Answer</kbd> ได้เพียงครั้งเดียว</p>
+                    <div class="bs-callout bs-callout-success">
+                        </center>
+                        <br>
+                        <div id="1p">
+                            <!-- start first pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p1">1.จงเขียนคำสั่ง INNER JOIN ในการเรียกดูข้อมูลจาก 2 ตาราง orders และ customers
+                                    </p>
+                                </div>
                             </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=5&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 1TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p1" data-unit="5" data-article="1" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 1pb-->
                         </div>
-                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=1&type=2')">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
-                        </button>
-                        <!-- end 1TB-->
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p1" data-unit="4" data-article="1" data-type="2">
-                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
-                        </button>
-                        <!-- end 1pb-->
-                    </div>
-                    <!--end Practice-->
-                    <br>
-                    <br>
-                    <div id="2p">
-                        <!-- start 2 pratice question -->
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p id="p2">2. จงใช้คำสั่งแสดงข้อมูลทั้งหมดของบริษัทที่อยู่ภาคกลาง และ มีรหัสไปรษณีย์คือ 10110
-                                </p>
+                        <!--end Practice-->
+                        <br>
+                        <br>
+                        <div id="2p">
+                            <!-- start 2 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p2">2.จงเขียนคำสั่ง INNER JOIN ในการเรียกดูข้อมูลจาก 2 ตาราง orders และ sales
+                                    </p>
+                                </div>
                             </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=2&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p2" data-unit="4" data-article="2" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
                         </div>
-                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=2&type=2')">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
-                        </button>
-                        <!-- end 2TB-->
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p2" data-unit="4" data-article="2" data-type="2">
-                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
-                        </button>
-                        <!-- end 2pb-->
-                    </div>
-                    <!--end Practice-->
-                    <br>
-                    <br>
-                    <div id="3p">
-                        <!-- start 3 pratice question -->
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p id="p3">3.จงใช้คำสั่งแสดง ชื่อบริษัท และเบอร์โทรศัพท์ ที่ชื่อบริษัทนำหน้าด้วย A,C และ R</p>
+                        <!--end Practice-->
+                        <br>
+                        <br>
+                        <div id="3p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p3">3.จงเขียนคำสั่ง LEFT JOIN ในการเรียกดูข้อมูลในตาราง orders และ orderdetails </p>
+                                </div>
                             </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=3&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p3" data-unit="4" data-article="3" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
                         </div>
-                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=3&type=2')">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
-                        </button>
-                        <!-- end 2TB-->
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p3" data-unit="4" data-article="3" data-type="2">
-                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
-                        </button>
-                        <!-- end 2pb-->
-                    </div>
-                    <br>
-
-                    <div id="4p">
-                        <!-- start 3 pratice question -->
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p id="p4">4.จงใช้คำสั่งแสดง รหัสบริษัท ชื่อบริษัท จังหวัด ที่มีเบอร์โทรศัพท์มีเลข 8 อยู่ </p>
+                        <br>
+                        <div id="4p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p4">4.จงเขียนคำสั่ง RIGHT JOIN ในการเรียกดูข้อมูลในตาราง orders และ orderdetails</p>
+                                </div>
                             </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=4&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p4" data-unit="4" data-article="4" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
                         </div>
-                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=4&type=2')">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
-                        </button>
-                        <!-- end 2TB-->
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p4" data-unit="4" data-article="4" data-type="2">
-                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
-                        </button>
-                        <!-- end 2pb-->
-                    </div>
-                    <br>
-
-
-                    <div id="5p">
-                        <!-- start 3 pratice question -->
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p id="p5">5.จงใช้คำสั่งแสดง รหัสบริษัท ชื่อบริษัท จังหวัด ที่มีเบอร์โทรศัพท์เริ่มต้นด้วย 02 </p>
+                        <br>
+                        <div id="5p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p5">5.จากตารางที่ได้จากการ FULL JOIN ระหว่าง sales และ customers มีจำนวนกี่แถว</p>
+                                </div>
                             </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=5&article=5&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p5" data-unit="4" data-article="5" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
                         </div>
-                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=5&type=2')">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
-                        </button>
-                        <!-- end 2TB-->
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p5" data-unit="4" data-article="5" data-type="2">
-                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
-                        </button>
-                        <!-- end 2pb-->
+                    
+                        <!--end Practice-->
                     </div>
-                    <br>
-
-                    <div id="6p">
-                        <!-- start 3 pratice question -->
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p id="p6">6.จงใช้คำสั่งแสดง รหัสบริษัท ชื่อบริษัท จังหวัด ที่มีเบอร์โทรศัพท์ตำแหน่งที่สามคือเลข 3</p>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=6&type=2')">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
-                        </button>
-                        <!-- end 2TB-->
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p6" data-unit="4" data-article="6" data-type="2">
-                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
-                        </button>
-                        <!-- end 2pb-->
-                    </div>
-                    <br>
-
-                    <div id="7p">
-                        <!-- start 3 pratice question -->
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p id="p7">7.จงใช้คำสั่งแสดงข้อมูลทั้งหมดที่อยู่ในภาคกลางและมีกี่บริษัท โดยเรียงลำดับจากน้อยไปมากจากชื่อบริษัท</p>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=7&type=2')">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
-                        </button>
-                        <!-- end 2TB-->
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p7" data-unit="4" data-article="7" data-type="2">
-                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
-                        </button>
-                        <!-- end 2pb-->
-                    </div>
-                    <br>
-
-                    <div id="8p">
-                        <!-- start 3 pratice question -->
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p id="p8">8.จงใช้คำสั่งแสดงจำนวนบริษัทที่อยู่ในแต่ละภาค โดยเรียงจากมากไปน้อย</p>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=8&type=2')">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
-                        </button>
-                        <!-- end 2TB-->
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p8" data-unit="4" data-article="8" data-type="2">
-                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
-                        </button>
-                        <!-- end 2pb-->
-                    </div>
-                    <br>
-
-                    <div id="9p">
-                        <!-- start 3 pratice question -->
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p id="p9">9.จงใช้คำสั่งแสดงข้อมูลทั้งหมดที่ ไม่ได้อยู่ในภาคกลาง</p>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=9&type=2')">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
-                        </button>
-                        <!-- end 2TB-->
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p9" data-unit="4" data-article="9" data-type="2">
-                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
-                        </button>
-                        <!-- end 2pb-->
-                    </div>
-                    <br>
-
-                    <div id="10p">
-                        <!-- start 3 pratice question -->
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p id="p10">10.11. จงใช้คำสั่งแสดง รหัสบริษัท ชื่อบริษัท ที่รหัสบริษัทอยู่ในระหว่าง 02-04 โดยเรียงลำดับตามชื่อบริษัท จากมากไปน้อย
-                                </p>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=10&type=2')">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
-                        </button>
-                        <!-- end 2TB-->
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p10" data-unit="4" data-article="10" data-type="2">
-                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
-                        </button>
-                        <!-- end 2pb-->
-                    </div>
-                    <br>
-
-                    <div id="11p">
-                        <!-- start 3 pratice question -->
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p id="p11">11.จงใช้คำสั่งแสดงข้อมูลทั้งหมดที่ไม่ได้อยู่ในภาคกลาง และ มีเบอร์โทรศัพท์ลงท้ายด้วย 432</p>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=11&type=2')">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
-                        </button>
-                        <!-- end 2TB-->
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p11" data-unit="4" data-article="11" data-type="2">
-                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
-                        </button>
-                        <!-- end 2pb-->
-                    </div>
-                    <br>
-
-                    <div id="12p">
-                        <!-- start 3 pratice question -->
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p id="p12">12. จงใช้คำสั่งแสดง รหัสบริษัท ชื่อบริษัท จังหวัด ที่อยู่ในจังหวัด กรุงเทพ หรือ โคราช หรือ มีรหัสไปรษณีย์คือ 53000 โดยเรียงลำดับจากน้อยไปมาก <strong>(กำหนดให้ใช้คำสั่ง OR)</strong>
-                                </p>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=12&type=2')">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
-                        </button>
-                        <!-- end 2TB-->
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p12" data-unit="4" data-article="12" data-type="2">
-                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
-                        </button>
-                        <!-- end 2pb-->
-                    </div>
-                    <br>
-
-                    <div id="13p">
-                        <!-- start 3 pratice question -->
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p id="p13">13.จงใช้คำสั่งแสดง รหัสบริษัท ชื่อบริษัท จังหวัด ที่อยู่ในจังหวัด กรุงเทพ หรือ โคราช หรือ มีรหัสไปรษณีย์คือ 53000 โดยเรียงลำดับจากน้อยไปมาก<strong> (กำหนดให้ใช้คำสั่ง IN)</strong>
-                                </p>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-success" onclick="window.open('http://localhost/moodle/mod/mysqlexp/mysqlexp.php?unit=4&article=13&type=2')">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
-                        </button>
-                        <!-- end 2TB-->
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p13" data-unit="4" data-article="13" data-type="2">
-                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
-                        </button>
-                        <!-- end 2pb-->
-                    </div>
-                    <br>
-
-
-
-
-
-                    <!--end Practice-->
                 </div>
+                <!--end Answer-->
             </div>
-            <!--end Answer-->
-        </div>
-        <!--end content-->
-
-        <!--start Model-->
-        <div class="modal fade" id="practiceModal" tabindex="-1" role="dialog" aria-labelledby="practiceModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                        </button>
-                        <div>
-                            <h4 class="modal-title" id="practiceHeader"></h4>
-                        </div>
-                    </div>
-                    <div class="modal-body">
-                        <div id="status"></div>
-                        <form>
-                            <div class="form-group">
-                                <label for="message-text" class="control-label" id="practiceQuestion"></label>
-                                <textarea class="form-control" id="practiceAnswer" rows="10"></textarea>
+            <!--end content-->
+            <!--start Model-->
+            <div class="modal fade" id="practiceModal" tabindex="-1" role="dialog" aria-labelledby="practiceModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                            </button>
+                            <div>
+                                <h4 class="modal-title" id="practiceHeader"></h4>
                             </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-warning" id="sendAnswer">
-                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
-                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="status"></div>
+                            <form>
+                                <div class="form-group">
+                                    <label for="message-text" class="control-label" id="practiceQuestion"></label>
+                                    <textarea class="form-control" id="practiceAnswer" rows="10"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-warning" id="sendAnswer">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!--end model-->
-
-        <!--start index-->
-        <div class="col-md-2">
-            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
-                <ul class="nav bs-docs-sidenav">
-                    <li class="active">
-                        <a href="#information">ความรู้เบื้องต้น</a>
-                        <ul class="nav">
-                            <li>
-                                <a href="#selectsyntax">รูปแบบการใช้งานคำสั่ง SELECT</a>
-                            </li>
-                            <li>
-                                <a href="#selectdt">รายละเอียดการใช้รูปแบบคำสั่ง SELECT</a>
-                            </li>
-                            <li>
-                                <a href="#operater">รายละเอียดตัวดำเนินการ(Operater)</a>
-                            </li>
-                            <li>
-                                <a href="#like">ตัวดำเนินการ LIKE</a>
-                            </li>
-
+            <!--end model-->
+            <!--start index-->
+            <div class="col-md-2">
+                <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+                    <ul class="nav bs-docs-sidenav">
+                        <li class="active">
+                            <a href="#information">ความรู้เบื้องต้น</a>
+                            <ul class="nav">
+                                
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#experiment">ขั้นตอนการทดลอง</a>
+                            <ul class="nav">
+                                <li>
+                                    <a href="#innerjoin">คำสั่ง INNER JOIN</a>
+                                </li>
+                                <li>
+                                    <a href="#leftjoin">คำสั่ง LEFT JOIN</a>
+                                </li>
+                                <li>
+                                    <a href="#rightjoin">คำสั่ง RIGHT JOIN</a>
+                                </li>
+                                <li>
+                                    <a href="#fulljoin">คำสั่ง FULL JOIN</a>
+                                </li>
+                        </li>
+                        <li>
+                            <a href="#Practice">คำถามท้ายการทดลอง</a>
+                        </li>
                         </ul>
-                    </li>
-
-                    <li>
-                        <a href="#experiment">ขั้นตอนการทดลอง</a>
-                        <ul class="nav">
-                            <li>
-                                <a href="#selectall">คำสั่งเรียกดูข้อมูลทุกคอลัมน์ในตาราง(SELECT)</a>
-                            </li>
-                            <li>
-                                <a href="#selectspecific">คำสั่งเรียกดูข้อมูลเฉพาะคอลัมน์ที่ต้องการ</a>
-                            </li>
-                            <li>
-                                <a href="#where">การระบุเงื่อนไขในการแสดงข้อมูล(WHERE)</a>
-                            </li>
-
-                            <li>
-                                <a href="#whereoperater">การระบุเงื่อนไขในการแสดงข้อมูล(WHERE) โดยใช้ตัวดำเนินการ</a>
-                            </li>
-                            <li>
-                                <a href="#groupby">การจัดกลุ่มของข้อมูล (GROUP BY)</a>
-                            </li>
-                            <li>
-                                <a href="#having">การจัดกลุ่มข้อมูลแบบกำหนดเงื่อนไข (HAVING)</a>
-                            </li>
-                            <li>
-                                <a href="#orderby">การเรียงลำดับข้อมูล(ORDER BY)</a>
-                            </li>
-                            <li>
-                                <a href="#limit">การจำกัดจำนวนแถว(LIMIT)</a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="#Practice">คำถามท้ายการทดลอง</a>
-                    </li>
-                </ul>
-                <a class="back-to-top" href="#top">Back to top</a>
-            </nav>
+                        <a class="back-to-top" href="#top">Back to top</a>
+                </nav>
+            </div>
+            <!-- end index-->
         </div>
-        <!-- end index-->
-    </div>
-    <!-- end row -->
+        <!-- end row -->
     </div>
     <!-- end container -->
 </body>
-
 <footer>
     <script type="text/javascript" src="./js/jquery.min.js"></script>
     <script type="text/javascript" src="./js/bootstrap.min.js"></script>

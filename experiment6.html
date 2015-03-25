@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TEMPLATE</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/docs.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <!--start content-->
+            <div class="col-md-10">
+                <!--start head-->
+                <div class="jumbotron text-center">
+                    <h1>ใบงานการทดลองที่ 6</h1>
+                    <p class="lead">การใช้ SQL Function</p>
+                </div>
+                <!--end head-->
+                <!--start information-->
+                <div id="information">
+                    <h1 class="page-header"> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> ความรู้เบื้องต้น</h1>
+                    <div class="bs-callout bs-callout-danger">
+                        <h4>วัตถุประสงค์ในการทดลอง</h4>
+                        <ol>
+                            <li>เพื่อให้ผู้เรียนใช้คำสั่งพื้นฐาน Operatorได้</li>
+                            <li>เพื่อให้ผู้เรียนใช้คำสั่งพื้นฐาน Control Flow Functionได้</li>
+                            <li>เพื่อให้ผู้เรียนใช้คำสั่งพื้นฐาน String Functionได้</li>
+                            <li>เพื่อให้ผู้เรียนใช้คำสั่งพื้นฐาน Numeric Functionได้</li>
+                            <li>เพื่อให้ผู้เรียนใช้คำสั่งพื้นฐาน Date and Time Functionได้</li>
+                            <li>เพื่อให้ผู้เรียนใช้คำสั่งพื้นฐาน Group Functionได้</li>
+                        </ol>
+                    </div>
+                    <!--end objective-->
+                    <div class="bs-callout bs-callout-primary">
+                        <h4>ทฤษฎีก่อนการทดลอง</h4>
+                        <p>
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;<strong>การใช้คำสั่ง SQL FUNCTION </strong> เพื่อเรียกดูข้อมูล เพื่อความสะดวกต่อการคิวรี่จึงการการเรียกใช้ฟังก์ชั่นเหล่านี้ให้พร้อม ใข้งานได้ทันที ผู้ใช้งานจึงควรทราบว่าจะใช้งานอย่างไรและผลลัพธ์ที่ได้จะเป็นอย่างไร โดยสามารถจัดกลุ่มของฟังก์ ชัน ออกเป็น 6 กลุ่มคือ</p>
+                        <p>1) Operator
+                            <br> 2) Control Flow Function
+                            <br> 3) String Function
+                            <br> 4) Numeric Function
+                            <br> 5) Data and Time Function
+                            <br> 6) Group Function
+                            <br>
+                        </p>
+                        <h4 id="Operator">Operator </h4> &nbsp;&nbsp;&nbsp;&nbsp;คือกลุ่มของเครื่องหมายต่างๆ สามารถแบ่งออกได้อีก 3 ประเภท คือ
+                        <p> • Arithmetic Operator (เครื่องหมายทางคณิตศาสตร์)
+                            <br> • Comparison Operator (เครื่องหมายเปรียบเทียบ)
+                            <br> • Logic Operator (เครื่องหมายทางตรรกะ)
+                            <br>
+                        </p>
+                        <strong>Arithmetic Operator (เครื่องหมายทางคณิตศาสตร์)</strong>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <tr class="info">
+                                    <center>
+                                        <th>
+                                            <center>Operator</center>
+                                        </th>
+                                        <th>
+                                            <center>ความหมาย</center>
+                                        </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>+</center>
+                                    </td>
+                                    <td>
+                                        <center>บวก</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>-</center>
+                                    </td>
+                                    <td>
+                                        <center>ลบ</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>*</center>
+                                    </td>
+                                    <td>
+                                        <center>คูณ</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>/</center>
+                                    </td>
+                                    <td>
+                                        <center>หาร</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>%</center>
+                                    </td>
+                                    <td>
+                                        <center>หารเอาเศษ</center>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <strong>Comparison Operator (เครื่องหมายเปรียบเทียบ) </strong>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <tr class="info">
+                                    <center>
+                                        <th>
+                                            <center>Operator</center>
+                                        </th>
+                                        <th>
+                                            <center>ความหมาย</center>
+                                        </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>=</center>
+                                    </td>
+                                    <td>
+                                        <center>เท่ากับ</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>!= หรือ
+                                            <>
+                                        </center>
+                                    </td>
+                                    <td>
+                                        <center>ไม่เท่ากับ</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>
+                                            <</center>
+                                    </td>
+                                    <td>
+                                        <center>น้อยกว่า</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>
+                                            <=</center>
+                                    </td>
+                                    <td>
+                                        <center>น้อยกว่าหรือเท่ากับ</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>></center>
+                                    </td>
+                                    <td>
+                                        <center>มากกว่า</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>>=</center>
+                                    </td>
+                                    <td>
+                                        <center>มากกว่าหรือเท่ากับ</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>N BETWEEN min AND max</center>
+                                    </td>
+                                    <td>
+                                        <center>ระหว่างค่าต่ำสุด ถึง ค่าสูงสุด</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>n IS NULL</center>
+                                    </td>
+                                    <td>
+                                        <center>เปรียบเทียบว่าว่างหรือไม่</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>n IN (SET)</center>
+                                    </td>
+                                    <td>
+                                        <center>เปรียบเทียบว่าเป็นสมาชิกในเซตหรือไม่</center>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <strong>Logic Operator ( เครื่องหมายทางตรรกะ )</strong>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <tr class="info">
+                                    <center>
+                                        <th>
+                                            <center>Operator</center>
+                                        </th>
+                                        <th>
+                                            <center>ความหมาย</center>
+                                        </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>AND หรือ &&</center>
+                                    </td>
+                                    <td>
+                                        <center>และ</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>OR หรือ | |</center>
+                                    </td>
+                                    <td>
+                                        <center>หรือ</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>NOT หรือ !</center>
+                                    </td>
+                                    <td>
+                                        <center>นิเสธ หรือ ไม่</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>XOR</center>
+                                    </td>
+                                    <td>
+                                        <center>Exclusive OR</center>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <h4 id="Control">Control Flow Functions</h4>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;เป็นกลุ่มของฟังก์ชันสำหรับควบคุมการไหลของข้อมูล ได้แก่ กลุ่มคำสั่งตัดสินใจ หรือทางเลือก มี 2 ฟังก์ชันที่สำคัญคือ ฟังชันก์ IF และ CASE</p>
+                        <strong>รูปแบบฟังก์ชัน IF :</strong>
+                        <div class="highlight">
+                            <strong>IF (e1, e2, e3)</strong>
+                        </div>
+                        <code>
+                                หมายเหตุ
+                            </code>
+                        <p>&nbsp;&nbsp;&nbsp;e1 คือ เงื่อนไขที่ใช้ในการเปรียบเทียบ
+                            <br> &nbsp;&nbsp;&nbsp;e2 คือ ถ้า e1 เป็นจริงจะทำคำสั่ง e2
+                            <br> &nbsp;&nbsp;&nbsp;e3 คือ ถ้า e1 เป็นเท็จจะทำคำสั่ง e3
+                            <br>
+                        </p>
+                        <strong>รูปแบบฟังก์ชัน CASE :</strong>
+                        <div class="highlight">
+                            <strong>CASE<br>
+                                WHEN [condition] THEN result<br>
+                                [WHEN [condition] THEN result]<br>
+                                [ELSE result]<br>
+                            </strong>
+                        </div>
+                        <code>
+                                หมายเหตุ
+                            </code>
+                        <p>&nbsp;&nbsp;&nbsp;condition คือ เงื่อนไขที่ใช้ในการเปรียบเทียบ
+                            <br> &nbsp;&nbsp;&nbsp;WHEN condition THEN result คือคำสั่งที่ต้องทำ โดยเปรียบเทียบว่าตรงกับ case ไหนก็ทำ case นั้น
+                            <br> &nbsp;&nbsp;&nbsp;ELSE result คือ คำสั่งที่ต้องทำโดยเปรียบเทียบแล้วไม่ตรงกับ case ไหนเลย
+                            <br>
+                        </p>
+                        <h4 id="String">String Functions</h4>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;คือ กลุ่มของฟังก์ชันที่ใช้ในการจัดการข้อมูลที่เป็นตัวอักขระ หรือตัวอักษร</p>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <tr class="info">
+                                    <center>
+                                        <th>
+                                            <center>Function</center>
+                                        </th>
+                                        <th>
+                                            <center>ความหมาย</center>
+                                        </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>concat(s1,s2…)</center>
+                                    </td>
+                                    <td>
+                                        <center>ใช้สำหรับการต่อสตริง s1,s2… เข้าเป็นสตริงเดียว</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>length(s)</center>
+                                    </td>
+                                    <td>
+                                        <center>ใช้หาค่าความยาวของสตริง s</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>lower(s)</center>
+                                    </td>
+                                    <td>
+                                        <center>แปลงสตริง s เป็นตัวอักษรเล็ก</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>upper(s)</center>
+                                    </td>
+                                    <td>
+                                        <center>แปลงสตริง s เป็นตัวอักษรใหญ่</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>replace(target,find,replace)</center>
+                                    </td>
+                                    <td>
+                                        <center>ใช้หาข้อมูลและแทนที่ โดย target คือ ฟิลด์ที่จะทำการค้นหา find คือข้อมูลที่ค้นหา และ replace คือข้อมูลที่จะใช้แทนที่</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>substring(s,position,length)</center>
+                                    </td>
+                                    <td>
+                                        <center>ใช้สำหรับแยกสตริง s โดย position คือตำแหน่งเริ่มต้นที่แยกสตริง และ length คือ ความยาวที่ต้องการใช้สำหรับตัด white space ออกจากสตริงทั้งด้านหน้าและด้านหลัง</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>trim(s)</center>
+                                    </td>
+                                    <td>
+                                        <center>ใช้สำหรับตัด white space ออกจากสตริงทั้งด้านหน้าและด้านหลัง</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>Itrim(s)</center>
+                                    </td>
+                                    <td>
+                                        <center>ใช้สำหรับตัด white space ออกจากสตริงทางด้านหน้า</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>rtrim(s)</center>
+                                    </td>
+                                    <td>
+                                        <center>ใช้สำหรับตัด white space ออกจากสตริงทางด้านหลัง</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>like</center>
+                                    </td>
+                                    <td>
+                                        <center>ใช้สำหรับเปรียบเทียบตัวอักษร</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>strcmp(s1,s2)</center>
+                                    </td>
+                                    <td>
+                                        <center>ใช้สำหรับเปรียบเทียบสตริง 2 ชุด
+                                            <br> โดยถ้าค่าเป็น 0 แสดงว่า สตริง s1 และ s2
+                                            <br>เท่ากัน ถ้าค่าเป็น 1 แสดงว่า สตริง s1 มากกว่า s2
+                                            <br>ถ้าค่าเป็น -1 แสดงว่า สตริง s1 น้อยกว่า s2
+                                        </center>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- end table-->
+                        <h4 id="Numeric">Numeric Functions</h4>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;คือ กลุ่มของฟังก์ชันที่ใช้ในการจัดการข้อมูลที่เป็นตัวอักขระ หรือตัวอักษร</p>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <tr class="info">
+                                    <center>
+                                        <th>
+                                            <center>Function</center>
+                                        </th>
+                                        <th>
+                                            <center>ความหมาย</center>
+                                        </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>abs(n)</center>
+                                    </td>
+                                    <td>
+                                        <center>ใช้สำหรับหาค่าสัมบูรณ์ของตัวเลข</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>ceiling(n)</center>
+                                    </td>
+                                    <td>
+                                        <center>ใช้สำหรับปัดจุดทศนิยมทิ้งและเพิ่มค่าจำนวนเต็มขึ้น 1</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>floor(n)</center>
+                                    </td>
+                                    <td>
+                                        <center>ใช้สำหรับปัดจุดทศนิยมทิ้ง ค่าจำนวนเต็มเท่าเดิม</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>n div m</center>
+                                    </td>
+                                    <td>
+                                        <center>ใช้สำหรับหา n หาร m ผลลัพธ์เป็นผลหาร ไม่เอาเศษ</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>mod(n,m)</center>
+                                    </td>
+                                    <td>
+                                        <center>ใช้สำหรับหา n หาร m ผลลัพธ์เป็นเศษจากการหาร</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>power(n,m)</center>
+                                    </td>
+                                    <td>
+                                        <center>ใช้สำหรับหาเลขยกกำลัง n ยกกำลัง m</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>rand(n)</center>
+                                    </td>
+                                    <td>
+                                        <center>ใช้สำหรับหาเลขสุ่ม 0-1 ค่า n อาจจะไม่ต้องระบุก็ได้ ถ้าระบุจะเป็น seed value ( หมายถึงการสุ่มด้วยตัวเลข n เดียวกันจะมีค่าเท่ากัน )
+                                        </center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>round(n[,d])</center>
+                                    </td>
+                                    <td>
+                                        <center>ใช้สำหรับปัดตัวเลขทศนิยม n ตัวเลข d คือจำนวนทศนิยมที่ต้องการซึ่งไม่ระบุก็ได้จะเป็นการปัดเป็นเลขจำนวนเต็ม ถ้าตัวเลขถัดจากตำแหน่งที่ต้องการปัดมีค่าน้อยกว่า 5 จะไม่ปัด แต่ถ้าตัวเลขถัดจากตำแหน่งที่ต้องการปัดมีค่ามากกว่าหรือเท่ากับ 5 จะปัดขึ้น</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>sqrt(n)</center>
+                                    </td>
+                                    <td>
+                                        <center>ใช้สำหรับหาค่ารากที่ 2 ของ n</center>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!--end table-->
+                        <h4 id="Date">Date and Time Functions</h4>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;คือ กลุ่มของฟังก์ชันที่ใช้ในการจัดการข้อมูลที่เป็นเกี่ยวกับวันที่และเวลา</p>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <tr class="info">
+                                    <center>
+                                        <th>
+                                            <center>Function</center>
+                                        </th>
+                                        <th>
+                                            <center>ความหมาย</center>
+                                        </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>curdate( ),curtime( ) now()
+                                        </center>
+                                    </td>
+                                    <td>
+                                        ใช้สำหรับแสดงวันเดือนปี ปัจจุบันและเวลาปัจจุบัน
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>date_format(date,format)</center>
+                                    </td>
+                                    <td>
+                                        ใช้สำหรับแสดงวันเดือนปี และเวลาปัจจุบัน ใช้สำหรับแสดงวันเดือนปี ตาม format ที่กำหนด
+                                        <br>&nbsp;&nbsp; %W คือ วันในสัปดาห์เป็นภาษาอังกฤษ Sunday-Saturday
+                                        <br>&nbsp;&nbsp; %w คือ วันในสัปดาห์เป็นตัวเลข 0-6
+                                        <br>&nbsp;&nbsp; %D คือ วันที่และลำดับ
+                                        <br>&nbsp;&nbsp; %d คือ วันที่
+                                        <br>&nbsp;&nbsp; %M คือ เดือนเป็นภาษาอังกฤษ January-December
+                                        <br>&nbsp;&nbsp; %m คือ เดือนเป็นตัวเลข 0-12
+                                        <br>&nbsp;&nbsp; %Y คือ ปีเป็นตัวเลข 4 หลัก
+                                        <br>&nbsp;&nbsp; %y คือ ปีเป็นตัวเลข 2 ตัวท้าย
+                                        <br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>time_format(time,format)</center>
+                                    </td>
+                                    <td>
+                                        ใช้สำหรับแสดงเวลาตาม format ที่กำหนด
+                                        <br> &nbsp;&nbsp;%H คือ จำนวนชั่วโมง 00-23
+                                        <br> &nbsp;&nbsp;%h คือ จำนวนชั่วโมง 01-12
+                                        <br> &nbsp;&nbsp; %i คือ นาที 01-59
+                                        <br> &nbsp;&nbsp;%S คือ วินาที 01-59
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>datediff(date1,date2)</center>
+                                    </td>
+                                    <td>
+                                        ใช้สำหรับหาว่าวันเดือนปี 2 ชุด ห่างกันกี่วัน
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- end table-->
+                        <h4 id="Group">Group Functions</h4>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;เป็นกลุ่มของฟังก์ชันที่ใช้จัดแบ่งข้อมูลออกเป็นกลุ่มตามเงื่อนไขที่กำหนดในคำสั่ง</p>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <tr class="info">
+                                    <center>
+                                        <th>
+                                            <center>Function</center>
+                                        </th>
+                                        <th>
+                                            <center>ความหมาย</center>
+                                        </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>avg(field)</center>
+                                    </td>
+                                    <td>
+                                        ใช้สำหรับหาค่าเฉลี่ย
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>count(field)</center>
+                                    </td>
+                                    <td>
+                                        ใช้สำหรับนับจำนวนของข้อมูล
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>min(field)</center>
+                                    </td>
+                                    <td>
+                                        ใช้สำหรับหาค่าที่น้อยที่สุด
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>max(field)</center>
+                                    </td>
+                                    <td>
+                                        ใช้สำหรับหาค่าที่มากที่สุด
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>std(field)</center>
+                                    </td>
+                                    <td>
+                                        ใช้สำหรับหาค่าเบี่ยงเบนมาตรฐาน
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>sum(field)</center>
+                                    </td>
+                                    <td>
+                                        ใช้สำหรับหาผลรวม
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!--end table-->
+                    </div>
+                    <!--end Introduction-->
+                </div>
+                <!--end information-->
+                <!--start experiment-->
+                <div id="experiment">
+                    <h1 class="page-header"><h1 class="page-header"> <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> ขั้นตอนการทดลอง</h1>
+                    <div>
+                        <div class="bs-example" data-content="Example">
+                            <p><strong>Step 1.</strong> สร้างตาราง EMP</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+
+                                            CREATE TABLE EMP <br>
+                                             (<br>
+                                          EMPNO char(4) NOT NULL ,<br>
+                                          ENAME char(20),<br>
+                                          JOB char(15),<br>
+                                          MGR char(4),<br>
+                                          HIREDATE date,<br>
+                                          SAL int(5),<br>
+                                          COMM int(5),<br>
+                                          DEPTNO char(2) NOT NULL<br>
+                                        );</strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <p><strong>Step 2.</strong> เพิ่มข้อมูลลงในตาราง EMP</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+                                     insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values<br>
+                                    ('7839', 'KING', 'PRESSIDENT', NULL, '1991-11-17', 5000, NULL, '10'),<br>
+                                    ('7698', 'BLAKE', 'MANAGER', '7839', '1981-05-01', 2850, NULL, '30'),<br>
+                                    ('7782', 'CLARK', 'MANAGER', '7839', '1981-06-09', 2450, NULL, '10'),<br>
+                                    ('7566', 'JONES', 'MANAGER', '7839', '1981-04-02', 2975, NULL, '20'),<br>
+                                    ('7654', 'MARTIN', 'SALESMAN', '7698', '1981-09-28', 1250, 1400, '30'),<br>
+                                    ('7499', 'ALLEN', 'SALESMAN', '7698', '1981-02-20', 1600, 300, '30'),<br>
+                                    ('7844', 'TURNER', 'SALESMAN', '7698', '1981-09-08', 1500, 0, '30'),<br>
+                                    ('7900', 'JAMES', 'CLERK', '7698', '1981-12-03', 950, NULL, '30'),<br>
+                                    ('7521', 'WARD', 'SALESMAN', '7698', '1981-02-22', 1250, 500, '30'),<br>
+                                    ('7902', 'FORD', 'ANALYST', '7566', '1981-12-03', 3000, NULL, '20'),<br>
+                                    ('7369', 'SMITH', 'CLERK', '7902', '1980-12-17', 800, NULL, '20'),<br>
+                                    ('7788', 'SCOTT', 'ANALYST', '7566', '1982-12-09', 3000, NULL, '20'),<br>
+                                    ('7876', 'ADAMS', 'CLERK', '7788', '1983-01-12', 1100, NULL, '20'),<br>
+                                    ('7499', 'ALLEN', 'SALESMAN', '7698', '1981-02-20', 1600, 300, '30'),<br>
+                                    ('7934', 'MILLER', 'CLERK', '7782', '1982-01-23', 1300, NULL, '10') ;
+                                </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <br>
+                            <p><strong>Step 3.</strong>คำนวณหาเงินเดือนใหม่ที่พนักงานแต่ละคนจะได้รับโดยทำการเพิ่มเงินเดือนให้กับพนักงานทุกคนๆ ละ 10% ของเงินเดือนปัจจุบัน</p>
+                            <div class="highlight">
+                                <strong>SELECT SAL + (SAL * 10/100) AS NEW_SALARY FROM EMP;
+                                    </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q1">1.คำนวณหาเงินเดือนใหม่ที่พนักงานแต่ละคนจะได้รับโดยทำการลดเงินเดือนให้กับพนักงานทุกคนๆ ละ 20% ของเงินเดือนปัจจุบัน
+                                </p>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q1" data-unit="6" data-article="1" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <br>
+                            <br>
+                            <p><strong>Step 4.</strong>
+                            เขียนคำสั่ง SQL เพื่อแสดงชื่อพนักงาน เงินเดือน และข้อสรุปเงินเดือนของพนักงานแต่ละคน ตามข้อกำหนดต่อไปนี้
+                                <br> &nbsp;&nbsp;&nbsp;&nbsp;- เงินเดือนน้อยกว่า 2000 บาท ให้แสดงข้อความ Low Salary
+                                <br>&nbsp;&nbsp;&nbsp;&nbsp;- เงินเดือน 2100 ถึง 4000 บาท ให้แสดงข้อความ Medium Salary
+                                <br> &nbsp;&nbsp;&nbsp;&nbsp;- เงินเดือนมากกว่า 4000 บาทขึ้นไป ให้แสดงข้อความ High Salary
+                                <br>
+                            </p>
+                            <div class="highlight">
+                                <strong>SELECT  ENAME , SAL, CASE  <br>
+                                        WHEN SAL < 2000 THEN “Low Salary”<br>
+                                        WHEN SAL < 4000 THEN “Medium Salary”<br>
+                                        ELSE “High Salary”<br>
+                                        END result   FROM emp;<br>
+
+                                    </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=2&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q2">2.บันทึกผลการทดลอง
+                                </p>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=2&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q2" data-unit="6" data-article="2" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+                            <br>
+                            <br>
+                            <p><strong>Step 5.</strong>
+                            เขียนคำสั่ง SQL เพื่อพิมพ์ชื่อพนักงาน ตามด้วยเครื่องหมาย : ตามด้วยตำแหน่งงาน และบอกความยาวชื่อของพนักงานด้วย                        
+                            </p>
+                            <div class="highlight">
+                                <strong>
+                                SELECT CONCAT (ENAME, “:”, JOB), LENGTH(ENAME)  FROM EMP;
+                                    </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=3&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q3">3.บันทึกผลการทดลอง
+                                </p>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=3&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q3" data-unit="6" data-article="3" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+                            <br>
+                            <br>
+                            <p><strong>Step 6.</strong>
+                            ให้เขียนคำสั่ง SQL เพื่อแสดงวันเดือนปี ปัจจุบัน โดยให้วันเดือนปี แสดงในรูปแบบ
+                            วันในสัปดาห์ วันที่และลำดับของเดือน ภาษาอังกฤษ ปี 4 หลัก
+
+                      
+                            </p>
+                            <div class="highlight">
+                                <strong>
+                               SELECT date_format(curdate() ,’%W %D %M %Y’);
+                                    </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=4&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q4">4.บันทึกผลการทดลอง
+                                </p>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=4&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q4" data-unit="6" data-article="4" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+
+                            <br>
+                            <br>
+                            <p><strong>Step 7.</strong>
+                            ให้เขียนคำสั่ง SQL เพื่อหาผลรวมเงินเดือนและค่าเฉลี่ยเงินเดือนของพนักงาน
+                            </p>
+                            <div class="highlight">
+                                <strong>
+                               SELECT sum(SAL) , avg(SAL)  FROM emp ;
+                                    </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=5&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q5">5.บันทึกผลการทดลอง
+                                </p>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=5&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q5" data-unit="6" data-article="5" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--end experiment-->
+                <div id="Practice">
+                    <h1 class="page-header"> <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> คำถามท้ายการทดลอง</h1>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;ให้นักเรียนตอบคำถามท้ายการทดลอง โดยนักเรียนสามารถทดลองคำสั่งได้จากการกดปุ่ม
+                        <kbd>Try it Yourself </kbd>&nbsp;จากนั้นนำคำตอบ ที่นักเรียนมั่นใจที่สุดส่งคำตอบที่ปุ่ม
+                        <kbd>Send Answer</kbd> ได้เพียงครั้งเดียว</p>
+                        <center><strong>ตัวอย่าง ตาราง Employee</strong></center>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <tr class="danger">
+                                        <center>
+                                            <th>
+                                                <center>EmpID</center>
+                                            </th>
+                                            <th>
+                                                <center>EmpName</center>
+                                            </th>
+                                            <th>
+                                                <center>Position</center>
+                                            </th>
+                                            <th>
+                                                <center>Salary</center>
+                                            </th>
+                                            <th>
+                                                <center>Phone</center>
+                                            </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>01</center>
+                                        </td>
+                                        <td>
+                                            <center>Apichart</center>
+                                        </td>
+                                        <td>
+                                            <center>Manager</center>
+                                        </td>
+                                        <td>
+                                            <center>120,000</center>
+                                        </td>
+                                        <td>
+                                            <center>028880000</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>02</center>
+                                        </td>
+                                        <td>
+                                            <center>Chanita</center>
+                                        </td>
+                                        <td>
+                                            <center>sales</center>
+                                        </td>
+                                        <td>
+                                            <center>25,000</center>
+                                        </td>
+                                        <td>
+                                            <center>023219111</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>03</center>
+                                        </td>
+                                        <td>
+                                            <center>Rattha</center>
+                                        </td>
+                                        <td>
+                                            <center>sales</center>
+                                        </td>
+                                        <td>
+                                            <center>25,000</center>
+                                        </td>
+                                        <td>
+                                            <center>053848432</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>04</center>
+                                        </td>
+                                        <td>
+                                            <center>Werawat</center>
+                                        </td>
+                                        <td>
+                                            <center>programmer</center>
+                                        </td>
+                                        <td>
+                                            <center>40,000</center>
+                                        </td>
+                                        <td>
+                                            <center>044111221</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>05</center>
+                                        </td>
+                                        <td>
+                                            <center>Worawut</center>
+                                        </td>
+                                        <td>
+                                            <center>programmer</center>
+                                        </td>
+                                        <td>
+                                            <center>38,000</center>
+                                        </td>
+                                        <td>
+                                            <center>083778899</center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>06</center>
+                                        </td>
+                                        <td>
+                                            <center>Choper</center>
+                                        </td>
+                                        <td>
+                                            <center>programmer</center>
+                                        </td>
+                                        <td>
+                                            <center>60,000</center>
+                                        </td>
+                                        <td>
+                                            <center>085328765</center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        <br>
+
+                           <p><strong>Step 1.</strong> สร้างตาราง Employee</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+
+                                            CREATE TABLE Employee <br>
+                                            (<br>
+                                                 EmpID int (11) ,<br>
+                                                 EmpName char (50),<br>
+                                                 Position char (50),<br>
+                                                 Salary int (10),<br>
+                                                 Phone int (11)<br>
+                                            );
+
+                                            </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=1&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <p><strong>Step 2.</strong> เพิ่มข้อมูลลงในตาราง Employee</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+                                     insert into Employee (EmpID,EmpName,Position,Salary,Phone) values<br>
+                                    ('01','Apichart','Manager','120,000','028880000'),<br>
+                                    ('02','Chanita','sales','35,000','023219111'),<br>
+                                    ('03','Rattha','sales','25,000','053848432'),<br>
+                                    ('04','Werawat','programmer','40,000','044111221'),<br>
+                                    ('05','Worawut','programmer','38,000','083778899'),<br>
+                                    ('06','Choper','programmer','60,000','085328765');
+                                </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=1&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <br>
+                    <div class="bs-callout bs-callout-success">
+                             
+                        <div id="1p">
+                            <!-- start first pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p1">1.เขียนคำสั่ง SQL เพื่อแสดงชื่อพนักงานที่ทำงานในตำแหน่ง Programmer และมีเงินเดือนมากกว่า 40,000 
+                                    </p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=1&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 1TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p1" data-unit="4" data-article="1" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 1pb-->
+                        </div>
+                        <!--end Practice-->
+                        <br>
+                        <br>
+                        <div id="2p">
+                            <!-- start 2 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p2">2. เขียนคำสั่ง SQL เพื่อแสดงชื่อพนักงานและเงินเดือนของคนที่มีเงินเดือนน้อยกว่า 40,000 บาท
+                                    </p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=2&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p2" data-unit="4" data-article="2" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <!--end Practice-->
+                        <br>
+                        <br>
+                        <div id="3p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p3">3.เขียนคำสั่ง SQL เพื่อแสดงชื่อพนักงานและเงินเดือนโดยเป็นคนที่ทำงานในตำแหน่ง sales และมีเงินเดือนมากกว่าหรือเท่ากับ 30,000  </p>
+                                </div>
+                            </div>
+                           <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=3&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p3" data-unit="4" data-article="3" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <br>
+                        <div id="4p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p4">4.เขียนคำสั่ง SQL เพื่อพิมพ์ชื่อพนักงานเป็นตัวอักษรพิมพ์ใหญ่ทั้งหมด และตำแหน่งงานเป็นตัวอักษร พิมพ์เล็กทั้งหมด </p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=4&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p4" data-unit="4" data-article="4" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <br>
+                        <div id="5p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p5">5.เขียนคำสั่ง SQL เพื่อค้นหาพนักงานที่ชื่อมีตัวอักษร O อยู่ภายในชื่อ </p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=5&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p5" data-unit="4" data-article="5" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <br>
+                        <div id="6p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p6">6.เขียนคำสั่ง SQL เพื่อหาตัวเลขสุ่มทั้งหมด 3 ครั้ง โดยกำหนด seed value เท่ากับ 1 </p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=6&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p6" data-unit="4" data-article="6" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <br>
+                        <div id="7p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p7">7.เขียนคำสั่ง SQL เพื่อแสดงวันเดือนปี เวลาปัจจุบัน และทั้งวันเดือนปีกับเวลาปัจจุบัน </p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=7&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p7" data-unit="4" data-article="7" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <br>
+                        <div id="8p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p8">8.เขียนคำสั่ง SQL เพื่อหาว่าเงินเดือนของพนักงานที่มีค่าน้อยสุดและมากสุดคือเท่าไร </p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=8&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p8" data-unit="4" data-article="8" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <br>
+                        <div id="9p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p9">9.เขียนคำสั่ง SQL เพื่อหาว่าในตาราง emp มีตำแหน่งงานของพนักงานทั้งหมดกี่ตำแหน่ง </p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=9&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p9" data-unit="4" data-article="9" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <br>
+                        <div id="10p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p10">10.เขียนคำสั่ง SQL เพื่อหาผลรวมเงินเดือน แยกตามชื่อแผนกงาน 
+                                    </p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=6&article=10&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p10" data-unit="4" data-article="10" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+
+                        </div>
+                        <br>
+                        <!--end Practice-->
+                    </div>
+                </div>
+                <!--end Answer-->
+            </div>
+            <!--end content-->
+            <!--start Model-->
+            <div class="modal fade" id="practiceModal" tabindex="-1" role="dialog" aria-labelledby="practiceModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                            </button>
+                            <div>
+                                <h4 class="modal-title" id="practiceHeader"></h4>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div id="status"></div>
+                            <form>
+                                <div class="form-group">
+                                    <label for="message-text" class="control-label" id="practiceQuestion"></label>
+                                    <textarea class="form-control" id="practiceAnswer" rows="10"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-warning" id="sendAnswer">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end model-->
+            <!--start index-->
+            <div class="col-md-2">
+                <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+                    <ul class="nav bs-docs-sidenav">
+                        <li class="active">
+                            <a href="#information">ความรู้เบื้องต้น</a>
+                            <ul class="nav">
+                                <li>
+                                    <a href="#Operator ">Operator </a>
+                                </li>
+                                <li>
+                                    <a href="#Control">Control Flow Function</a>
+                                </li>
+                                <li>
+                                    <a href="#String">String Function</a>
+                                </li>
+                                <li>
+                                    <a href="#Numeric">Numeric Function</a>
+                                </li>
+                                <li>
+                                    <a href="#Date">Date and Time Function</a>
+                                </li>
+                                <li>
+                                    <a href="#Group">Group Function</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#experiment">ขั้นตอนการทดลอง</a>
+                            <ul class="nav">
+                                
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#Practice">คำถามท้ายการทดลอง</a>
+                        </li>
+                    </ul>
+                    <a class="back-to-top" href="#top">Back to top</a>
+                </nav>
+            </div>
+            <!-- end index-->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</body>
+<footer>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+</footer>
+
+</html>
