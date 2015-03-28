@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TEMPLATE</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/docs.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <!--start content-->
+            <div class="col-md-10">
+                <!--start head-->
+                <div class="jumbotron text-center">
+                    <h1>ใบงานการทดลองที่ 8</h1>
+                    <p class="lead">การสร้างและจัดการวิว View</p>
+                </div>
+                <!--end head-->
+                <!--start information-->
+                <div id="information">
+                    <h1 class="page-header"> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> ความรู้เบื้องต้น</h1>
+                    <div class="bs-callout bs-callout-danger">
+                        <h4>วัตถุประสงค์ในการทดลอง</h4>
+                        <ol>
+                            <li>เพื่อให้ผู้เรียนสามารถ บอกชนิดของวิวได้</li>
+                            <li>เพื่อให้ผู้เรียนสามารถ สร้างวิวได้</li>
+                            <li>เพื่อให้ผู้เรียนสามารถ แก้ไขวิวได้</li>
+                            <li>เพื่อให้ผู้เรียนสามารถ ลบวิวได้</li>
+                        </ol>
+                    </div>
+                    <!--end objective-->
+                    <div class="bs-callout bs-callout-primary">
+                        <h4>ทฤษฎีก่อนการทดลอง</h4>
+                        <p>
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;SQL มีการรองรับตารางได้ 2 ประเภท ได้แก่ตารางฐานข้อมูลจริง ซึ่งได้จากการใช้คำสั่งตาราง (CREATE TABLE จากใบงานการทดลองที่ 2) และตารางเสมือน หรือที่เรียกว่า “วิว” ซึ่งได้จากการใช้ คำสั่งสร้างวิวนั่นคือ (CREATE VIEW)
+                            <br>
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <h4>วิว (View) </h4>&nbsp;&nbsp;&nbsp;&nbsp;คือ ตารางเสมือน( Virtual Table) ในฐานข้อมูลสำหรับจัดเก็บข้อมูลที่ได้ จากการคิวรี่ (Query) คล้ายกับตารางฐานข้อมูลจริงแต่แตกต่างกันที่วิวไม่ได้จัดเก็บฐานข้อมูล ซึ่งคือ วิวเป็นตารางชนิดหนึ่งที่ได้ข้อมูลมาจากตารางอื่นๆหลายๆตารางหรือตารางเดียวด้วยวิธีการตามคำสั่ง ที่คิวรี่ เมื่อข้อมูล ในตารางเหล่านั้นเปลี่ยนไป ค่าข้อมูลในวิวจะถูกเปลี่ยนไปโดยอัตโนมัติ
+                            <br>
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;SQL Query ที่ถูกจัดเก็บในฐานข้อมูลด้วยชื่อที่กำหนดให้ ใช้เพื่อแสดงผลข้อมูล ในฐานข้อมูลตามวัตถุประสงค์ต่างๆ เช่น การดึงคอลัมน์ที่ต้องการออกจากตารางฐานข้อมูล การดึงแถวข้อมูล การสรุปข้อมูล การหาค่าเฉลี่ย
+                            <br>
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;วิวมีหลายชนิดจำแนกตามประเภทคำสั่งของการคิวรี่ หรือผลลัพท์ของข้อมูลที่ได้ออกมา
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.Table Join View คือวิวที่ Join ตารางที่สัมพันธ์เข้าด้วยกันดึงข้อมูลคอลัมน์ที่ต้องการออกมา จากตารางและรวบรวมคอลัมน์ที่เลือกมาทั้งหมดมา
+                            <br>แสดงผลใหม่ในหนึ่งตาราง โดยคิวรี่ที่ใช้วิธีการ Join หลายตาราง เรียกว่า “Base Query” เพราะเป็นพื้นฐานที่ให้คิวรี่ตัวอื่นสามารถเรียกใช้ข้อมูลต่อได้
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.Row View วิวที่เลือกแถวบางส่วนจากแถวทั้งหมด โดยใช้คำสั่ง WHERE
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.Field View การเลือกแถวทั้งหมดแต่นำมาเฉพาะบางคอลัมน์เท่านั้น
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.Filtered Windowed View เลือกแสดงบางคอลัมน์จากแถวที่เลือกไว้โดยใช้คำสั่ง SELECT,WHERE
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.Summary View คือการเรียกดูข้อมูลแบบสรุปมาแล้วตามเงื่อนไขคำสั่ง QUERY
+                            <br>
+                            <br>
+                            <h4>เงื่อนไขการสร้างวิว </h4>
+                            <br> ต้องเป็นคิวรี่ที่ถูกต้องแล้วเท่านั้น
+                            <br>
+                            <br>
+                            <h4>เงื่อนไขการอัพเดทวิว </h4>
+                            <br> &nbsp;&nbsp;&nbsp; - ไม่มี DISTINCT
+                            <br>&nbsp;&nbsp;&nbsp; - ในประโยคคำสั่ง SELECT จะต้องไม่อ้างถึงคอลัมน์เดียวกันซ้ำๆ(มากกว่าหนึ่งครั้ง)
+                            <br>&nbsp;&nbsp;&nbsp; - ไม่มี GROUP BY หรือ HAVING
+                            <br>&nbsp;&nbsp;&nbsp; - ไม่มี UNION(รวมทั้ง EXCEPT หรือ INTERSECT)
+                            <br>&nbsp;&nbsp;&nbsp; - ประกอบด้วยข้อมูลที่มาจากตารางเดียว
+                            <br>&nbsp;&nbsp;&nbsp; - แถวที่อัพเดทในวิวจะต้องตรงกับเพียงหนึ่งแถวในตารางฐานข้อมูล
+                            <br>&nbsp;&nbsp;&nbsp; - ถ้าต้องการเพิ่มข้อมูลแถวใหม่ไปยังวิว วิวนั้นจะต้องมี Primary Key และทุกคอลัมน์ จะต้องกำหนด NOT NULL รวมทั้งไม่มีค่า NULL เป็นค่า DEFAULT
+                            <br>
+                            <br>
+                            <h4>UPDATE RESTRICTION</h4> มาตรฐาน ANSI ได้กำหนดข้อจำกัดที่อาจเป็นสาเหตุให้การอัพเดทไม่เป็นผลสำเร็จ ซึ่งมีเงื่อนไขต่อไปนี้
+                            <br>&nbsp;&nbsp;&nbsp; - ประโยค SELECT จะต้องไม่มี DISTINCT
+                            <br>&nbsp;&nbsp;&nbsp; - ประโยค SELECT จะต้องไม่มีฟังก์ชัน SUM
+                            <br>&nbsp;&nbsp;&nbsp; - ประโยค SELECT จะต้องไม่มีฟังก์ชันทางคณิตศาสตร์
+                            <br>&nbsp;&nbsp;&nbsp; - ประโยค SELECT จะต้องไม่มีตัวดำเนินการ
+                            <br>&nbsp;&nbsp;&nbsp; - ประโยค SELECT จะต้องไม่มี ORDER BY
+                            <br>&nbsp;&nbsp;&nbsp; - ประโยค FROM จะต้องไม่มีหลายตาราง
+                            <br>&nbsp;&nbsp;&nbsp; - ประโยค WHERE จะต้องไม่มีคิวรี่ย่อย
+                            <br>&nbsp;&nbsp;&nbsp; - คิวรี่จะต้องไม่มี GROUP BY หรือ HAVING
+                            <br>&nbsp;&nbsp;&nbsp; - คอลัมน์ที่มีการคำนวณจะไม่สามารถอัพเดทได้
+                            <br>&nbsp;&nbsp;&nbsp; - คอลัมน์ NOT NULL ที่มาจากตารางหลักจะต้องอยู่ในวิวด้วย เพื่อใช้ INSERT คิวรี่ไปยังฟังก์ชันได้
+                        </p>
+                        <!--end table-->
+                    </div>
+                    <!--end Introduction-->
+                </div>
+                <!--end information-->
+                <!--start experiment-->
+                <div id="experiment">
+                    <h1 class="page-header"><h1 class="page-header"> <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> ขั้นตอนการทดลอง</h1>
+                    <div>
+                        <h2 id="CreateView">การสร้าง VIEW</h2>
+                        <div class="bs-example" data-content="Example">
+                            <p><strong>Step 1.</strong> สร้างตาราง table1 </p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+
+                                            CREATE TABLE table1 <br>
+                                             (<br>
+                                          Cate_id int(4) NOT NULL ,<br>
+                                          Cate_name char(20)<br>
+                                        );</strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <p><strong>Step 2.</strong> เพิ่มข้อมูลลงในตาราง table1</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+                                     insert into table1 (Cate_id,Cate_name) values<br>
+                                    ('1', 'เครื่องใช้ไฟฟ้า'),<br>
+                                    ('2', 'เครื่องใช้สำนักงาน'),<br>
+                                    ('3', 'ยานพาหนะ'),<br>
+                                    ('4', 'สื่อสาร')<br>
+                                    ;
+                                </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <br>
+                            <p><strong>Step 3.</strong>สร้างตาราง table2</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+
+                                            CREATE TABLE table2 <br>
+                                             (<br>
+                                          Prod_id int(4) NOT NULL ,<br>
+                                          Prod_name char(20),<br>
+                                          Cate_id int(4)<br>
+                                        );</strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <p><strong>Step 4.</strong>เพิ่มข้อมูลลงในตาราง table2</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+                                     insert into table2 (Prod_id,Prod_name,Cate_id) values<br>
+                                    ('10', 'รถยนตร์','3'),<br>
+                                    ('11', 'รถบรรทุก','3'),<br>
+                                    ('12', 'โต๊ะ','2'),<br>
+                                    ('15', 'คอมพิวเตอร์','1'),<br>
+                                    ('16', 'เก้าอี้','2'),<br>
+                                    ('20', 'ถ่าน AAA','4')<br>
+                                    ;
+                                </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <br>
+                            <p><strong>Step 5.</strong> การสร้างวิวจะแสดงผลในรูปแบบของตาราง ข้อมูลจะไม่ได้ถูกจัดเก็บอย่างถาวร โดยการ คิวรี่จะคิวรี่ตารางเดี่ยวหรือใช้วิธีการ Join หลายๆตารางทั้งหมดในฐานข้อมูลก็ได้
+                            </p>
+                            <strong>Syntax: การสร้างวิว </strong>
+                            <div class="highlight">
+                                <strong>
+                                CREATE VIEW view-name AS 
+                                </strong>
+                            </div>
+                            <code>หมายเหตุ</code>
+                            <p>
+                                &nbsp;&nbsp;&nbsp;&nbsp;- View name คือ ชื่อวิว
+                            </p>
+                            <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;1.ทดลองสร้าง BASE VIEW</strong>
+                                <br> สร้างประโยค SQL ที่ถูกต้องก่อน</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                SELECT Cate_id,Cate_name FROM table1;
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;2.</strong>บันทึกวิวไว้บนระบบฐานข้อมูล โดยใส่ Syntax ไว้ส่วนบนของประโยค SQL ที่ต้องการ</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                CREATE VIEW table1Details AS
+                                <br> SELECT Cate_id,Cate_name FROM table1;
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;3.</strong>ใช้คำสั่ง SQL QUERY ตรวจสอบการสร้างวิว</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                SELECT * FROM table1Details;
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <p><strong>Step 6.</strong> ทดลองกำหนดชื่อให้กับคอลัมน์ สร้างวิว จาก table2 ชื่อ table2naming โดยให้คอลัมน์ Prod_id มีชื่อเป็น Prodid, Prod_name เป็น Prodname สำหรับผลิตภัณฑ์ ที่อยู่ในหมวดยานพาหนะ
+                            </p>
+                            <div class="bs-docs-example" data-content="Example">
+                                CREATE VIEW table2naming AS SELECT Prod_id as Prodid, Prod_name as Prodname FROM table2 WHERE (Cate_id='3');
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <br>
+                            <p><strong>Step 7.</strong> นำตาราง table1 มา INNER JION กับตาราง table2
+                            </p>
+                            <div class="bs-docs-example" data-content="Example">
+                                CREATE VIEW TABLEJOINVIEW AS
+                                <br> SELECT table1.cate_name, table2.prod_id, table2.prod_name
+                                <br> FROM table1 INNER JOIN table2 ON table1.cate_id=table2.cate_id;
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <br>
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q1">1.บันทึกผลการทดลอง การสร้างวิว
+                                </p>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q1" data-unit="8" data-article="1" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q2">2.จงสร้างวิวระหว่างตาราง products และ suppliers โดยใช้คำสั่ง RIGHT JOIN
+                                </p>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=2&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q2" data-unit="8" data-article="2" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                        </div>
+                        <h2 id="UpdateView">การแก้ไขวิว </h2>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;ข้อมูลในตารางจริงจะถูกแก้ไขไปด้วยเหมือนกัน</p>
+                        <strong>Syntax: การแก้ไขวิว </strong>
+                        <div class="highlight">
+                            <strong>
+                                UPDATE view-name SET สิ่งที่ต้องการเปลี่ยน WHERE เงื่อนไขดึงข้อมูล;
+                                </strong>
+                        </div>
+                        <code>หมายเหตุ</code>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;- ชื่อวิข้อมูลในตารางจริงจะถูกแก้ไขไปด้วยเหมือนกัน
+                        </p>
+                        <div class="bs-example" data-content="Example">
+                            <p><strong>Step 1.</strong>ต้องการเปลี่ยนค่า Prod_name ของ “เก้าอี้” เป็น “โซฟา” ในวิว TABLEJOINVIEW</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+
+                                            UPDATE TABLEJOINVIEW
+                                            SET Prod_name ="โซฟา"
+                                            WHERE Prod_id=16;
+
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=2&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <br>
+                            <p><strong>Step 2.</strong>ใช้คำสั่งเพื่อตรวจสอบข้อมูลในตาราง table2</p>
+                                <div class="bs-docs-example" data-content="Example">
+                                    <strong> 
+                                     select * from table2;
+                                </strong>
+                                </div>
+                                <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=2&type=1')">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                </button>
+                                <br>
+                                <br>
+                                <p><strong>Step 3.</strong>ตรวจสอบการอัพเดทใน view TABLEJOINVIEW </p>
+                                <div class="bs-docs-example" data-content="Example">
+                                    <strong> 
+                                    SELECT * FROM TABLEJOINVIEW;
+                                    </strong>
+                                </div>
+                                <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=2&type=1')">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                </button>
+                                <div class="bs-callout bs-callout-warning">
+                                    <p id="q3">3.บันทึกผลการทดลอง การแก้ไขวิว
+                                    </p>
+                                </div>
+                                <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=3&type=1')">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                </button>
+                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q3" data-unit="8" data-article="3" data-type="1">
+                                    <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                </button>
+                            </div>
+                            <h2 id="InsertView">การเพิ่มข้อมูลในวิว </h2>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;ข้อมูลในตารางจริงจะถูกแก้ไขไปด้วยเหมือนกัน</p>
+                            <strong>Syntax: การเพิ่มข้อมูลในวิว </strong>
+                            <div class="highlight">
+                                <strong>
+                                INSERT INFO view-name สิ่งที่ต้องการเพิ่ม VALUES สิ่งที่ต้องการเพิ่ม;
+                                </strong>
+                            </div>
+                            <code>หมายเหตุ</code>
+                            <p>
+                                &nbsp;&nbsp;&nbsp;&nbsp;- ชื่อวิข้อมูลในตารางจริงจะถูกแก้ไขไปด้วยเหมือนกัน
+                            </p>
+                            <div class="bs-example" data-content="Example">
+                                <p><strong>Step 1.</strong>สร้างวิว ProdView </p>
+                                <div class="bs-docs-example" data-content="Example">
+                                    <strong> 
+
+                                           CREATE VIEW ProdView as
+                                            SELECT * FROM table2;
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=4&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <br>
+                            <p><strong>Step 2.</strong>เพิ่มข้อมูลดังนี้ Prod_id= 17, โน้ตบุ๊ค,Cate_id = 1</p>
+                                    <div class="bs-docs-example" data-content="Example">
+                                        <strong> 
+                                     INSERT INTO ProdView(Prod_id,Prod_Name,Cate_id) 
+                                     VALUES  ("17","โน้ตบุ๊ค","1");
+
+                                </strong>
+                                    </div>
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=4&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+                                    <br>
+                                    <br>
+                                    <p><strong>Step 3.</strong>ตรวจสอบการเพิ่มข้อมูลใน view ProdView </p>
+                                    <div class="bs-docs-example" data-content="Example">
+                                        <strong> 
+                                    SELECT * FROM ProdView;
+                                    </strong>
+                                    </div>
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=4&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+                                    <br>
+                                    <br>
+                                    <p><strong>Step 4.</strong>ตรวจสอบการเพิ่มข้อมูลใน table2</p>
+                                    <div class="bs-docs-example" data-content="Example">
+                                        <strong> 
+                                    SELECT * FROM table2;
+                                    </strong>
+                                    </div>
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=4&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+                                    <div class="bs-callout bs-callout-warning">
+                                        <p id="q4">4.บันทึกผลการทดลอง การเพิ่มข้อมูลในวิว
+                                        </p>
+                                    </div>
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=4&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q4" data-unit="8" data-article="4" data-type="1">
+                                        <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                    </button>
+                                    <div class="bs-callout bs-callout-warning">
+                                        <p id="q5">5.การเพิ่มข้อมูลในวิว ProdView โดยมีข้อมูลดังนี้ Prod_id= 18, เมาส์,Cate_id = 1 และ
+                                            <br> Prod_id= 13, รถเครื่อง,Cate_id = 3
+                                        </p>
+                                    </div>
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=5&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q5" data-unit="8" data-article="6" data-type="1">
+                                        <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                    </button>
+                                </div>
+                                <h2 id="DropView">การลบข้อมูลในวิว </h2>
+                                <strong>Syntax: การลบวิว </strong>
+                                <div class="highlight">
+                                    <strong>
+                                DROP VIEW view-name ;
+                                </strong>
+                                </div>
+                                <code>หมายเหตุ</code>
+                                <p>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;- Cascade คือ จะส่งค่าไปแจ้ง DBMS ทราบถ้าวิวอื่นมีการใช้วิวนั้นอยู่ วิวทั้งหมดที่ขึ้นต่อกันจะถูกลบด้วย
+                                    <br>&nbsp;&nbsp;&nbsp;&nbsp;- Restrict คือ จะส่งค่าไปแจ้ง DBMS ทราบถ้าวิวอื่นมีการใช้วิวนั้นอยู่จะไม่สามารถลบวิวนั้นได้ และ แจ้งข้อผิดพลาดกลับมา
+                                </p>
+                                <div class="bs-example" data-content="Example">
+                                    <p><strong>Step 1.</strong>ต้องการลบวิว “TABLEJOINVIEW”</p>
+                                    <div class="bs-docs-example" data-content="Example">
+                                        <strong> 
+
+                                          DROP VIEW TABLEJOINVIEW CASCADE;
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=6&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <br>
+                            <p><strong>Step 2.</strong>ตรวจสอบการลบวิว</p>
+                                        <div class="bs-docs-example" data-content="Example">
+                                            <strong> 
+                                     show tables;
+                                </strong>
+                                        </div>
+                                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=6&type=1')">
+                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                        </button>
+                                        <div class="bs-callout bs-callout-warning">
+                                            <p id="q6">6.บันทึกผลการทดลอง การลบข้อมูลในวิว
+                                            </p>
+                                        </div>
+                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q6" data-unit="8" data-article="6" data-type="1">
+                                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                        </button>
+                                        <div class="bs-callout bs-callout-warning">
+                                            <p id="q7">7.จงใช้คำสั่งลบวิว table2naming แบบ Restrict
+                                            </p>
+                                        </div>
+                                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=7&type=1')">
+                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                        </button>
+                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q7" data-unit="8" data-article="7" data-type="1">
+                                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end experiment-->
+                            <div id="Practice">
+                                <h1 class="page-header"> <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> คำถามท้ายการทดลอง</h1>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;ให้นักเรียนตอบคำถามท้ายการทดลอง โดยนักเรียนสามารถทดลองคำสั่งได้จากการกดปุ่ม
+                                    <kbd>Try it Yourself </kbd>&nbsp;จากนั้นนำคำตอบ ที่นักเรียนมั่นใจที่สุดส่งคำตอบที่ปุ่ม
+                                    <kbd>Send Answer</kbd> ได้เพียงครั้งเดียว</p>
+                                <div class="bs-callout bs-callout-success">
+                                    <div id="1p">
+                                        <!-- start first pratice question -->
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <p id="p1">1.จงสร้างวิว categoriesProduct จาก ตาราง products INNER JOIN กับ ตาราง categories เฉพาะหมวด categoriesID=11 โดยเรียงลำดับจากราคาจากมากไปน้อย
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=1&type=2')">
+                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                        </button>
+                                        <!-- end 1TB-->
+                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p1" data-unit="8" data-article="1" data-type="2">
+                                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                        </button>
+                                        <!-- end 1pb-->
+                                    </div>
+                                    <!--end Practice-->
+                                    <br>
+                                    <br>
+                                    <div id="2p">
+                                        <!-- start 2 pratice question -->
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <p id="p2">2.จงแก้ไขข้อมูลในวิว categoriesProduct ส่วนของ ProductName ชื่อ”ที่นอน”เปลี่ยนจำนวนของในสต็อก(Instock) เป็น ‘2’
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=2&type=2')">
+                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                        </button>
+                                        <!-- end 2TB-->
+                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p2" data-unit="8" data-article="2" data-type="2">
+                                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                        </button>
+                                        <!-- end 2pb-->
+                                    </div>
+                                    <!--end Practice-->
+                                    <br>
+                                    <br>
+                                    <div id="3p">
+                                        <!-- start 3 pratice question -->
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <p id="p3">3.จงเขียนคำสั่งลบวิว categoriesProduct </p>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=3&type=2')">
+                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                        </button>
+                                        <!-- end 2TB-->
+                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p3" data-unit="8" data-article="3" data-type="2">
+                                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                        </button>
+                                        <!-- end 2pb-->
+                                    </div>
+                                    <br>
+                                    <!--end Practice-->
+                                </div>
+                            </div>
+                            <!--end Answer-->
+                        </div>
+                        <!--end content-->
+                        <!--start Model-->
+                        <div class="modal fade" id="practiceModal" tabindex="-1" role="dialog" aria-labelledby="practiceModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <div>
+                                            <h4 class="modal-title" id="practiceHeader"></h4>
+                                        </div>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div id="status"></div>
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label" id="practiceQuestion"></label>
+                                                <textarea class="form-control" id="practiceAnswer" rows="10"></textarea>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-warning" id="sendAnswer">
+                                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end model-->
+                        <!--start index-->
+                        <div class="col-md-2">
+                            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+                                <ul class="nav bs-docs-sidenav">
+                                    <li class="active">
+                                        <a href="#information">ความรู้เบื้องต้น</a>
+                                        <ul class="nav">
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#experiment">ขั้นตอนการทดลอง</a>
+                                        <ul class="nav">
+                                            <li>
+                                                <a href="#CreateView ">การสร้าง VIEW </a>
+                                            </li>
+                                            <li>
+                                                <a href="#UpdateView ">การแก้ไขวิว  </a>
+                                            </li>
+                                            <li>
+                                                <a href="#InsertView ">การเพิ่มข้อมูลในวิว </a>
+                                            </li>
+                                            <li>
+                                                <a href="#DropView ">การลบข้อมูลในวิว</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#Practice">คำถามท้ายการทดลอง</a>
+                                    </li>
+                                </ul>
+                                <a class="back-to-top" href="#top">Back to top</a>
+                            </nav>
+                        </div>
+                        <!-- end index-->
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- end container -->
+</body>
+<footer>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+</footer>
+
+</html>
