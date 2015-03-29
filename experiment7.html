@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TEMPLATE</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/docs.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <!--start content-->
+            <div class="col-md-10">
+                <!--start head-->
+                <div class="jumbotron text-center">
+                    <h1>ใบงานการทดลองที่ 7</h1>
+                    <p class="lead">การเรียกดูข้อมูลโดยใช้คิวรี่ย่อย (Subquery)</p>
+                </div>
+                <!--end head-->
+                <!--start information-->
+                <div id="information">
+                    <h1 class="page-header"> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> ความรู้เบื้องต้น</h1>
+                    <div class="bs-callout bs-callout-danger">
+                        <h4>วัตถุประสงค์ในการทดลอง</h4>
+                        <ol>
+                            <li>ผู้เรียนสามารถใช้การเรียกดูข้อมูลโดยใช้คิวรี่ย่อยเพื่อกำหนดคอลัมน์ของคำสั่ง SELECT ได้</li>
+                            <li>ผู้เรียนสามารถใช้คิวรี่ย่อยในประโยค WHERE ได้ </li>
+                            <li>ผู้เรียนสามารถใช้คิวรี่ย่อยในประโยค HAVING ได้</li>
+                            <li>ผู้เรียนสามารถใช้ Correlated Subquery ได้</li>
+                        </ol>
+                    </div>
+                    <!--end objective-->
+                    <div class="bs-callout bs-callout-primary">
+                        <h4>ทฤษฎีก่อนการทดลอง</h4>
+                        <p>
+                            <h4>Subquery</h4>&nbsp;&nbsp;&nbsp;&nbsp;คือ ชุดคำสั่งที่ซ้อนอยู่ในชุดคำสั่ง ซึ่งชุดคำสั่งที่ซ้อนอยู่ข้างในคิวรี่หลักจะถูกเรียกว่าคิวรี่ย่อย <strong>คิวรี่ย่อยจะเป็นชุดคำสั่ง SELECT เท่านั้น </strong>โดยคิวรี่ย่อยสามารถนำไปใช้กับคิวรี่หลัก SELECT INSERT UPDATE และ DELETE ได้ ซึ่งจะใช้ผลลัพธ์ของคิวรี่ย่อยเป็นเงื่อนไขในการกระทำของคิวรี่หลัก ในที่นี้จะยกตัวอย่างการใช้งานกับคำสั่ง SELECT เท่านั้น โดยผู้เรียนสามารถนำไปประยุกต์ใช้กับคำสั่งอื่นๆได้
+                            <!--end table-->
+                    </div>
+                    <!--end Introduction-->
+                </div>
+                <!--end information-->
+                <!--start experiment-->
+                <div id="experiment">
+                    <h1 class="page-header"><h1 class="page-header"> <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> ขั้นตอนการทดลอง</h1>
+                    <div>
+                        <h2 id="SELECT">การใช้คิวรี่ย่อยเพื่อกำหนดคอลัมน์ของคำสั่ง SELECT หลัก </h2>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;ผลลัพธ์ที่ได้จากการคิวรี่ย่อยสามารถนำมาใช้เป็นคอลัมน์หนึ่งในคำสั่ง SELECT ของคิวรี่หลัก ซึ่งผลลัพธ์ที่ได้จากคิวรี่ย่อยหนึ่งประโยคต้องมีค่าเพียงหนึ่งแถว เรียกว่า “Scalar Subquery” ถ้าผลลัพธ์ของคิวรี่ย่อยมีมากกว่า 1 ค่า จะไม่สามารถแสดงผลลัพธ์ของการคิวรี่ได้</p>
+                        <strong>Syntax:</strong>
+                        <div class="highlight">
+                            <strong>
+                                SELECT column1, column2, ….,
+                                (SELECT somevalue FROM table2) FROM table1 
+                        </strong>
+                        </div>
+                        <center><strong>ตัวอย่าง ตาราง E7_Cate</strong></center>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <tr class="info">
+                                    <center>
+                                        <th>
+                                            <center>Cate_id</center>
+                                        </th>
+                                        <th>
+                                            <center>Cate_name</center>
+                                        </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>11</center>
+                                    </td>
+                                    <td>
+                                        <center>เฟอร์นิเจอร์ห้องนอน</center>
+                                    </td>
+                                </tr>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>12</center>
+                                    </td>
+                                    <td>
+                                        <center>เฟอร์นิเจอร์ห้องนั่งเล่น</center>
+                                    </td>
+                                </tr>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>13</center>
+                                    </td>
+                                    <td>
+                                        <center>เฟอร์นิเจอร์ห้องครัว</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>14</center>
+                                    </td>
+                                    <td>
+                                        <center>เฟอร์นิเจอร์สำหรับเด็ก</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>15</center>
+                                    </td>
+                                    <td>
+                                        <center>เครื่องใช้ไฟฟ้า</center>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <center><strong>ตัวอย่าง ตาราง E7_Pro</strong></center>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <tr class="success">
+                                    <center>
+                                        <th>
+                                            <center>Pro_id</center>
+                                        </th>
+                                        <th>
+                                            <center>Pro_name</center>
+                                        </th>
+                                        <th>
+                                            <center>Cate_id</center>
+                                        </th>
+                                        <th>
+                                            <center>Price</center>
+                                        </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>P01</center>
+                                    </td>
+                                    <td>
+                                        <center>ที่นอน</center>
+                                    </td>
+                                    <td>
+                                        <center>11</center>
+                                    </td>
+                                    <td>
+                                        <center>9900</center>
+                                    </td>
+                                </tr>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>P02</center>
+                                    </td>
+                                    <td>
+                                        <center>ตู้เสื้อผ้า</center>
+                                    </td>
+                                    <td>
+                                        <center>11</center>
+                                    </td>
+                                    <td>
+                                        <center>5480</center>
+                                    </td>
+                                </tr>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>P03</center>
+                                    </td>
+                                    <td>
+                                        <center>โต๊ะเครื่องแป้ง</center>
+                                    </td>
+                                    <td>
+                                        <center>11</center>
+                                    </td>
+                                    <td>
+                                        <center>4580</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>P04</center>
+                                    </td>
+                                    <td>
+                                        <center>โซฟา</center>
+                                    </td>
+                                    <td>
+                                        <center>12</center>
+                                    </td>
+                                    <td>
+                                        <center>8800</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>P05</center>
+                                    </td>
+                                    <td>
+                                        <center>กลาง</center>
+                                    </td>
+                                    <td>
+                                        <center>12</center>
+                                    </td>
+                                    <td>
+                                        <center>3900</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>P06</center>
+                                    </td>
+                                    <td>
+                                        <center>ชุดครัว</center>
+                                    </td>
+                                    <td>
+                                        <center>13</center>
+                                    </td>
+                                    <td>
+                                        <center>16900</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>P07</center>
+                                    </td>
+                                    <td>
+                                        <center>เตียง 2 ชั้น</center>
+                                    </td>
+                                    <td>
+                                        <center>14</center>
+                                    </td>
+                                    <td>
+                                        <center>8900</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>P08</center>
+                                    </td>
+                                    <td>
+                                        <center>เครื่องปรับอากาศ</center>
+                                    </td>
+                                    <td>
+                                        <center>15</center>
+                                    </td>
+                                    <td>
+                                        <center>12500</center>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="bs-example" data-content="Example">
+                            <p><strong>Step 1.</strong> สร้างตาราง E7_Cate </p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+
+                                            CREATE TABLE E7_Cate <br>
+                                             (<br>
+                                          Cate_id int(4) NOT NULL ,<br>
+                                          Cate_name char(20)<br>
+                                        );</strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <p><strong>Step 2.</strong> เพิ่มข้อมูลลงในตาราง E7_Cate</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+                                     insert into E7_Cate (Cate_id,Cate_name) values<br>
+                                    ('11', 'เฟอร์นิเจอร์ห้องนอน'),<br>
+                                    ('12', 'เฟอร์นิเจอร์ห้องนั่งเล่น'),<br>
+                                    ('13', 'เฟอร์นิเจอร์ห้องครัว'),<br>
+                                    ('14', 'เฟอร์นิเจอร์สำหรับเด็ก'),<br>
+                                    ('15', 'เครื่องใช้ไฟฟ้า')<br>
+                                    ;
+                                </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <br>
+                            <p><strong>Step 3.</strong>สร้างตาราง E7_Pro</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+
+                                            CREATE TABLE E7_Pro <br>
+                                             (<br>
+                                          Prod_id int(4) NOT NULL ,<br>
+                                          Prod_name char(20),<br>
+                                          Cate_id int(4),<br>
+                                          Price int(10)<br>
+                                        );</strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <p><strong>Step 4.</strong>เพิ่มข้อมูลลงในตาราง E7_Pro</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+                                     insert into table2 (Prod_id,Prod_name,Cate_id,Price) values<br>
+                                    ('P01', 'ที่นอน','11','9900'),<br>
+                                    ('P02', 'ตู้เสื้อผ้า','11','5480'),<br>
+                                    ('P03', 'โต๊ะเครื่องแป้ง','11','4580'),<br>
+                                    ('P04', 'โซฟา','12','8800'),<br>
+                                    ('P05', 'โต๊ะกลาง','12','3900'),<br>
+                                    ('P06', 'ชุดครัว','13','16900'),<br>
+                                    ('P07', 'เตียง 2 ชั้น','14','8900'),<br>
+                                    ('P08', 'เครื่องปรับอากาศ','15','12500')<br>
+                                    ;
+                                </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <br>
+                            <p><strong>Step 5.</strong> คำสั่งเรียกดูราคาสินค้าที่แพงที่สุดของแต่ละประเภทสินค้า
+                            </p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>SELECT Cate_id, Cate_name, 
+                                (SELECT MAX(Price) FROM E7_Pro <br>WHERE E7_Pro.Cate_id = E7_ Cate.Cate_id) 
+                                FROM E7_Cate;
+                                </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q1">1.บันทึกผลการทดลอง Step ที่ 5
+                                </p>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=1&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q1" data-unit="7" data-article="1" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <br>
+                            <br>
+                        </div>
+                        <h2 id="Operator">การใช้คิวรี่ย่อยในประโยค WHERE โดยใช้ Operator (=, <, >, <=, >=, !=) </h2>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;การใช้ Operator ในการเปรียบเทียบนั้นสิ่งสำคัญที่ควรรู้คือ ผลลัพธ์ที่อยู่ในคิวรี่ย่อย ต้องเป็นผลลัพธ์ที่ถูก SELECT ออกมาแล้วมีค่าเดียว เช่น COUNT, MIN, MAX, AVG เป็นต้น ถ้าเป็นการ SELECT แล้วได้ผลลัพธ์ออกมาหลายค่าจะใช้ตัวดำเนินการในการเปรียบเทียบไม่ได้</p>
+                        <strong>Syntax: การใช้คิวรี่ย่อยในประโยค WHERE โดยใช้ Operator</strong>
+                        <br>
+                        <div class="highlight">
+                            <strong>
+                                SELECT * FROM table1 
+                                WHERE somecolumn = (SELECT somevalue FROM table2);
+
+                                </strong>
+                        </div>
+                        <center><strong>ตัวอย่าง ตาราง E7_Employee</strong></center>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <tr class="info">
+                                    <center>
+                                        <th>
+                                            <center>Emp_id</center>
+                                        </th>
+                                        <th>
+                                            <center>Emp_Fname</center>
+                                        </th>
+                                        <th>
+                                            <center>Emp_Lname</center>
+                                        </th>
+                                        <th>
+                                            <center>Branch_id</center>
+                                        </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>0001</center>
+                                    </td>
+                                    <td>
+                                        <center>Alan</center>
+                                    </td>
+                                    <td>
+                                        <center>Turing.</center>
+                                    </td>
+                                    <td>
+                                        <center>1</center>
+                                    </td>
+                                </tr>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>0002</center>
+                                    </td>
+                                    <td>
+                                        <center>Michael</center>
+                                    </td>
+                                    <td>
+                                        <center>Scofield</center>
+                                    </td>
+                                    <td>
+                                        <center>2</center>
+                                    </td>
+                                </tr>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>0003</center>
+                                    </td>
+                                    <td>
+                                        <center>Mega</center>
+                                    </td>
+                                    <td>
+                                        <center>Clever</center>
+                                    </td>
+                                    <td>
+                                        <center>3</center>
+                                    </td>
+                                </tr>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>0004</center>
+                                    </td>
+                                    <td>
+                                        <center>David</center>
+                                    </td>
+                                    <td>
+                                        <center>Beckham</center>
+                                    </td>
+                                    <td>
+                                        <center>1</center>
+                                    </td>
+                                </tr>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>0005</center>
+                                    </td>
+                                    <td>
+                                        <center>Christopher</center>
+                                    </td>
+                                    <td>
+                                        <center>Columbus</center>
+                                    </td>
+                                    <td>
+                                        <center>3</center>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <center><strong>ตัวอย่าง ตาราง E7_Office</strong></center>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <tr class="danger">
+                                    <center>
+                                        <th>
+                                            <center>Branch_id</center>
+                                        </th>
+                                        <th>
+                                            <center>Branch_name</center>
+                                        </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>1</center>
+                                    </td>
+                                    <td>
+                                        <center>U.S.</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>2</center>
+                                    </td>
+                                    <td>
+                                        <center>Singapore</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>3</center>
+                                    </td>
+                                    <td>
+                                        <center>Thailand</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>4</center>
+                                    </td>
+                                    <td>
+                                        <center>Italy</center>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="bs-example" data-content="Example">
+                            <p><strong>Step 1.</strong>สร้างตาราง E7_Employee</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+                                            CREATE TABLE E7_Employee <br>
+                                             (<br>
+                                          Emp_id int(4) NOT NULL ,<br>
+                                          Emp_Fname char(20),<br>
+                                          Emp_Lname char(20)NOT NULL ,<br>
+                                          Office_id int(4)  <br>
+                                        );
+                                 </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=2&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <br>
+                            <p><strong>Step 2.</strong>เพิ่มข้อมูลลงในตาราง E7_Employee
+                            </p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+                                     insert into E7_Employee (Emp_id,Emp_Fname,Emp_Lname,Office_id) values<br>
+                                    ('0001', 'Alan','Turing','1'),<br>
+                                    ('0002', 'Michael','Scofield','2'),<br>
+                                    ('0003', 'Mega','Clever','4'),<br>
+                                    ('0004', 'David','Beckham','3'),<br>
+                                    ('0005', 'Christopher','Columbus','4')<br>
+                                    ;
+                                </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=2&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <br>
+                            <p><strong>Step 3.</strong>สร้างตาราง E7_Office </p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong>  
+                                            CREATE TABLE E7_Office <br>
+                                             (<br>
+                                          Office_id int(4) NOT NULL ,<br>
+                                          Office_name char(20)<br>
+                                        );
+
+                                    </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=2&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <br>
+                            <p><strong>Step 4.</strong>เพิ่มข้อมูลลงในตาราง E7_Office </p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+                                     insert into E7_Office (Office_id,Office_name) values<br>
+                                    ('1', 'U.S.'),<br>
+                                    ('2', 'Singapore'),<br>
+                                    ('3', 'Thailand'),<br>
+                                    ('4', 'Italy')<br>
+                                    ;
+                                </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=2&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <br>
+                            <p><strong>Step 5.</strong>ทดลองใช้คำสั่ง Operator</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+                                     SELECT * FROM E7_Employee <br>
+                                    WHERE Office_id = (SELECT Office_id FROM E7_Office WHERE Office_name = “Italy”);
+
+                                </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=2&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q2">2.บันทึกผลการทดลอง step ที่ 5 การใช้คิวรี่ย่อยในประโยค WHERE โดยใช้ Operator
+                                </p>
+                            </div>
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q2" data-unit="7" data-article="2" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <br>
+                            <br>
+                            <p><strong>Step 6.</strong>ทดลองใช้คำสั่ง Operator</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+                                     SELECT * FROM E7_Employee <br>
+                                    WHERE Office_id >= (SELECT MIN(Office_id)+1 FROM E7_Office);
+
+                                </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=3&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q3">3.บันทึกผลการทดลอง step ที่ 6 การใช้คิวรี่ย่อยในประโยค WHERE โดยใช้ Operator
+                                </p>
+                            </div>
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q3" data-unit="7" data-article="3" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                        </div>
+
+                        <h2 id="INandNOTIN">การใช้คิวรี่ย่อยในประโยค WHERE โดยใช้ IN และ NOT IN </h2>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;จะใช้ในกรณีที่ผลลัพธ์ของคิวรี่ย่อยมีมากกว่าค่าเดียว </p>
+                        <strong>Syntax: การใช้คิวรี่ย่อยในประโยค WHERE โดยใช้ IN และ NOT IN  </strong>
+                        <div class="highlight">
+                            <strong>
+                                SELECT * FROM table1 
+                                WHERE somecolumn IN (SELECT somevalue FROM table2);
+                                </strong>
+                        </div>
+                        <div class="bs-example" data-content="Example">
+                            <p><strong>Step 1.</strong>ทดลองใช้คำสั่ง IN โดยต้องการคิวรี่ข้อมูลทั้งหมดในตาราง E7_Employee ที่มี Office_id จาก ตาราง E7_Office ที่ไม่มี Office_name คำว่า “Thailand”</p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+
+                                           SELECT * FROM E7_Employee 
+                                            WHERE Office_id <code>IN</code> (SELECT Office_id FROM E7_Office WHERE Office_name <code>!=</code> “Thailand”);
+                                 </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=4&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <br>
+                            <p><strong>Step 2.</strong> ทดลองใช้คำสั่งด้านล่างสังเกตุผลลัพธ์ที่เปลี่ยนแปลงไป
+                            </p>
+                            <div class="bs-docs-example" data-content="Example">
+                                <strong> 
+                                     SELECT * FROM E7_Employee <br>
+                                    WHERE Office_id NOT IN (SELECT Office_id FROM E7_Office WHERE Office_name != “Thailand”);
+                                  </strong>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=4&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <br>
+                            <br>
+                            <div class="bs-callout bs-callout-warning">
+                                <p id="q4">4.บันทึกผลการทดลอง Step ที่ 1 และ 2 การใช้คิวรี่ย่อยในประโยค WHERE โดยใช้ IN และ NOT IN
+                                </p>
+                            </div>
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q4" data-unit="7" data-article="4" data-type="1">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                        </div>
+                        <h2 id="ANY">การใช้คิวรี่ย่อยในประโยค WHERE โดยใช้ ANY, SOME และ ALL  </h2>
+                        <h4> ตัวดำเนินการ ANY กับ SOME </h4>
+                        <p> &nbsp;&nbsp;&nbsp;&nbsp;จะมีความหมายเดียวกันคือ แค่ตรงตามเงื่อนไขของบางตัวที่อยู่ในSOME ก็จะเป็นจริง(ในที่นี้จะใช้แค่ SOME) เช่น {1,2,3,4,5,6}
+                            <=S OME({1,3,5} อธิบายได้ว่า มีเลขอะไรบ้างในปีกกาที่1 ที่น้อยกว่าหรือเท่ากับ 1 หรือ 3 หรือ 5 ในปีกกาที่2 ดังนั้นคำตอบที่ได้คือ 1,2,3,4,5 </p>
+                                <strong>Syntax: ANY กับ SOME </strong>
+                                <div class="highlight">
+                                    <strong>
+                                SELECT * FROM table1 <br>
+                                WHERE somecolumn = SOME(SELECT somecolumn FROM table2);
+
+                                        </strong>
+                                </div>
+                                <div class="bs-example" data-content="Example">
+                                    <p><strong>Step 1.</strong>คำสั่งหาข้อมูลของพนักงานที่อยู่ใน Italy หรือ Thailand โดยใช้ SOME</p>
+                                    <div class="bs-docs-example" data-content="Example">
+                                        <strong> 
+
+                                          SELECT * FROM E7_Employee <br>
+                                        WHERE Office_id = SOME(SELECT Office_id FROM E7_Office <br>
+                                        WHERE (Office_name = “Italy”) OR (Office_name = “Thailand”));
+                                        </strong>
+                                    </div>
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=5&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+                                    <div class="bs-callout bs-callout-warning">
+                                        <p id="q5">5.บันทึกผลการทดลอง คำสั่งหาข้อมูลของพนักงานที่อยู่ใน Italy หรือ Thailand โดยใช้ SOME
+                                        </p>
+                                    </div>
+                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q5" data-unit="7" data-article="5" data-type="1">
+                                        <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                    </button>
+                                    <br>
+                                    <code>หมายเหตุ</code>
+                                    <h4>เทคนิคการอ่านชุดคำสั่งจากตัวอย่าง Step 1</h4>
+                                    <p>เราต้องพิจราณาในคิวรี่ย่อยที่อยู่ในวงเล็บ SOME ก่อน</p>
+                                    <div class="highlight">
+                                        <strong>
+                                          SELECT Office_id FROM E7_Office
+                                        WHERE (Office_name = “Italy”) OR (Office_name = “Thailand”));
+
+                                      </strong>
+                                    </div>
+                                    <p>จะได้ข้อมูล Office_id คือ 3 กับ 4 จากนั้นก็แทนค่ากลับลงไปใน SOME</p>
+                                    <div class="highlight">
+                                        <strong>
+                                          SELECT * FROM E7_Employee 
+                                          WHERE Office_id = SOME<code>(3, 4)</code>;
+                                      </strong>
+                                    </div>
+                                    <p>
+                                        เห็นแล้วใช่ไหมว่ามันอ่านขึ้นง่ายกว่าเดิมเยอะเลย อย่าลืมนำวิธีนี้ไปใช้ในการอ่านชุดคำสั่งนะครับ
+                                    </p>
+                                    <br>
+                                    <h4>ตัวดำเนินการ ALL </h4>
+                                    <br>
+                                    <p>&nbsp;&nbsp;&nbsp;&nbsp;มีความหมายคือ ต้องตรงตามเงื่อนไขของทุกตัวที่อยู่ใน ALL เช่น {1,2,3,4,5}
+                                        <=A LL({1,3,5}) อธิบายได้ว่า มีเลขใดบ้างในปีกกา1 ที่มีค่าน้อยกว่าหรือเท่ากับ 1 และ 3 และ 5 ที่อยู่ในปีกกา2 ดังนั้นคำตอบที่ได้คือ 1 เพราะ 1 น้อยกว่าหรือเท่ากับ 1 และ 3 และ 5 แต่ถ้าเกิดเป็น 2 ซึ่ง 2 น้อยกว่าหรือเท่ากับ 5 และ 3 จริง แต่ไม่น้อยกว่าหรือเท่ากับ 1 นั่นเอง จึงไม่ใช่คำตอบที่ถูกต้อง </p>
+                                            <strong>Syntax: ตัวดำเนินการ ALL</strong>
+                                            <div class="highlight">
+                                                <strong>
+                                          SELECT * FROM table1 
+                                            WHERE somecolumn < ALL(SELECT somecolumn FROM table2);
+
+                                      </strong>
+                                            </div>
+                                            <p>จากตาราง E7_Employee</p>
+                                            <p><strong>Step 1</strong>ดูข้อมูลของพนักงานที่เงินเดือนเยอะที่สุดในบริษัท โดยใช้ ALL</p>
+                                            <div class="bs-docs-example" data-content="Example">
+                                                <strong> 
+
+                                          SELECT * FROM E7_Emp
+                                        WHERE Salary >= ALL(SELECT Salary FROM E7_Emp);
+                                            </strong>
+                                            </div>
+                                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=6&type=1')">
+                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                            </button>
+                                            <div class="bs-callout bs-callout-warning">
+                                                <p id="q6">6.บันทึกผลการทดลอง Operator ALL
+                                                </p>
+                                            </div>
+                                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q6" data-unit="7" data-article="6" data-type="1">
+                                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                            </button>
+                                </div>
+                                <h2 id="EXISTS">การใช้คิวรี่ย่อยในประโยค WHERE โดยใช้ EXISTS</h2>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;ตัวดำเนินการ EXISTS ใช้ตรวจสอบผลลัพธ์ในคิวรี่ย่อย ถ้ามี 1 แถวขึ้นไปจะทำให้ประโยคนั้นมีค่าเป็นจริง แต่ถ้าไม่มีผลลัพธ์ใดๆเลยจะให้ค่าเป็นเท็จ</p>
+                                <strong>Syntax: การใช้คิวรี่ย่อยในประโยค WHEREโดยใช้ EXISTS </strong>
+                                <div class="highlight">
+                                    <strong>
+                                SELECT * FROM table1 
+                                WHERE EXISTS (SELECT somecolumn FROM table2);
+
+                                </strong>
+                                </div>
+                                <div class="bs-example" data-content="Example">
+                                    <h5>**จากตาราง E7_Cate และ E7_Prod</h5>
+                                    <p><strong>Step 1.</strong>ทดลองใช้คำสั่งเรียกดูประเภทสินค้า โดยมีเงื่อนไขว่าถ้ามีสินค้าราคาน้อยกว่า 5000 บาท จะแสดงข้อมูลของประเภทสินค้าทั้งหมด</p>
+                                    <div class="bs-docs-example" data-content="Example">
+                                        <strong> 
+
+                                           SELECT * FROM E7_Categories<br>
+                                            WHERE EXISTS (SELECT Salary FROM E7_Products WHERE Price < “5000”);
+
+                                 </strong>
+                                    </div>
+                                    <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=7&type=1')">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                                    </button>
+                                    <div class="bs-callout bs-callout-warning">
+                                        <p id="q7">7.บันทึกผลการทดลอง การใช้คิวรี่ย่อยในประโยค WHEREโดยใช้ EXISTS
+                                        </p>
+                                    </div>
+                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q7" data-unit="7" data-article="7" data-type="1">
+                                        <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                                    </button>
+                                </div>
+                    </div>
+                    <h2 id="HAVING">การใช้ประโยค HAVING ร่วมกับคิวรี่ย่อย </h2>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;คำสั่ง HAVING ใช้เพื่อกำหนดเงื่อนไขการกรองผลลัพธ์จากคำสั่ง GROUP BY การใช้คิวรี่ย่อยร่วมกับคำสั่ง HAVING จะใช้เมื่อต้องการเปรียบเทียบค่าในฐานข้อมูลเดียวกัน</p>
+                    <strong>Syntax: การใช้ประโยค HAVING ร่วมกับคิวรี่ย่อย </strong>
+                    <div class="highlight">
+                        <strong>
+                                SELECT * FROM table1 <br>
+                                WHERE somecolumn operator value <br>
+                                GROUP BY somecolumn<br>
+                                HAVING somevalue > (SELECT somevalue FROM table1);<br>
+                        </strong>
+                    </div>
+                    <div class="bs-example" data-content="Example">
+                        <h5>**จากตาราง E7_Cate และ E7_Prod</h5>
+                        <p><strong>Step 1.</strong>คำสั่งเรียกดูประเภทสินค้าที่มีราคาสินค้าโดยเฉลี่ยสูงกว่าราคาสินค้าเฉลี่ยทั้งหมด</p>
+                        <div class="bs-docs-example" data-content="Example">
+                            <strong> 
+
+                                           SELECT Cate_name <br>
+                                            FROM E7_Cate INNER JOIN E7_Products <br>
+                                            ON E7_Cate.Cate_id = E7_Prod.Cate_id <br>
+                                            GROUP BY Cate_name <br>
+                                            HAVING AVG(Price) > (SELECT AVG(Price)<br>
+                                             FROM E7_Prod);
+                                 </strong>
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=7&type=1')">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                        </button>
+                        <div class="bs-callout bs-callout-warning">
+                            <p id="q7">7.บันทึกผลการทดลอง การใช้คิวรี่ย่อยในประโยค WHEREโดยใช้ HAVING
+                            </p>
+                        </div>
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q7" data-unit="7" data-article="7" data-type="1">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                        </button>
+                    </div>
+
+                    <h2 id="Correlated">การใช้ Correlated Subquery ภายในตารางเดียวกัน</h2>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;เป็นการใช้คิวรี่ย่อยในตารางเดียวกับตารางของคิวรี่หลัก สามารถกรองข้อมูลที่มีความซับซ้อนมากขึ้น Correlated Subquery คือ คิวรี่ย่อยที่อ้างอิงไปยังคำสั่ง SELECT ของคิวรี่หลัก ซึ่งชื่อตารางจะซ้ำกับคิวรี่หลัก จึงต้องใช้คำสั่ง Aliase กำหนดชื่อใหม่ให้กับตารางย่อยหรือตารางหลัก</p>
+                    <strong>Syntax: การใช้ Correlated Subquery ภายในตารางเดียวกัน </strong>
+                    <div class="highlight">
+                        <strong>
+                                SELECT * FROM table1 AS new1 <br>
+                                WHERE somevalue > (SELECT somevalue FROM table1 AS new 2<br>
+                                WHERE new1.somecolumn = new2.somecolumn);<br>
+
+                        </strong>
+                    </div>
+                    <div class="bs-example" data-content="Example">
+                        <h5>**จากตาราง E7_Prod</h5>
+                        <p><strong>Step 1.</strong>
+                            คำสั่งเรียกดูข้อมูลสินค้าที่มีราคาสูงกว่าราคาสินค้าเฉลี่ยในแต่ละประเภทสินค้า
+
+                        </p>
+                        <div class="bs-docs-example" data-content="Example">
+                            <strong> 
+                            SELECT * FROM E7_Prosucts AS Out1 <br>
+                        WHERE Price > (SELECT AVG(Price) FROM E7_Prosucts AS In1<br>
+                         WHERE Out1.Cate_id = In1. Cate_id);
+                                 </strong>
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=8&type=1')">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                        </button>
+                        <div class="bs-callout bs-callout-warning">
+                            <p id="q8">8.บันทึกผลการทดลอง คำสั่งเรียกดูข้อมูลสินค้าที่มีราคาสูงกว่าราคาสินค้าเฉลี่ยในแต่ละประเภทสินค้า
+                            </p>
+                        </div>
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q7" data-unit="7" data-article="7" data-type="1">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                        </button>
+
+                        <p><strong>Step 2.</strong>
+                            อธิบายการทำงานของคำสั่งตัวอย่าง<br>
+                            พิจารณาจากคิวรี่ย่อยก่อน จะหาค่าเฉลี่ยของแต่ละประเภทออกมา(Out1.Cate_id = In1. Cate_id)
+                        </p>
+                        <div class="bs-docs-example" data-content="Example">
+                            <strong> 
+                            SELECT AVG(Price) FROM E7_Prosucts AS In1 WHERE Out1.Cate_id = In1. Cate_id ;
+                                 </strong>
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=9&type=1')">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                        </button>
+
+                        <p><strong>Step 3.</strong>จะได้ ตาราง In1 ดังภาพ</p>
+                        <img src="pic_7/2.png" style='width:30%;' border="0" alt="Null">
+                        <br><br>
+                        <p>จากนั้นนำราคาเฉลี่ยในแต่ละประเภทไปเทียบกับสินค้าที่อยู่ในประเภทเดียวกัน ผลลัพธ์คือสินค้าที่มีราคามากกว่าราคาเฉลี่ยของประเภทตัวเอง</p>
+                         <img src="pic_7/1.png" style='width:100%;' border="0" alt="Null">
+                         <div class="bs-callout bs-callout-warning">
+                            <p id="q9">9.บันทึกผลการทดลอง Step 2-3
+                            </p>
+                        </div>
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q9" data-unit="7" data-article="9" data-type="1">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                        </button>
+
+                    </div>
+                </div>
+                <!--end experiment-->
+                <div id="Practice">
+                    <h1 class="page-header"> <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> คำถามท้ายการทดลอง</h1>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;ให้นักเรียนตอบคำถามท้ายการทดลอง โดยนักเรียนสามารถทดลองคำสั่งได้จากการกดปุ่ม
+                        <kbd>Try it Yourself </kbd>&nbsp;จากนั้นนำคำตอบ ที่นักเรียนมั่นใจที่สุดส่งคำตอบที่ปุ่ม
+                        <kbd>Send Answer</kbd> ได้เพียงครั้งเดียว</p>
+                        <center><strong>    </strong></center>
+                    <div class="bs-callout bs-callout-success">
+                        <div id="1p">
+                            <!-- start first pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p1">1.จากตาราง products จงแสดงข้อมูลทั้งหมดของ สินค้าที่มีราคาสูงที่สุด โดยใช้คำสั่งคิวรี่ย่อย
+                                    </p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=1&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 1TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p1" data-unit="7" data-article="1" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 1pb-->
+                        </div>
+                        <!--end Practice-->
+                        <br>
+                        <br>
+                        <div id="2p">
+                            <!-- start 2 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p2">2.จากตาราง products จงแสดงข้อมูลทั้งหมดของ สินค้าที่มีราคาเท่ากับ "8" โดยใช้คำสั่งคิวรี่ย่อย
+                                    </p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=ึ&article=2&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p2" data-unit="7" data-article="2" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <!--end Practice-->
+                        <br>
+                        <br>
+                        <div id="3p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p3">3.จงเขียนคำสั่งเรียกดูประเภทสินค้าที่มีราคาสินค้าโดยเฉลี่ยสูงกว่าราคาสินค้าเฉลี่ยทั้งหมด จากตารางcategoriesและ products </p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=3&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p3" data-unit="7" data-article="3" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <br>
+                        <br>
+
+                         <div id="4p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p4">4.จงเขียนคำสั่งเรียกดูข้อมูล รายละเอียดลูกค้า วันที่สั่งสินค้า และจัดส่งสินค้า ของลูกค้า ที่สั่งสินค้าในวันที่ 2549-10-21</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=4&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p4" data-unit="7" data-article="4" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <br>
+                        <br>
+                        
+
+                         <div id="5p">
+                            <!-- start 3 pratice question -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p id="p5">5.จากตาราง products จงแสดงข้อมูลทั้งหมดของ สินค้าที่มีจำนวนสินค้าในสต็อกน้อยกว่าหรือเท่ากับ "8" โดยใช้คำสั่งคิวรี่ย่อย</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=5&type=2')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
+                            </button>
+                            <!-- end 2TB-->
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="p5" data-unit="7" data-article="5" data-type="2">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                            <!-- end 2pb-->
+                        </div>
+                        <!--end Practice-->
+                    </div>
+                </div>
+                <!--end Answer-->
+            </div>
+            <!--end content-->
+            <!--start Model-->
+            <div class="modal fade" id="practiceModal" tabindex="-1" role="dialog" aria-labelledby="practiceModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                            </button>
+                            <div>
+                                <h4 class="modal-title" id="practiceHeader"></h4>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div id="status"></div>
+                            <form>
+                                <div class="form-group">
+                                    <label for="message-text" class="control-label" id="practiceQuestion"></label>
+                                    <textarea class="form-control" id="practiceAnswer" rows="10"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-warning" id="sendAnswer">
+                                <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end model-->
+            <!--start index-->
+            <div class="col-md-2">
+                <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+                    <ul class="nav bs-docs-sidenav">
+                        <li class="active">
+                            <a href="#information">ความรู้เบื้องต้น</a>
+                            <ul class="nav">
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#experiment">ขั้นตอนการทดลอง</a>
+                            <ul class="nav">
+                                <li>
+                                    <a href="#SELECT ">การใช้คิวรี่ย่อยเพื่อกำหนดคอลัมน์ของคำสั่ง SELECT หลัก </a>
+                                </li>
+                                <li>
+                                    <a href="#Operator ">การใช้คิวรี่ย่อยในประโยค WHERE โดยใช้ Operator</a>
+                                </li>
+                                <li>
+                                    <a href="#INandNOTIN ">การใช้คิวรี่ย่อยในประโยค WHERE โดยใช้ IN และ NOT IN </a>
+                                </li>
+                                <li>
+                                    <a href="#ANY">การใช้คิวรี่ย่อยในประโยค WHERE โดยใช้ ANY, SOME และ ALL </a>
+                                </li>
+                                  <li>
+                                    <a href="#EXISTS ">การใช้คิวรี่ย่อยในประโยค WHERE โดยใช้ EXISTS</a>
+                                </li>
+                                  <li>
+                                    <a href="#HAVING ">การใช้ประโยค HAVING ร่วมกับคิวรี่ย่อย</a>
+                                </li>
+                                  <li>
+                                    <a href="#Correlated ">การใช้ Correlated Subquery ภายในตารางเดียวกัน</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#Practice">คำถามท้ายการทดลอง</a>
+                        </li>
+                    </ul>
+                    <a class="back-to-top" href="#top">Back to top</a>
+                </nav>
+            </div>
+            <!-- end index-->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</body>
+<footer>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+</footer>
+
+</html>
