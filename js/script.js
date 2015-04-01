@@ -27,6 +27,8 @@ $(document).ready(function() {
         var logo = "<span class='glyphicon glyphicon-cloud-upload' aria-hidden='true'></span>";
         $('#practiceHeader').html(logo + " " + header);
         $('#practiceQuestion').html(question);
+        //clear textarea 
+        $('#practiceAnswer').val(null);
     })
 
     $("#sendAnswer").click(function() {
