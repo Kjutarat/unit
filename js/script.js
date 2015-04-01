@@ -29,7 +29,7 @@ $(document).ready(function() {
         $('#practiceQuestion').html(question);
         //clear textarea 
         $('#practiceAnswer').val(null);
-    })
+    });
 
     $("#sendAnswer").click(function() {
         var c = confirm("กรุณาตรวจสอบคำตอบให้เรียบร้อย คุณสามารถส่งคำตอบได้เพียงครั้งเดียวเท่านั้น");
