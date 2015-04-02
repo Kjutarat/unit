@@ -44,8 +44,9 @@ $(document).ready(function() {
 //start function zone
 function sendPractice(d) {
         //alert("mode=answer&unit="+$("#unit").val()+"&article="+$("#article").val()+"&type="+$("#type").val()+"&answer="+$("#answer").val());
+        var pathname = window.location.pathname.split('/')[1];
         $.ajax({
-            url: "http://"+window.location.host+"/moodle/mod/mysqlreport/service.php",
+            url: "http://"+window.location.host+"/"+pathname+"/mod/mysqlreport/service.php",
             type: "POST",
             data: d,
             success: function(result) {
