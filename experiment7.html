@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>TEMPLATE</title>
+    <title>Chapter 7:การเรียกดูข้อมูลโดยใช้คิวรี่ย่อย (Subquery)</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/bootstrap-theme.min.css">
@@ -320,7 +320,7 @@
                                 FROM E7_Cate;
                                 </strong>
                             </div>
-                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=8&article=1&type=1')">
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=1&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
                             <br>
@@ -784,14 +784,14 @@
                                              FROM E7_Prod);
                                  </strong>
                         </div>
-                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=7&type=1')">
+                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=8&type=1')">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                         </button>
                         <div class="bs-callout bs-callout-warning">
-                            <p id="q7">7.บันทึกผลการทดลอง การใช้คิวรี่ย่อยในประโยค WHEREโดยใช้ HAVING
+                            <p id="q8">8.บันทึกผลการทดลอง การใช้คิวรี่ย่อยในประโยค WHEREโดยใช้ HAVING
                             </p>
                         </div>
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q7" data-unit="7" data-article="7" data-type="1">
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q7" data-unit="7" data-article="8" data-type="1">
                             <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                         </button>
                     </div>
@@ -820,14 +820,14 @@
                          WHERE Out1.Cate_id = In1. Cate_id);
                                  </strong>
                         </div>
-                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=8&type=1')">
+                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=9&type=1')">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                         </button>
                         <div class="bs-callout bs-callout-warning">
-                            <p id="q8">8.บันทึกผลการทดลอง คำสั่งเรียกดูข้อมูลสินค้าที่มีราคาสูงกว่าราคาสินค้าเฉลี่ยในแต่ละประเภทสินค้า
+                            <p id="q9">9.บันทึกผลการทดลอง คำสั่งเรียกดูข้อมูลสินค้าที่มีราคาสูงกว่าราคาสินค้าเฉลี่ยในแต่ละประเภทสินค้า
                             </p>
                         </div>
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q7" data-unit="7" data-article="7" data-type="1">
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q9" data-unit="7" data-article="9" data-type="1">
                             <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                         </button>
 
@@ -840,7 +840,7 @@
                             SELECT AVG(Price) FROM E7_Prosucts AS In1 WHERE Out1.Cate_id = In1. Cate_id ;
                                  </strong>
                         </div>
-                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=9&type=1')">
+                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/moodle/mod/mysqlexp/mysqlexp.php?unit=7&article=10&type=1')">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                         </button>
 
@@ -850,10 +850,10 @@
                         <p>จากนั้นนำราคาเฉลี่ยในแต่ละประเภทไปเทียบกับสินค้าที่อยู่ในประเภทเดียวกัน ผลลัพธ์คือสินค้าที่มีราคามากกว่าราคาเฉลี่ยของประเภทตัวเอง</p>
                          <img src="pic_7/1.png" style='width:100%;' border="0" alt="Null">
                          <div class="bs-callout bs-callout-warning">
-                            <p id="q9">9.บันทึกผลการทดลอง Step 2-3
+                            <p id="q10">10.บันทึกผลการทดลอง Step 2-3
                             </p>
                         </div>
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q9" data-unit="7" data-article="9" data-type="1">
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q10" data-unit="7" data-article="10" data-type="1">
                             <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                         </button>
 
