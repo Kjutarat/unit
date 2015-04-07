@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -439,10 +440,10 @@
                             <div class="bs-callout bs-callout-warning">
                                 <p id="q2">2.จงเรียกดูข้อมูลในตาราง SalesTest โดยต้องการเรียกดูข้อมูล รหัสพนักงาน ชื่อจริง นามสกุล เบอร์โทรติดต่อ เปลี่ยนชื่อเป็น Contact จังหวัด เปลี่ยนชื่อเป็น Province
                             </div>
-                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=3&article=2&type=1')">
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=4&article=2&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
-                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q2" data-unit="3" data-article="1" data-type="1">
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q2" data-unit="4" data-article="2" data-type="1">
                                 <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                             </button>
                         </div>
@@ -462,7 +463,7 @@
                             <div class="bs-docs-example" data-content="Example">
                                 <strong>SELECT * FROM SalesTest WHERE SID=’S02’;</strong>
                             </div>
-                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=3&article=3&type=1')">
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=4&article=3&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
                             <div class="bs-callout bs-callout-warning">
@@ -484,7 +485,7 @@
                             <div class="bs-docs-example" data-content="Example">
                                 <strong>SELECT salesID,SFirstName,SLastName FROM SalesTest WHERE SID=’S02’;</strong>
                             </div>
-                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=3&article=3&type=1')">
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=4&article=4&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
                             <div class="bs-callout bs-callout-warning">
@@ -610,7 +611,7 @@
                                 BETWEEN ’20,000’ AND ‘2000,000’; 
                                 </strong>
                             </div>
-                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=4&article=8&type=1')">
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=4&article=9&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
                             <br>
@@ -619,7 +620,7 @@
                             <div class="bs-docs-example" data-content="Example">
                                 <strong>SELECT * FROM SalesTest WHERE Targetsales BETWEEN '30,00'’ AND '50,000';</strong>
                             </div>
-                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=4&article=8&type=1')">
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=4&article=9&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                             </button>
                             <div class="bs-callout bs-callout-warning">
@@ -675,7 +676,9 @@
                             <strong>
                                 Step 11.</strong> แสดงผลชื่อและนามสกุลของเซลล์ที่มีเป้าหมายการขาย 20,000 และ 200,000 บาท
                             <div class="bs-docs-example" data-content="Example">
-                                <strong>SELECT SFirstName,SLastName,Phone FROM SalesTest WHERE Phone like ’01%’; 
+                                <strong>SELECT * FROM Sales WHERE Target sales
+                                IN (‘200,000’,’10,000’); 
+
                                 </strong>
                             </div>
                             <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=4&article=11&type=1')">
@@ -700,7 +703,7 @@
                                     </div>
                                     <p><strong>Step 1.</strong> ต้องการนับจำนวนพนักงานในแต่ละตำแหน่งว่ามีจำนวนพนักงานเท่าไหร่</p>
                                     <div class="bs-docs-example" data-content="Example">
-                                        <strong>SELECT Position,COUNT (Position) FROM SalesTestGROUP BY Position;
+                                        <strong>SELECT Position,COUNT (Position) FROM SalesTest GROUP BY Position;
                                 </strong>
                                     </div>
                                     <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=4&article=12&type=1')">
@@ -713,7 +716,7 @@
                                     <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=4&article=12&type=1')">
                                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                                     </button>
-                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q10" data-unit="4" data-article="12" data-type="1">
+                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q12" data-unit="4" data-article="12" data-type="1">
                                         <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                                     </button>
                             </div>
@@ -816,13 +819,13 @@
                                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                                     </button>
                                     <div class="bs-callout bs-callout-warning">
-                                        <p id="q13">15.บันทึกผลการทดลอง
+                                        <p id="q15">15.บันทึกผลการทดลอง
                                         </p>
                                     </div>
                                     <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=4&article=15&type=1')">
                                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Trial
                                     </button>
-                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q13" data-unit="4" data-article="15" data-type="1">
+                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q15" data-unit="4" data-article="15" data-type="1">
                                         <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                                     </button>
                             </div>
@@ -1044,7 +1047,7 @@
                         <!-- start 3 pratice question -->
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <p id="p10">10.11. จงใช้คำสั่งแสดง รหัสบริษัท ชื่อบริษัท ที่รหัสบริษัทอยู่ในระหว่าง 02-04 โดยเรียงลำดับตามชื่อบริษัท จากมากไปน้อย
+                                <p id="p10">10.จงใช้คำสั่งแสดง รหัสบริษัท ชื่อบริษัท ที่รหัสบริษัทอยู่ในระหว่าง 02-04 โดยเรียงลำดับตามชื่อบริษัท จากมากไปน้อย
                                 </p>
                             </div>
                         </div>
