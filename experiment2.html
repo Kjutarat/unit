@@ -512,20 +512,21 @@
                     <h1 class="page-header"><h1 class="page-header"> <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> ขั้นตอนการทดลอง</h1>
                     <div id="Cdb">
                         <h2>การสร้างฐานข้อมูล  </h2>
-                        <p>ใช้สร้างฐานข้อมูลที่ต้องการ โดยใส่ชื่อฐานข้อมูลหลัง Syntax
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;คือ การใช้สร้างฐานข้อมูลที่ต้องการ โดยใส่ชื่อฐานข้อมูลหลัง Syntax
                         </p>
                         <div class="bs-example" data-content="Example">
-
+                            <strong>Syntax : การสร้างฐานข้อมูล</strong><br>
                             <div class="highlight">
                                 <strong>CREATE DATABASE DATABASE-NAME ; </strong>
                             </div>
                             <code>DATABASE-NAME คือ ชื่อของฐานข้อมูล</code>
-                            <br>
-
+                            <br><br>
+                            <p><strong>Step 1.</strong>ทดลองการสร้างฐานข้อมูลชื่อ ex_540303xx_test </p>
                             <div class="bs-docs-example" data-content="Example">
-                                <p>Step 1.ทดลองการสร้างฐานข้อมูลชื่อ ex_540303xx_test</p>
-                                <code>Create Database ex_540303xx_test;</code>
+                                
+                                Create Database ex_540303xx_test;
                             </div>
+                            <strong>หมายเหตุ</strong><p>เนื่องจากความปลอดภัยนักศึกษาจะสร้างฐานข้อมูลโดยใช้ชื่อฐานข้อมูลตามที่กำหนดเท่านั้น</p>
 
                             <div class="bs-callout bs-callout-warning">
                                 <p id="q1">1.จงสร้างฐานข้อมูลชื่อ
@@ -546,10 +547,11 @@
                     <div id="Ddb">
 
                         <h2>การลบฐานข้อมูล </h2>
-                        <p>ใช้ลบฐานข้อมูล โดยการใส่ชื่อฐานข้อมูลที่ต้องการลบ โดยพิมพ์คำสั่ง
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;คือ ใช้ลบฐานข้อมูล โดยการใส่ชื่อฐานข้อมูลที่ต้องการลบ โดยพิมพ์คำสั่ง
                             <code>DROP DATABASE ชื่อของฐานข้อมูล;</code>
                         </p>
                         <div class="bs-example" data-content="Example">
+                        <strong>Syntax : การลบฐานข้อมูล</strong><br>
                             <div class="highlight">
                                 <strong>DROP DATABASE DATABASE-NAME ; </strong>
                             </div>
@@ -584,8 +586,9 @@
 
                     <div id="Ctb">
                         <h2>การสร้างตาราง (Table) </h2>
-                        <p>ใช้สร้างตารางลงในฐานข้อมูล พร้อมกำหนดคอลัมน์ และชนิดของข้อมูล ในแต่ละฟิลด์นั้น </p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;คือ ใช้สร้างตารางลงในฐานข้อมูล พร้อมกำหนดคอลัมน์ และชนิดของข้อมูล ในแต่ละฟิลด์นั้น </p>
                         <div class="bs-example" data-content="Example">
+                        <strong>Syntax : การสร้างตาราง (Table)</strong><br>
                             <div class="highlight">
                                 <strong>CREATE TABLE table_name <br>
                                         ( column_name_1  column_type,<br>
@@ -622,7 +625,7 @@
 
                                 </table>
                             </div>
-
+                            <p><strong>Step 1.</strong> ทดลองใช้คำสั่งสร้างตาราง person ดังนี้</p>
                             <div class="bs-docs-example" data-content="Example">
                                 <strong>CREATE TABLE person  <br>
                                         (studentId int(8) not null,<br>
@@ -639,7 +642,7 @@
                             </button>
 
                             <div class="bs-callout bs-callout-warning">
-                                <p id="q3">3.ทดลองคำสั่งสร้างตาราง ใช้คำสั่ง Show tables; บันทึกผลการทดลอง</code>
+                                <p id="q3">3.ใช้คำสั่ง Show tables; บันทึกผลการทดลอง</code>
                                 </p>
                             </div>
 
@@ -660,7 +663,7 @@
                         </p>
                         <div class="bs-example" data-content="Example">
                                 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;กำหนด Primary Key ไว้หลังคอลัมน์ที่ต้องการกำหนดให้เป็น Primary key </p>
-                                <p>Step 1.สร้าง ตาราง Address มีข้อมูลดังนี้</p>
+                                <p><strong>Step 1.</strong>สร้าง ตาราง Address มีข้อมูลดังนี้</p>
                                 <div class="highlight">
                                       <strong>CREATE TABLE Address <br>
                                         (studentId int(8) <code>primary key</code>,<br>
@@ -668,13 +671,13 @@
                                           TelNos int(20));
                                 </strong>
                                 </div>
-                                <p>Step 2.ใช้คำสั่ง describe Address;</p>
+                                <p><strong>Step 2.</strong>ใช้คำสั่ง describe Address;</p>
 
                                 <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=4&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
                             </button>
-
-                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;กรณีที่ตารางใช้คอลัมน์ หลายตัวร่วมกันเพื่อทำหน้าที่ Primary Key ต้องเขียนในรูปแบบกำหนด Primary key ไว้หลังจากกำหนดคอลัมน์อื่นแล้ว ตัวอย่าง</p>
+                                <br><br>
+                                <p><strong>Step 3.</strong>กรณีที่ตารางใช้คอลัมน์ หลายตัวร่วมกันเพื่อทำหน้าที่ Primary Key ต้องเขียนในรูปแบบกำหนด Primary key ไว้หลังจากกำหนดคอลัมน์อื่นแล้ว ตัวอย่าง</p>
                                 <div class="highlight">
                                       <strong>CREATE TABLE Address <br>
                                         (studentId int(8),<br>
@@ -687,7 +690,12 @@
                                  <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=4&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
                             </button>
-                            <p> Step 3.ทดลองใช้คำสั่ง Drop table  สร้าง ตาราง Address อีกครั้ง</p>
+                            <br><br>
+                            <p> <strong>Step 4.</strong>ทดลองใช้คำสั่ง Drop table  สร้าง ตาราง Address ใช้คำสั่งจาก Step ที่ 3 อีกครั้ง</p>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=4&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
+                            </button>
 
                                 <div class="bs-callout bs-callout-warning"> <!--Q4-->
                                 <p id="q4">4.บันทึกผลการทดลอง</p>
@@ -709,10 +717,17 @@
                                 <strong>Foreign Key คอมลัมน์ที่ต้องการลิ้งค์ Refernces ตารางที่ต้องการเชื่อม(คอมลัมน์ที่ต้องการลิ้งค์);</p>
                                 </strong>
                          </div>
-                         <code> หมายเหตุ</code> <p>ต้องสร้างตารางที่ต้องการเชื่อมโยงก่อนจึงจะสร้าง Foreign Key ได้</p>
+                         <kbd> หมายเหตุ</kbd> <p>
+                         - ต้องสร้างตารางที่ต้องการเชื่อมโยงก่อนจึงจะสร้าง Foreign Key ได้</p>
 
-                         <p>&nbsp;&nbsp;&nbsp;&nbsp;Step 1.ใช้คำสั่ง Drop table person;</p>
-                         <kbd>การกำหนด Foreign Key แบบท้ายคอลัมน์ที่ต้องการกำหนด</kbd>
+                         <p><strong>Step 1.</strong>ใช้คำสั่ง Drop table person;</p>
+    
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=5&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
+                            </button>
+                            <br><br>
+
+                         <p><strong>Step 2.</strong>การกำหนด Foreign Key แบบท้ายคอลัมน์ที่ต้องการกำหนด ใช้คำสั่งดังนี้ โดยทดลองสร้างตาราง person อีกครั้ง</p>
                          <div class="bs-docs-example" data-content="Example">
                                <strong> CREATE TABLE person<br>
                                     ( studentId int(8) primary key,<br>
@@ -721,6 +736,10 @@
                                       TelNo int (20)References Address(TelNo));
                                </strong>
                             </div>
+
+                        <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=5&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
+                            </button>
                             
                             <div class="bs-callout bs-callout-warning"> <!--Q4-->
                                 <p id="q5">5.&nbsp;&nbsp;&nbsp;&nbsp;ใช้คำสั่ง Describe person; บันทึกผลการทดลอง  </p>
@@ -753,7 +772,7 @@
 
                             <div class="bs-callout bs-callout-warning">
                                 <!--Q4-->
-                                <p id="q6">6.&nbsp;&nbsp;&nbsp;&nbsp;ลบตารางทั้งหมด ที่อยู่ในฐานข้อมูล ex_รหัสนักศึกษาของตนเอง บันทึกผลการทดลอง 
+                                <p id="q6">6.ลบตารางทั้งหมด ที่อยู่ในฐานข้อมูล ex_รหัสนักศึกษาของตนเอง บันทึกผลการทดลอง 
                                 </p>
                             </div>
 
@@ -784,8 +803,13 @@
                         <p>table_old_name&nbsp;คือ ชื่อตารางเดิม</p>
                         <p>table_new_name&nbsp;คือ ชื่อตารางใหม่ที่ต้องการแก้ไข</p>
                         <div class="bs-example" data-content="Example">
-                            <kbd>กดปุ่ม RESET</kbd>
-                            <p>จากการทดลองข้างต้นทดลองคำสั่งลบตาราง person ไปแล้ว จึงใช้คำสั่ง Create table อีกครั้ง แล้วจึงทดลองคำสั่งการเปลี่ยนชื่อตารางได้</p>
+                            <p><strong>Step 1.</strong>กดปุ่ม Restore ในหน้าการทดลอง</p>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=7&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
+                            </button>
+
+                            <p><strong>Step 2.</strong>จากการทดลองข้างต้นทดลองคำสั่งลบตาราง person ไปแล้ว จึงใช้คำสั่ง Create table อีกครั้ง แล้วจึงทดลองคำสั่งการเปลี่ยนชื่อตารางได้</p>
                             <div class="bs-docs-example" data-content="Example">
 
                                 <strong>
@@ -803,13 +827,22 @@
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
                             </button>
 
-                            <p>ใช้คำสั่ง Show tables;</p>
-                            <p>เปลี่ยนชื่อตาราง "Person" เป็น "PersonRename"</p>
+                            <p><strong>Step 3.</strong>ใช้คำสั่ง Show tables;</p>
+                                <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=7&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
+                            </button>
+
+                            <p><strong>Step 4.</strong>เปลี่ยนชื่อตาราง "Person" เป็น "PersonRename"</p>
                             <div class="bs-docs-example" data-content="Example">
                                 <strong>
                                 RENAME TABLE person TO PersonRename;
                             </strong>
                             </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=7&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
+                            </button>
+
                             <div class="bs-callout bs-callout-warning">
                          <p id="q7">7.ใช้คำสั่ง Show tables; บันทึกผลการทดลอง</p>
                          </div>
@@ -854,15 +887,24 @@
                             <br> &nbsp;&nbsp;&nbsp;&nbsp;- column type คือ ชนิดของข้อมูล
                         </p>
                         <div class="bs-example" data-content="Example">
-                            <p>ใช้คำสั่ง Describe person;</p>
-
-                            <p>ทดลองคำสั่งเพิ่มตาราง person และ เพิ่มคอลัมน์ชื่อ sex ชนิดข้อมูลคือ smallint(1)</p>
+                            <p><strong>Step 1.</strong>ใช้คำสั่ง Describe person;</p>
+                                
+                                <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=9&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
+                            </button>
+                                <br><br>
+                            <p><strong>Step 2.</strong>ทดลองคำสั่งเพิ่มตาราง person และ เพิ่มคอลัมน์ชื่อ sex ชนิดข้อมูลคือ smallint(1)</p>
 
                             <div class="bs-docs-example" data-content="Example">
                                 <strong>
                                 ALTER TABLE person ADD sex smallint(1);   
                             </strong>
                             </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=9&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
+                            </button>
+
                             <div class="bs-callout bs-callout-warning">
                             <p id="q9">9.ใช้คำสั่ง Describe person สังเกตุความเปลี่ยนแปลง บันทึกผลการทดลอง</p>
                             </div>
@@ -896,6 +938,9 @@
                         <h2>การลบคอลัมน์ ในตาราง (Table) </h2>
                         <p>&nbsp;&nbsp;&nbsp;&nbsp;การลบคอลัมน์ในตารางเป็นการลบข้อมูลใน field ทั้งหมด ที่ระบุชื่อคอมลัมน์ที่ต้องการลบและลบคอลัมน์นั้นออกไปอย่างสิ้นเชิง วิธีการลบคอมลัมน์ โดยใช้ ทำสั่ง alter นั้น จะต้องระบุชื่อฐานข้อมูลของคอลัมน์ที่ต้องการลบออก และระบุชื่อคอลัมน์ ที่ต้อง การลบตาม syntax ด้านล่าง
                         </p>
+                        
+                        <div class="bs-example" data-content="Example">
+                        <strong>Syntax: การลบคอลัมน์ ในตาราง (Table)</strong>
                         <div class="highlight">
                             <strong>ALTER TABLE table_name DROP column_name;
                                 </strong>
@@ -905,11 +950,17 @@
                         <code> หมายเหตุ </code>
                         <p>table_name&nbsp;คือ ชื่อตาราง</p>
                         <p>column_name&nbsp;คือ ชื่อคอลัมน์ที่ต้องการลบ</p>
-                        <div class="bs-example" data-content="Example">
+
+                        <p><strong>Step 1.</strong>ทดลองลบคอลัมน์ MajorNo ในตาราง person</p>
                             <div class="bs-docs-example" data-content="Example">
                                 <strong>ALTER TABLE Person DROP MajorNo;</strong>
                             </div>
-                            <p>ใช้คำสั่ง Describe Person; ดูการเปลี่ยนแปลง</p>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=11&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
+                            </button>
+
+
+                            <p><strong>Step 2.</strong>ใช้คำสั่ง Describe Person; ดูการเปลี่ยนแปลง</p>
 
                             <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=11&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
@@ -935,24 +986,30 @@
 
                     <div id="addanddropcl">
                         <h2>การเพิ่มและลบคอลัมน์ ในตาราง (Table) </h2>
-                        <p>&nbsp;&nbsp;&nbsp;&nbsp; ในการใช้คำสั่งเพิ่มและลบคอลัมน์ สามารถใช้ได้ในอีกรูปแบบหนึ่งคือการเพิ่มและลบคอลัมน์ ภายในคำสั่งเดียวกัน โดยมี syntax ดังต่อไปนี้
-
-                        </p>
-                        <div class="highlight">
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp; ในการใช้คำสั่งเพิ่มและลบคอลัมน์ สามารถใช้ได้ในอีกรูปแบบหนึ่งคือการเพิ่มและลบคอลัมน์ ภายในคำสั่งเดียวกัน โดยมี syntax ดังต่อไปนี้</p>
+                       
+                        <div class="bs-example" data-content="Example">
+                        <strong>Syntax: การเพิ่มและลบคอลัมน์ ในตาราง (Table) </strong> <br>
+                         <div class="highlight">
                             <strong>ALTER TABLE table_name <code>ADD</code> column_name1 column_type1,...column_name n column_type n <code>, DROP</code> column_name1,..column_name n;
                                 </strong>
                         </div>
-                        <code> หมายเหตุ </code>
+                        <kbd> หมายเหตุ </kbd>
                         <br>
                         <code>คำสั่ง ADD หรือ DROP ขึ้นต้นก่อนก็ได้</code>
                         <p>table_name&nbsp;คือ ชื่อตาราง</p>
                         <p>column_name&nbsp;คือ ชื่อคอลัมน์ที่ต้องการลบ</p>
-                        <div class="bs-example" data-content="Example">
-                            <p>Step 1. ทดลองลบคอลัมน์ Telno ในตาราง person และเพิ่มคอลัมน์ Address ชนิดข้อมูล char(100)</p>
+
+
+                            <p><strong>Step 1.</strong> ทดลองลบคอลัมน์ Telno ในตาราง person และเพิ่มคอลัมน์ Address ชนิดข้อมูล char(100)</p>
                             <div class="bs-docs-example" data-content="Example">
                                 <strong>ALTER TABLE Person ADD Address char(100),DROP Telno;</strong>
                             </div>
-                            <p>Step 2. ใช้คำสั่ง Describe Person; ดูการเปลี่ยนแปลง</p>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=12&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
+                            </button>
+                            <br><br>
+                            <p><strong>Step 2.</strong> ใช้คำสั่ง Describe Person; ดูการเปลี่ยนแปลง</p>
 
                             <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=12&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
@@ -980,6 +1037,9 @@
                         <h2>การเปลี่ยนชื่อคอมลัมน์และชนิดข้อมูลในตาราง</h2>
                         <p>&nbsp;&nbsp;&nbsp;&nbsp;คำสั่งนี้จะคล้ายๆกับคำสั่งที่ 5 การเปลี่ยนชื่อ ตาราง (Table) แต่มีการระบุเฉพาะเจาะจงว่าต้องการลบคอลัมน์ไหน ในตารางไหนเพิ่มเข้าไป
                         </p>
+                        
+                        <div class="bs-example" data-content="Example">
+                        <strong>Syntax: การเปลี่ยนชื่อคอมลัมน์และชนิดข้อมูลในตาราง</strong>
                         <div class="highlight">
                             <strong>ALTER TABLE table_name RENAME column_old_name TO column_new_name;
                                 </strong>
@@ -991,20 +1051,24 @@
                         <p>column_old_name&nbsp;คือ ชื่อคอลัมน์เดิม</p>
                         <p>column_new_name&nbsp;คือ ชื่อคอลัมน์ใหม่ที่ต้องการแก้ไข</p>
                         <p>data-type&nbsp;คือ ชนิดของข้อมูล</p>
-                        <div class="bs-example" data-content="Example">
-                            <p>&nbsp;&nbsp;&nbsp;ทดลองคำสั่งเปลี่ยนชื่อคอลัมน์ "last_name" ในตารางperson ให้เป็น "last_names"
+
+                            <p><strong>Step 1.</strong>ทดลองคำสั่งเปลี่ยนชื่อคอลัมน์ "last_name" ในตารางperson ให้เป็น "last_names"
                             </p>
                             <kbd>MySQL version 5.1 Down!!</kbd>
 
                             <div class="bs-docs-example" data-content="Example">
                                 <strong>ALTER TABLE person RENAME last_name TO last_names;</strong>
                             </div>
-                            <kbd>MySQL version 5.1 up!! In this Case</kbd>
+                            <kbd>MySQL version 5.1 up!! </kbd> <code>!In this Case</code>
                             <div class="bs-docs-example" data-content="Example">
                                 <strong>ALTER TABLE person CHANGE last_name last_names data-type(length);</strong>
                             </div>
 
-                            <p>ใช้คำสั่ง Describe Person; ดูการเปลี่ยนแปลง</p>
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=13&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
+                            </button>
+
+                            <p><strong>Step 2.</strong>ใช้คำสั่ง Describe Person; ดูการเปลี่ยนแปลง</p>
 
                             <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=13&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
@@ -1033,6 +1097,9 @@
                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;การสร้าง index จะช่วยให้การค้นหาและการเข้าถึงข้อมูลได้รวดเร็วขึ้น โดยมีการจัดการเกี่ยวกับ การจัดเก็บข้อมูลลงฐานข้อมูล เช่นเดียวกับหนังสือที่มีหลายหน้าจึงต้องมีดัชนีในการค้นหาคำสำคัญ
 
                         </p>
+                        
+                        <div class="bs-example" data-content="Example">
+                        <strong>Syntax:การสร้างดัชนี (index)</strong>
                         <div class="highlight">
                             <strong>CREATE INDEX index name 
                                     ON table name <br> 
@@ -1043,28 +1110,39 @@
                         <p>index name&nbsp;คือ ชื่อ index</p>
                         <p>table name&nbsp;คือ ชื่อตาราง</p>
                         <p>column name&nbsp;คือ ชื่อคอลัมน์ที่ต้องการทำ index</p>
-                        <div class="bs-example" data-content="Example">
-                            <p>&nbsp;&nbsp;&nbsp;สร้างดัชนี “customers_name_index” ของตาราง Customers โดยให้คอลัมน์ “CFirstName” และ “CLastName” เป็นดัชนี
+                            <br>
+                            <p><strong>Step 1.</strong>สร้างดัชนี “customers_name_index” ของตาราง Customers โดยให้คอลัมน์ “CFirstName” และ “CLastName” เป็นดัชนี
                             </p>
                             <div class="bs-docs-example" data-content="Example">
                                 <strong>CREATE INDEX customers_name_index ON
                                         Customers(CFirstName, CLastName);
                                 </strong>
                             </div>
-                            <p>ใช้คำสั่ง Show index FROM Customers; เพื่อตรวจสอบผลลัพท์</p>
 
                             <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=14&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
                             </button>
                             <br>
 
-                            <p>&nbsp;&nbsp;&nbsp;สร้างดัชนี “customers_name_index” ของตาราง Customers โดยให้คอลัมน์ “CFirstName” และ “CLastName” เป็นดัชนี โดยเรียงลำดับชื่อลูกค้าจากมากไปน้อย (DESC) และมีค่าไม่ซ้ำกัน (UNIQUE)</p>
+                            <br>
+                            <p><strong>Step 2.</strong>ใช้คำสั่ง Show index FROM Customers; เพื่อตรวจสอบผลลัพท์</p>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=14&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
+                            </button>
+                            <br><br>
+
+                            <p><strong>Step 3.</strong> สร้างดัชนี “customers_name_index” ของตาราง Customers โดยให้คอลัมน์ “CFirstName” และ “CLastName” เป็นดัชนี โดยเรียงลำดับชื่อลูกค้าจากมากไปน้อย (DESC) และมีค่าไม่ซ้ำกัน (UNIQUE)</p>
 
                             <div class="bs-docs-example" data-content="Example">
                                 <strong>CREATE UNIQUE INDEX customers_name_index ON
                                 Customers(CFirstName DESC, CLastName);
                                 </strong>
                             </div>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=14&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
+                            </button>
                             <div class="bs-callout bs-callout-warning">
 
                                 <p id="q14">14.ใช้คำสั่ง Show index FROM Customers; เพื่อตรวจสอบผลลัพท์ พร้อมบันทึกผลการทดลอง</p>
@@ -1078,24 +1156,29 @@
                             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#practiceModal" data-question="q14" data-unit="2" data-article="14" data-type="1">
                                 <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Send answer
                             </button>
-                        </div>
-                        <br>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-                        <h4>&nbsp;&nbsp;&nbsp;การลบดัชนี (index)</h4>
+                            <br><br>
 
-                        <div class="bs-example" data-content="Example">
+                             <h4>การลบดัชนี (index)</h4>
+
+                            <strong>Syntax: การลบดัชนี (index) </strong>
                             <div class="highlight">
                                 <strong>ALTER TABLE table name  
                                     DROP INDEX index name;
                                 </strong>
                             </div>
-                            <p>&nbsp;&nbsp;&nbsp;ลบดัชนี “customers_name_index” ของตาราง Customers </p>
+                            <p><strong>Step 1.</strong> ลบดัชนี “customers_name_index” ของตาราง Customers </p>
                             <div class="bs-docs-example" data-content="Example">
                                 ALTER TABLE Customers DROP INDEX customers_name_index;
                             </div>
                             <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=15&type=1')">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
                             </button>
-                            <p>ใช้คำสั่ง Show index FROM Customers; เพื่อตรวจสอบผลลัพท์</p>
+                            <p><strong>Step 2.</strong>ใช้คำสั่ง Show index FROM Customers; เพื่อตรวจสอบผลลัพท์</p>
+
+                            <button type="button" class="btn btn-success" onclick="window.open('http://'+window.location.host+'/'+window.location.pathname.split('/')[1]+'/mod/mysqlexp/mysqlexp.php?unit=2&article=15&type=1')">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
+                            </button>
+
                             <div class="bs-callout bs-callout-warning">
                                 <p id="q15">15.ให้นักเรียนลบดัชนี “customers_name_index2” ของตาราง Customers </p>
                             </div>
@@ -1107,8 +1190,8 @@
                             </button>
 
                         </div>
-                    </div>
-
+                        </div>
+                       
                     <div id="setrelation">
                         <h2>การสร้างความสัมพันธ์ระหว่างตาราง</h2>
                         <p>&nbsp;&nbsp;&nbsp;&nbsp; ความหมายของ CASCADE นั้นคือ เป็นกฎของ Constraints ในการทำตอน DELETE หรือ UPDATE คือเมื่อมีการ Modify ใด ๆ ในตาราง หลัก ตารางอ้างอิงจะเปลี่ยนตาม FK ที่อ้างอิงกับตารางหลักอยู่ คือเปลี่ยนค่า PK ของตารางหลัก ฟิวส์ที่เป็น FK กับตารางหลักอยู่ จะเปลี่ยนไปตามที่ตารางหลักเปลี่ยนไปคือ</p>
@@ -1116,8 +1199,12 @@
                         <p>- แก้ไขที่ตารางหลักตารางอ้างอิงจะเปลี่ยนไปตามที่ตารางหลักเปลี่ยนแปลงไป</p>
                         <p>- ลบที่ตารางหลัก ตารางอ้างอิงจะถูกลบไปด้วย ตามรหัสที่อ้างอิงอยู่ โดยมี syntax ดังต่อไปนี้
                         </p>
+                        <br>
                         <h4>1. CONSTRAINT FOREIGN KEY กำหนดตอนสร้างตาราง</h4>
+                    
+                        <div class="bs-example" data-content="Example">
                         <p>จะใช้งานร่วมกับ PRIMARY KEY เพื่อสร้างความสัมพันธ์ระหว่าง table</p>
+                        <strong>Syntax: CONSTRAINT FOREIGN KEY กำหนดตอนสร้างตาราง </strong>
                         <div class="highlight">
                             <strong>CREATE TABLE table_name <br>
                             (<br>
@@ -1134,9 +1221,7 @@
                         <p>- RESTRICT เป็นค่า default คือ ไม่อนุญาติให้ ลบ หรือ แก้ไข ค่าข้อมูล ใน PRIMARY KEY ได้ ถ้ายังมีค่าข้อมูลใน FOREIGN KEY อยู่
                             <br>- CASCADE คือ ถ้ามีการลบหรือแก้ไขค่าข้อมูลใน PRIMARY KEY แล้วค่าข้อมูลใน FOREIGN KEY จะเปลี่ยนแปลงตาม
                             <br> - SET NULL คือ ถ้ามีการลบหรือแก้ไขค่าข้อมูลใน PRIMARY KEY แล้วค่าข้อมูลใน FOREIGN KEY จะเป็นค่า NULL</p>
-
-                        <div class="bs-example" data-content="Example">
-                            <p>Step 1. สร้างตาราง person2</p>
+                            <p><strong>Step 1.</strong> สร้างตาราง person2</p>
                             <div class="bs-docs-example" data-content="Example">
                                 <strong>CREATE TABLE person2<br>
                                     (<br>
@@ -1147,7 +1232,7 @@
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
                             </button>
 
-                            <p>Step 2. สร้างตาราง member_type</p>
+                            <p><strong>Step 2.</strong> สร้างตาราง member_type</p>
                             <div class="bs-docs-example" data-content="Example">
                                 <strong>CREATE TABLE member_type<br>
                                         (<br>
@@ -1159,7 +1244,7 @@
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Experiments
                             </button>
 
-                            <p>Step 3. สร้างตาราง member และกำหนดความสัมพันธ์ระหว่างตาราง</p>
+                            <p><strong>Step 3.</strong> สร้างตาราง member และกำหนดความสัมพันธ์ระหว่างตาราง</p>
                             <div class="bs-docs-example" data-content="Example">
                                 <strong>CREATE TABLE member <br>
                                 (<br>
@@ -1194,8 +1279,12 @@
                         <center>
                             <h3>หรือ</h3>
                         </center>
-                        <strong><h4>2. CONSTRAINT FOREIGN KEY กำหนดหลังสร้างตาราง</h4></strong>
+                        
+                    <strong><h4>2. CONSTRAINT FOREIGN KEY กำหนดหลังสร้างตาราง</h4></strong>
+                        <div class="bs-example" data-content="Example">
+                        
                         <p>จะใช้งานร่วมกับ PRIMARY KEY เพื่อสร้างความสัมพันธ์ระหว่าง table</p>
+                        <strong>Syntax: CONSTRAINT FOREIGN KEY กำหนดหลังสร้างตาราง </strong>
                         <div class="highlight">
                             <strong>
                                CREATE TABLE table_name<br>
@@ -1215,9 +1304,7 @@
                             <br>- CASCADE คือ ถ้ามีการลบหรือแก้ไขค่าข้อมูลใน PRIMARY KEY แล้วค่าข้อมูลใน FOREIGN KEY จะเปลี่ยนแปลงตาม
                             <br> - SET NULL คือ ถ้ามีการลบหรือแก้ไขค่าข้อมูลใน PRIMARY KEY แล้วค่าข้อมูลใน FOREIGN KEY จะเป็นค่า NULL</p>
 
-                        <div class="bs-example" data-content="Example">
-
-                            <p>Step 1.สร้างความสัมพันธ์ระหว่างตาราง memberและตาราง member_type</p>
+                            <p><strong>Step 1.</strong>สร้างความสัมพันธ์ระหว่างตาราง memberและตาราง member_type</p>
                             <div class="bs-docs-example" data-content="Example">
                                 <strong>
                                     ALTER TABLE member<br>
